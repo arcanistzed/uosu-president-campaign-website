@@ -1,0 +1,56 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="footer-inner">
+		<p class="footer-text">
+			&copy; {year} Daniel Thorp. Campaign for UOSU President.
+		</p>
+		<p class="footer-text">
+			<a href="https://danielthorp.com" rel="noopener noreferrer"
+				>danielthorp.com</a
+			>
+		</p>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		border-top: 1px solid var(--color-border);
+		margin-top: var(--space-9);
+		padding: var(--space-6) var(--space-5);
+	}
+
+	.footer-inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--space-3);
+	}
+
+	.footer-text {
+		font-size: 0.8125rem;
+		color: var(--color-muted);
+	}
+
+	.footer-text a {
+		color: var(--color-muted);
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
+	}
+
+	.footer-text a:hover {
+		color: var(--color-text);
+	}
+
+	@media (max-width: 640px) {
+		.footer-inner {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+</style>

@@ -1,0 +1,131 @@
+/*
+ * Base styles — vote.danielthorp.com
+ */
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+body {
+	font-family: var(--font-sans);
+	font-size: 1rem;
+	line-height: 1.7;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	min-height: 100dvh;
+}
+
+/* ── Typography ── */
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-display);
+	line-height: 1.2;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+h1 {
+	font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+}
+
+h2 {
+	font-size: clamp(1.5rem, 3vw + 0.5rem, 2.25rem);
+}
+
+h3 {
+	font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
+}
+
+p {
+	max-width: 68ch;
+}
+
+/* ── Links ── */
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: color var(--dur-fast) var(--ease-out);
+}
+
+a:hover {
+	color: var(--color-accent-hover);
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+a:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+/* ── Skip link ── */
+.skip-link {
+	position: absolute;
+	top: -100%;
+	left: var(--space-4);
+	z-index: 100;
+	padding: var(--space-2) var(--space-4);
+	background: var(--color-accent);
+	color: #fff;
+	font-weight: 600;
+	border-radius: var(--radius-1);
+	text-decoration: none;
+}
+
+.skip-link:focus {
+	top: var(--space-4);
+}
+
+/* ── Images ── */
+img,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* ── Lists ── */
+ul,
+ol {
+	padding-left: var(--space-5);
+}
+
+/* ── Selection ── */
+::selection {
+	background: var(--color-accent-soft);
+	color: var(--color-text);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

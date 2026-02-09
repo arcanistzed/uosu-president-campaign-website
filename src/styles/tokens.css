@@ -1,0 +1,71 @@
+/*
+ * Design Tokens — vote.danielthorp.com
+ *
+ * Campaign color palette: deep navy + garnet accent.
+ * Confident and institutional, not flashy.
+ * University of Ottawa colors: garnet (#8F001A) and grey (#2D2D2C).
+ */
+
+:root {
+	color-scheme: dark light;
+
+	/* ── Colors (dark mode default) ── */
+	--color-bg: #0f172a;
+	--color-surface: rgba(255, 255, 255, 0.06);
+	--color-text: rgba(255, 255, 255, 0.93);
+	--color-muted: rgba(255, 255, 255, 0.6);
+	--color-accent: #dc2626;
+	--color-accent-hover: #ef4444;
+	--color-accent-soft: rgba(220, 38, 38, 0.12);
+	--color-garnet: #8f001a;
+	--color-border: rgba(255, 255, 255, 0.1);
+
+	/* ── Typography ── */
+	--font-sans:
+		"Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, sans-serif;
+	--font-display:
+		"Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, sans-serif;
+
+	/* ── Sizing ── */
+	--content-max: 48rem;
+	--page-max: 72rem;
+
+	/* ── Spacing scale (8px base) ── */
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.5rem;
+	--space-6: 2rem;
+	--space-7: 3rem;
+	--space-8: 4rem;
+	--space-9: 6rem;
+	--space-10: 8rem;
+
+	/* ── Radius ── */
+	--radius-1: 0.5rem;
+	--radius-2: 0.75rem;
+	--radius-round: 9999px;
+
+	/* ── Motion ── */
+	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+	--dur-fast: 150ms;
+	--dur-2: 200ms;
+	--dur-3: 300ms;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--color-bg: #ffffff;
+		--color-surface: rgba(15, 23, 42, 0.04);
+		--color-text: rgba(0, 0, 0, 0.9);
+		--color-muted: rgba(0, 0, 0, 0.55);
+		--color-accent: #b91c1c;
+		--color-accent-hover: #dc2626;
+		--color-accent-soft: rgba(185, 28, 28, 0.08);
+		--color-garnet: #8f001a;
+		--color-border: rgba(0, 0, 0, 0.1);
+	}
+}

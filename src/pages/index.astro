@@ -1,0 +1,259 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PlatformCard from "../components/PlatformCard.astro";
+
+/*
+	TODO: Replace placeholder content below with your actual
+	campaign messaging, platform priorities, and details.
+	Nothing here should go live without your review.
+*/
+
+const platformHighlights = [
+	{
+		icon: "📋",
+		title: "Transparency & Accountability",
+		description:
+			"Open budgets, public meeting minutes, and clear reporting on how student fees are spent.",
+	},
+	{
+		icon: "🏛️",
+		title: "Stronger Governance",
+		description:
+			"Structural reforms to ensure the union serves students — not the other way around.",
+	},
+	{
+		icon: "🤝",
+		title: "Real Representation",
+		description:
+			"Meaningful consultation with students before major decisions, not performative surveys after the fact.",
+	},
+	{
+		icon: "💡",
+		title: "Student Services That Work",
+		description:
+			"Improving the services students actually use — health plans, academic advocacy, and campus resources.",
+	},
+];
+---
+
+<Layout>
+	<!-- Hero -->
+	<section class="hero" aria-label="Campaign introduction">
+		<div class="hero-inner">
+			<p class="hero-label">Candidate for UOSU President</p>
+			<h1 class="hero-name">Daniel Thorp</h1>
+			<p class="hero-tagline">
+				<!-- TODO: Replace with your actual campaign tagline -->
+				A student union that works for students.
+			</p>
+			<div class="hero-actions">
+				<a href="/platform/" class="btn btn-primary"
+					>Read the Platform</a
+				>
+				<a
+					href="https://danielthorp.com"
+					class="btn btn-secondary"
+					rel="noopener noreferrer"
+				>
+					About Daniel
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Platform highlights -->
+	<section class="section" aria-labelledby="platform-heading">
+		<div class="section-inner">
+			<h2 id="platform-heading" class="section-heading">
+				Platform Priorities
+			</h2>
+			<p class="section-lead">
+				<!-- TODO: Replace with your actual lead-in copy -->
+				These are the commitments that will guide my presidency. Each one
+				is specific, measurable, and achievable within a single term.
+			</p>
+			<div class="platform-grid">
+				{
+					platformHighlights.map(item => (
+						<PlatformCard
+							title={item.title}
+							description={item.description}
+							icon={item.icon}
+						/>
+					))
+				}
+			</div>
+			<div class="section-cta">
+				<a href="/platform/" class="btn btn-primary">Full Platform →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why section -->
+	<section class="section section-alt" aria-labelledby="why-heading">
+		<div class="section-inner">
+			<h2 id="why-heading" class="section-heading">Why I'm Running</h2>
+			<div class="prose">
+				<!-- TODO: Replace with your actual messaging -->
+				<p>
+					Student government should be boring in the best way —
+					effective, transparent, and focused on the things that
+					actually matter to students. Too often, it isn't.
+				</p>
+				<p>
+					I'm running because I believe the union can be better. Not
+					through grand gestures, but through consistent, accountable
+					work on the things students care about: where their fees go,
+					how decisions get made, and whether anyone is actually
+					listening.
+				</p>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* ── Hero ── */
+	.hero {
+		padding: var(--space-10) var(--space-5) var(--space-9);
+		text-align: center;
+	}
+
+	.hero-inner {
+		max-width: var(--content-max);
+		margin: 0 auto;
+	}
+
+	.hero-label {
+		font-size: 0.875rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--color-accent);
+		margin-bottom: var(--space-3);
+	}
+
+	.hero-name {
+		font-size: clamp(3rem, 7vw + 1rem, 5rem);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		line-height: 1.05;
+		margin-bottom: var(--space-4);
+	}
+
+	.hero-tagline {
+		font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
+		color: var(--color-muted);
+		max-width: 36rem;
+		margin: 0 auto var(--space-6);
+		line-height: 1.5;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: var(--space-3);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	/* ── Buttons ── */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		padding: var(--space-3) var(--space-5);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		border-radius: var(--radius-1);
+		text-decoration: none;
+		transition:
+			background var(--dur-fast) var(--ease-out),
+			color var(--dur-fast) var(--ease-out),
+			box-shadow var(--dur-fast) var(--ease-out);
+	}
+
+	.btn:hover {
+		text-decoration: none;
+	}
+
+	.btn-primary {
+		background: var(--color-accent);
+		color: #fff;
+	}
+
+	.btn-primary:hover {
+		background: var(--color-accent-hover);
+		color: #fff;
+	}
+
+	.btn-secondary {
+		background: var(--color-surface);
+		color: var(--color-text);
+		border: 1px solid var(--color-border);
+	}
+
+	.btn-secondary:hover {
+		border-color: var(--color-muted);
+		color: var(--color-text);
+	}
+
+	/* ── Sections ── */
+	.section {
+		padding: var(--space-9) var(--space-5);
+	}
+
+	.section-alt {
+		background: var(--color-surface);
+	}
+
+	.section-inner {
+		max-width: var(--content-max);
+		margin: 0 auto;
+	}
+
+	.section-heading {
+		font-size: clamp(1.5rem, 3vw + 0.5rem, 2.25rem);
+		margin-bottom: var(--space-4);
+	}
+
+	.section-lead {
+		font-size: 1.0625rem;
+		color: var(--color-muted);
+		max-width: 56ch;
+		margin-bottom: var(--space-7);
+		line-height: 1.65;
+	}
+
+	.section-cta {
+		margin-top: var(--space-7);
+		text-align: center;
+	}
+
+	/* ── Platform grid ── */
+	.platform-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+		gap: var(--space-5);
+	}
+
+	/* ── Prose ── */
+	.prose p {
+		margin-bottom: var(--space-4);
+		line-height: 1.75;
+		max-width: 65ch;
+	}
+
+	.prose p:last-child {
+		margin-bottom: 0;
+	}
+
+	/* ── Responsive ── */
+	@media (max-width: 640px) {
+		.hero {
+			padding: var(--space-8) var(--space-4) var(--space-7);
+		}
+
+		.section {
+			padding: var(--space-7) var(--space-4);
+		}
+	}
+</style>

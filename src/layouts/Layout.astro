@@ -1,0 +1,75 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/tokens.css";
+import "../styles/base.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Vote Daniel Thorp — UOSU President",
+	description = "Daniel Thorp is running for President of the University of Ottawa Students' Union. Learn about his platform and vision for students.",
+} = Astro.props;
+
+const canonicalURL = new URL(
+	Astro.url.pathname,
+	"https://vote.danielthorp.com",
+);
+const pageTitle =
+	title === "Vote Daniel Thorp — UOSU President"
+		? title
+		: `${title} · Vote Daniel Thorp`;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta name="author" content="Daniel Thorp" />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="Vote Daniel Thorp" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={description} />
+
+		<link rel="manifest" href="/manifest.json" />
+
+		<!-- Theme color -->
+		<meta
+			name="theme-color"
+			content="#0f172a"
+			media="(prefers-color-scheme: dark)"
+		/>
+		<meta
+			name="theme-color"
+			content="#ffffff"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<title>{pageTitle}</title>
+	</head>
+
+	<body>
+		<a href="#content" class="skip-link">Skip to content</a>
+		<Header />
+		<main id="content">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

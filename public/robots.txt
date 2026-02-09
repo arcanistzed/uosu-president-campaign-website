@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vote.danielthorp.com/sitemap-index.xml

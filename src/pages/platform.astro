@@ -1,0 +1,203 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+/*
+	TODO: Replace ALL placeholder content below with your
+	actual platform details. Nothing here is real copy.
+*/
+
+interface PlatformSection {
+	id: string;
+	title: string;
+	icon: string;
+	points: string[];
+}
+
+const platform: PlatformSection[] = [
+	{
+		id: "transparency",
+		title: "Transparency & Accountability",
+		icon: "📋",
+		points: [
+			"Publish detailed budget breakdowns accessible to all students",
+			"Publish meeting agendas before meetings and minutes within one week",
+			"Create a public dashboard tracking campaign commitments and progress",
+			"Regular open forums where executives answer student questions directly",
+		],
+	},
+	{
+		id: "governance",
+		title: "Governance Reform",
+		icon: "🏛️",
+		points: [
+			"Review and simplify union bylaws to make them understandable",
+			"Establish clear conflict-of-interest policies for all executives",
+			"Ensure proper oversight mechanisms are in place and enforced",
+			"Advocate for independent auditing of student union finances",
+		],
+	},
+	{
+		id: "representation",
+		title: "Real Representation",
+		icon: "🤝",
+		points: [
+			"Meaningful consultation before major decisions, not after",
+			"Strengthen faculty-level representation within the union",
+			"Ensure diverse student voices are part of policy discussions",
+			"Regular check-ins with student groups across campus",
+		],
+	},
+	{
+		id: "services",
+		title: "Student Services",
+		icon: "💡",
+		points: [
+			"Improve the student health plan — better coverage, clearer information",
+			"Strengthen academic advocacy for students navigating university processes",
+			"Make campus resources easier to find and access",
+			"Evaluate existing services and cut what isn't working",
+		],
+	},
+];
+---
+
+<Layout
+	title="Platform"
+	description="Daniel Thorp's platform for UOSU President — transparency, governance reform, real representation, and better student services."
+>
+	<section class="platform-page">
+		<div class="platform-header">
+			<h1>Platform</h1>
+			<p class="platform-lead">
+				<!-- TODO: Replace with your actual platform introduction -->
+				Specific commitments. Measurable outcomes. Accountable leadership.
+			</p>
+		</div>
+
+		{
+			platform.map(section => (
+				<article
+					class="platform-section"
+					id={section.id}
+					aria-labelledby={`heading-${section.id}`}
+				>
+					<h2 id={`heading-${section.id}`}>
+						<span class="section-icon" aria-hidden="true">
+							{section.icon}
+						</span>
+						{section.title}
+					</h2>
+					<ul class="platform-list">
+						{section.points.map(point => (
+							<li>{point}</li>
+						))}
+					</ul>
+				</article>
+			))
+		}
+
+		<section class="platform-cta" aria-label="Back to top">
+			<a href="/" class="btn btn-primary">← Back to Home</a>
+		</section>
+	</section>
+</Layout>
+
+<style>
+	.platform-page {
+		max-width: var(--content-max);
+		margin: 0 auto;
+		padding: var(--space-8) var(--space-5) var(--space-9);
+	}
+
+	.platform-header {
+		margin-bottom: var(--space-8);
+	}
+
+	.platform-header h1 {
+		margin-bottom: var(--space-3);
+	}
+
+	.platform-lead {
+		font-size: 1.125rem;
+		color: var(--color-muted);
+		max-width: 56ch;
+		line-height: 1.6;
+	}
+
+	.platform-section {
+		margin-bottom: var(--space-8);
+		padding-bottom: var(--space-7);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.platform-section:last-of-type {
+		border-bottom: none;
+	}
+
+	.platform-section h2 {
+		display: flex;
+		align-items: center;
+		gap: var(--space-3);
+		margin-bottom: var(--space-4);
+	}
+
+	.section-icon {
+		font-size: 1.5rem;
+	}
+
+	.platform-list {
+		padding-left: var(--space-5);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+	}
+
+	.platform-list li {
+		line-height: 1.65;
+		color: var(--color-text);
+		max-width: 60ch;
+	}
+
+	.platform-list li::marker {
+		color: var(--color-accent);
+	}
+
+	.platform-cta {
+		text-align: center;
+		padding-top: var(--space-6);
+	}
+
+	/* Reuse btn styles */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		padding: var(--space-3) var(--space-5);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		border-radius: var(--radius-1);
+		text-decoration: none;
+		transition:
+			background var(--dur-fast) var(--ease-out),
+			color var(--dur-fast) var(--ease-out);
+	}
+
+	.btn:hover {
+		text-decoration: none;
+	}
+
+	.btn-primary {
+		background: var(--color-accent);
+		color: #fff;
+	}
+
+	.btn-primary:hover {
+		background: var(--color-accent-hover);
+		color: #fff;
+	}
+
+	@media (max-width: 640px) {
+		.platform-page {
+			padding: var(--space-6) var(--space-4) var(--space-7);
+		}
+	}
+</style>

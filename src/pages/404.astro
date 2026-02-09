@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Page Not Found" description="This page doesn't exist.">
+	<section class="not-found">
+		<h1>404</h1>
+		<p>This page doesn't exist.</p>
+		<a href="/" class="back-link">← Back to home</a>
+	</section>
+</Layout>
+
+<style>
+	.not-found {
+		max-width: var(--content-max);
+		margin: 0 auto;
+		padding: var(--space-10) var(--space-5);
+		text-align: center;
+	}
+
+	.not-found h1 {
+		font-size: clamp(4rem, 10vw, 8rem);
+		font-weight: 800;
+		color: var(--color-muted);
+		line-height: 1;
+		margin-bottom: var(--space-4);
+	}
+
+	.not-found p {
+		font-size: 1.125rem;
+		color: var(--color-muted);
+		margin: 0 auto var(--space-6);
+	}
+
+	.back-link {
+		font-weight: 600;
+	}
+</style>
