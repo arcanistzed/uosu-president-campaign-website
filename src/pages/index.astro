@@ -42,21 +42,12 @@ const platformHighlights = [
 		<div class="hero-inner">
 			<p class="hero-label">Candidate for UOSU President</p>
 			<h1 class="hero-name">Daniel Thorp</h1>
-			<p class="hero-tagline">
-				<!-- TODO: Replace with your actual campaign tagline -->
-				A student union that works for students.
-			</p>
+			<p class="hero-tagline">A student union that works for students.</p>
 			<div class="hero-actions">
 				<a href="/platform/" class="btn btn-primary"
 					>Read the Platform</a
 				>
-				<a
-					href="https://danielthorp.com"
-					class="btn btn-secondary"
-					rel="noopener noreferrer"
-				>
-					About Daniel
-				</a>
+				<a href="/about/" class="btn btn-secondary"> About Daniel </a>
 			</div>
 		</div>
 	</section>
@@ -89,12 +80,47 @@ const platformHighlights = [
 		</div>
 	</section>
 
+	<!-- Countdown -->
+	<section class="section" aria-label="Election countdown">
+		<div class="section-inner countdown-section">
+			<div id="countdown" class="countdown" aria-live="polite">
+				<p class="countdown-label">Voting opens in</p>
+				<div class="countdown-timer">
+					<div class="countdown-unit">
+						<span class="countdown-number" id="countdown-days"
+							>--</span
+						>
+						<span class="countdown-text">days</span>
+					</div>
+					<div class="countdown-unit">
+						<span class="countdown-number" id="countdown-hours"
+							>--</span
+						>
+						<span class="countdown-text">hours</span>
+					</div>
+					<div class="countdown-unit">
+						<span class="countdown-number" id="countdown-minutes"
+							>--</span
+						>
+						<span class="countdown-text">minutes</span>
+					</div>
+					<div class="countdown-unit">
+						<span class="countdown-number" id="countdown-seconds"
+							>--</span
+						>
+						<span class="countdown-text">seconds</span>
+					</div>
+				</div>
+			</div>
+			<a href="/vote/" class="btn btn-primary">How to Vote →</a>
+		</div>
+	</section>
+
 	<!-- Why section -->
 	<section class="section section-alt" aria-labelledby="why-heading">
 		<div class="section-inner">
 			<h2 id="why-heading" class="section-heading">Why I'm Running</h2>
 			<div class="prose">
-				<!-- TODO: Replace with your actual messaging -->
 				<p>
 					Student government should be boring in the best way —
 					effective, transparent, and focused on the things that
@@ -135,8 +161,8 @@ const platformHighlights = [
 
 	.hero-name {
 		font-size: clamp(3rem, 7vw + 1rem, 5rem);
-		font-weight: 800;
-		letter-spacing: -0.02em;
+		font-weight: 400;
+		letter-spacing: normal;
 		line-height: 1.05;
 		margin-bottom: var(--space-4);
 	}
@@ -246,6 +272,52 @@ const platformHighlights = [
 		margin-bottom: 0;
 	}
 
+	/* ── Countdown ── */
+	.countdown-section {
+		text-align: center;
+	}
+
+	.countdown-label {
+		font-size: 1.0625rem;
+		color: var(--color-muted);
+		margin-bottom: var(--space-4);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.countdown-timer {
+		display: flex;
+		justify-content: center;
+		gap: var(--space-5);
+		margin-bottom: var(--space-6);
+		flex-wrap: wrap;
+	}
+
+	.countdown-unit {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-1);
+		min-width: 4.5rem;
+	}
+
+	.countdown-number {
+		font-size: clamp(2rem, 5vw, 3.5rem);
+		font-weight: 800;
+		line-height: 1;
+		color: var(--color-accent);
+		font-variant-numeric: tabular-nums;
+	}
+
+	.countdown-text {
+		font-size: 0.75rem;
+		color: var(--color-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-weight: 600;
+	}
+
 	/* ── Responsive ── */
 	@media (max-width: 640px) {
 		.hero {
@@ -257,3 +329,60 @@ const platformHighlights = [
 		}
 	}
 </style>
+
+<script>
+	// Countdown timer to March 2, 2026 00:00 EST
+	const VOTE_OPEN = new Date("2026-03-02T00:00:00-05:00").getTime();
+	const VOTE_CLOSE = new Date("2026-03-07T00:00:00-05:00").getTime();
+
+	function updateCountdown() {
+		const now = Date.now();
+		const label = document.querySelector(".countdown-label");
+		const days = document.getElementById("countdown-days");
+		const hours = document.getElementById("countdown-hours");
+		const minutes = document.getElementById("countdown-minutes");
+		const seconds = document.getElementById("countdown-seconds");
+
+		if (!label || !days || !hours || !minutes || !seconds) return;
+
+		if (now >= VOTE_CLOSE) {
+			label.textContent = "Voting has closed";
+			days.textContent = "0";
+			hours.textContent = "0";
+			minutes.textContent = "0";
+			seconds.textContent = "0";
+			return;
+		}
+
+		if (now >= VOTE_OPEN) {
+			label.textContent = "Voting is open!";
+			const remaining = VOTE_CLOSE - now;
+			const d = Math.floor(remaining / (1000 * 60 * 60 * 24));
+			const h = Math.floor(
+				(remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+			);
+			const m = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+			const s = Math.floor((remaining % (1000 * 60)) / 1000);
+			days.textContent = String(d);
+			hours.textContent = String(h);
+			minutes.textContent = String(m);
+			seconds.textContent = String(s);
+			return;
+		}
+
+		const remaining = VOTE_OPEN - now;
+		const d = Math.floor(remaining / (1000 * 60 * 60 * 24));
+		const h = Math.floor(
+			(remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+		);
+		const m = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+		const s = Math.floor((remaining % (1000 * 60)) / 1000);
+		days.textContent = String(d);
+		hours.textContent = String(h);
+		minutes.textContent = String(m);
+		seconds.textContent = String(s);
+	}
+
+	updateCountdown();
+	setInterval(updateCountdown, 1000);
+</script>

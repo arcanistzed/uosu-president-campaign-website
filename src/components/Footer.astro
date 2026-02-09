@@ -7,11 +7,19 @@ const year = new Date().getFullYear();
 		<p class="footer-text">
 			&copy; {year} Daniel Thorp. Campaign for UOSU President.
 		</p>
-		<p class="footer-text">
+		<div class="footer-links">
+			<a
+				href="https://instagram.com/daniel.thorp.seuo.uosu"
+				rel="noopener noreferrer"
+				aria-label="Instagram">Instagram</a
+			>
+			<span class="footer-sep" aria-hidden="true">·</span>
+			<a href="mailto:vote@danielthorp.com">vote@danielthorp.com</a>
+			<span class="footer-sep" aria-hidden="true">·</span>
 			<a href="https://danielthorp.com" rel="noopener noreferrer"
 				>danielthorp.com</a
 			>
-		</p>
+		</div>
 	</div>
 </footer>
 
@@ -47,10 +55,37 @@ const year = new Date().getFullYear();
 		color: var(--color-text);
 	}
 
+	.footer-links {
+		display: flex;
+		align-items: center;
+		gap: var(--space-2);
+		flex-wrap: wrap;
+		font-size: 0.8125rem;
+	}
+
+	.footer-links a {
+		color: var(--color-muted);
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
+	}
+
+	.footer-links a:hover {
+		color: var(--color-text);
+	}
+
+	.footer-sep {
+		color: var(--color-muted);
+		opacity: 0.5;
+	}
+
 	@media (max-width: 640px) {
 		.footer-inner {
 			flex-direction: column;
 			text-align: center;
+		}
+
+		.footer-links {
+			justify-content: center;
 		}
 	}
 </style>

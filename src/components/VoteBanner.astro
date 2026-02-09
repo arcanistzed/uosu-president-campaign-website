@@ -1,0 +1,77 @@
+---
+/*
+  Persistent vote CTA banner — shown site-wide via Layout.astro.
+  Displays voting dates and a link to the How to Vote page.
+*/
+---
+
+<aside class="vote-banner" aria-label="Election voting reminder">
+	<div class="vote-banner-inner">
+		<p class="vote-banner-text">
+			<strong>🗳️ Voting is March 2–6, 2026</strong>
+			<span class="vote-banner-sep">—</span>
+			<span>Make your voice heard.</span>
+		</p>
+		<a href="/vote/" class="vote-banner-link">How to Vote →</a>
+	</div>
+</aside>
+
+<style>
+	.vote-banner {
+		background: var(--color-banner);
+		color: #fff;
+		padding: var(--space-2) var(--space-5);
+	}
+
+	.vote-banner-inner {
+		max-width: var(--page-max);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--space-4);
+		flex-wrap: wrap;
+	}
+
+	.vote-banner-text {
+		font-size: 0.875rem;
+		font-weight: 500;
+		margin: 0;
+		max-width: none;
+	}
+
+	.vote-banner-sep {
+		margin: 0 var(--space-1);
+		opacity: 0.6;
+	}
+
+	.vote-banner-link {
+		font-size: 0.8125rem;
+		font-weight: 700;
+		color: #fff;
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
+		white-space: nowrap;
+	}
+
+	.vote-banner-link:hover {
+		color: #fff;
+		opacity: 0.85;
+	}
+
+	@media (max-width: 640px) {
+		.vote-banner {
+			padding: var(--space-2) var(--space-4);
+		}
+
+		.vote-banner-inner {
+			flex-direction: column;
+			gap: var(--space-1);
+			text-align: center;
+		}
+
+		.vote-banner-sep {
+			display: none;
+		}
+	}
+</style>

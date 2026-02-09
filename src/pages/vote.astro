@@ -1,0 +1,258 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="How to Vote"
+	description="Learn when, where, and how to vote in the 2026 UOSU Presidential Election. Voting is March 2–6."
+>
+	<section class="vote-page">
+		<div class="vote-header">
+			<h1>How to Vote</h1>
+			<p class="vote-lead">
+				Voting is open <strong>March 2–6, 2026</strong>. There are three
+				ways to cast your ballot — pick whichever is most convenient for
+				you.
+			</p>
+		</div>
+
+		<!-- Voting methods -->
+		<div class="methods-grid">
+			<article class="method-card">
+				<span class="method-icon" aria-hidden="true">🖥️</span>
+				<h2>Online</h2>
+				<p>
+					A secure voting portal will be available on the UOSU website
+					starting March 2nd. Log in with your
+					<strong>uOttawa Microsoft account</strong> to be redirected to
+					your ballot.
+				</p>
+				<p class="method-note">
+					This portal was built by Daniel when he was UOSU
+					Communications Commissioner in 2024 and has been used for
+					multiple elections since — it's tried and tested.
+				</p>
+			</article>
+
+			<article class="method-card">
+				<span class="method-icon" aria-hidden="true">📧</span>
+				<h2>Email</h2>
+				<p>
+					You will receive an email with a unique ballot link on
+					<strong>March 2nd</strong>. Check your
+					<strong>uOttawa student email</strong> — and your spam/junk
+					folder.
+				</p>
+				<p class="method-note">
+					The email will come from the election provider. If you don't
+					see it by end of day March 2nd, check your spam folder or
+					contact the Chief Electoral Officer.
+				</p>
+			</article>
+
+			<article class="method-card">
+				<span class="method-icon" aria-hidden="true">🏢</span>
+				<h2>In-Person</h2>
+				<p>
+					Vote in front of the <strong>UOSU office</strong>. Bring your
+					<strong>student ID</strong>.
+				</p>
+				<p class="method-note">
+					Specific hours will be announced closer to election day.
+					Follow
+					<a
+						href="https://instagram.com/daniel.thorp.seuo.uosu"
+						rel="noopener noreferrer">@daniel.thorp.seuo.uosu</a
+					> for updates.
+				</p>
+			</article>
+		</div>
+
+		<!-- Who can vote -->
+		<div class="info-section">
+			<h2>Who Can Vote?</h2>
+			<p>
+				All undergraduate students at the University of Ottawa who are
+				members of the UOSU are eligible to vote in the presidential
+				election.
+			</p>
+		</div>
+
+		<!-- Important dates -->
+		<div class="info-section">
+			<h2>Important Dates</h2>
+			<ul class="dates-list">
+				<li>
+					<strong>March 2</strong> — Voting opens (online portal + email
+					ballots sent)
+				</li>
+				<li><strong>March 2–6</strong> — Voting period</li>
+				<li><strong>March 6</strong> — Last day to vote</li>
+			</ul>
+		</div>
+
+		<!-- CTA -->
+		<div class="vote-cta">
+			<p>Have questions about voting?</p>
+			<a href="/get-involved/" class="btn btn-primary">Get in Touch →</a>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.vote-page {
+		max-width: var(--content-max);
+		margin: 0 auto;
+		padding: var(--space-8) var(--space-5) var(--space-9);
+	}
+
+	.vote-header {
+		margin-bottom: var(--space-8);
+	}
+
+	.vote-header h1 {
+		margin-bottom: var(--space-3);
+	}
+
+	.vote-lead {
+		font-size: 1.125rem;
+		color: var(--color-muted);
+		max-width: 56ch;
+		line-height: 1.6;
+	}
+
+	/* ── Methods grid ── */
+	.methods-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+		gap: var(--space-5);
+		margin-bottom: var(--space-8);
+	}
+
+	.method-card {
+		padding: var(--space-5);
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-2);
+		transition: border-color var(--dur-2) var(--ease-out);
+	}
+
+	.method-card:hover {
+		border-color: var(--color-accent);
+	}
+
+	.method-icon {
+		font-size: 2rem;
+		display: block;
+		margin-bottom: var(--space-3);
+	}
+
+	.method-card h2 {
+		font-size: 1.25rem;
+		margin-bottom: var(--space-3);
+	}
+
+	.method-card p {
+		font-size: 0.9375rem;
+		color: var(--color-muted);
+		line-height: 1.65;
+		margin-bottom: var(--space-3);
+	}
+
+	.method-card p:last-child {
+		margin-bottom: 0;
+	}
+
+	.method-note {
+		font-size: 0.875rem !important;
+		opacity: 0.8;
+	}
+
+	/* ── Info sections ── */
+	.info-section {
+		margin-bottom: var(--space-7);
+		padding-bottom: var(--space-7);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.info-section:last-of-type {
+		border-bottom: none;
+	}
+
+	.info-section h2 {
+		font-size: 1.5rem;
+		margin-bottom: var(--space-4);
+	}
+
+	.info-section p {
+		font-size: 1rem;
+		color: var(--color-muted);
+		line-height: 1.65;
+		max-width: 60ch;
+	}
+
+	.dates-list {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+	}
+
+	.dates-list li {
+		font-size: 1rem;
+		line-height: 1.65;
+		padding-left: var(--space-5);
+		position: relative;
+	}
+
+	.dates-list li::before {
+		content: "📅";
+		position: absolute;
+		left: 0;
+	}
+
+	/* ── CTA ── */
+	.vote-cta {
+		text-align: center;
+		padding-top: var(--space-6);
+	}
+
+	.vote-cta p {
+		color: var(--color-muted);
+		margin: 0 auto var(--space-4);
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		padding: var(--space-3) var(--space-5);
+		font-size: 0.9375rem;
+		font-weight: 600;
+		border-radius: var(--radius-1);
+		text-decoration: none;
+		transition:
+			background var(--dur-fast) var(--ease-out),
+			color var(--dur-fast) var(--ease-out);
+	}
+
+	.btn:hover {
+		text-decoration: none;
+	}
+
+	.btn-primary {
+		background: var(--color-accent);
+		color: #fff;
+	}
+
+	.btn-primary:hover {
+		background: var(--color-accent-hover);
+		color: #fff;
+	}
+
+	@media (max-width: 640px) {
+		.vote-page {
+			padding: var(--space-6) var(--space-4) var(--space-7);
+		}
+	}
+</style>
