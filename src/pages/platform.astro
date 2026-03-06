@@ -193,8 +193,23 @@ const platform = t<PlatformSection[]>("pages.platform.sections");
 		color: var(--color-accent);
 	}
 
+	.platform-list li:has(.point-details) {
+		list-style: none;
+	}
+
 	.point-details {
 		cursor: pointer;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-1);
+		padding: var(--space-3) var(--space-4);
+		transition: border-color var(--dur-2) var(--ease-out),
+			background var(--dur-2) var(--ease-out);
+	}
+
+	.point-details:hover {
+		border-color: var(--color-accent);
+		background: rgba(255, 255, 255, 0.3);
 	}
 
 	.point-details summary {
@@ -202,31 +217,40 @@ const platform = t<PlatformSection[]>("pages.platform.sections");
 		display: flex;
 		align-items: baseline;
 		gap: var(--space-2);
+		font-weight: 600;
 	}
 
 	.point-details summary::-webkit-details-marker {
 		display: none;
 	}
 
-	.point-details summary::after {
+	.point-details summary::before {
 		content: "▸";
-		font-size: 0.75rem;
+		font-size: 0.85rem;
 		color: var(--color-accent);
-		transition: transform var(--dur-fast) var(--ease-out);
+		transition: transform var(--dur-2) var(--ease-out);
 		flex-shrink: 0;
+		display: inline-block;
 	}
 
-	.point-details[open] summary::after {
+	.point-details[open] summary::before {
 		transform: rotate(90deg);
 	}
 
+	.point-details[open] {
+		background: rgba(255, 255, 255, 0.3);
+	}
+
 	.point-detail {
-		margin-top: var(--space-2);
+		margin-top: var(--space-3);
+		padding-top: var(--space-3);
+		border-top: 1px solid var(--color-border);
 		font-size: 0.875rem;
 		color: var(--color-muted);
 		line-height: 1.7;
 		padding-left: 0;
 		max-width: 58ch;
+		font-weight: 500;
 	}
 
 	.suggest-section {

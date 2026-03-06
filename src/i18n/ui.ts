@@ -30,7 +30,6 @@ export const ui = {
 		buttons: {
 			readPlatform: "Read my Platform",
 			aboutMe: "About Me",
-			howToVote: "How to Vote ->",
 			fullPlatform: "Full Platform ->",
 			backHome: "<- Back to Home",
 			suggestIdea: "Suggest an Idea ->",
@@ -137,7 +136,7 @@ export const ui = {
 			platform: {
 				title: "Platform",
 				description:
-					"Daniel Thorp's platform for UOSU President: transparency, real représentation, and better student services.",
+					"Daniel Thorp's platform for UOSU President: transparency, real representation, and better student services.",
 				heading: "Platform",
 				lead: "Real transparency. Real accountability. Real results for students.",
 				preamble: {
@@ -169,22 +168,27 @@ export const ui = {
 							{
 								summary:
 									"Ensuring student representatives are present in discussions at Queen's Park and Parliament Hill.",
+								detail: "UOSU currently has no structured presence at the provincial or federal level. I will establish regular engagement with MPPs and MPs on issues that affect students, including tuition policy, student financial aid, housing, and immigration.",
 							},
 							{
 								summary:
 									"Maintaining consistent pressure at City Hall on issues such as housing and transit.",
+								detail: "Municipal decisions on zoning, transit funding, and rental regulation directly affect students. I will ensure UOSU is actively tracking and engaging with City Council on the issues that matter most to students living and commuting in Ottawa.",
 							},
 							{
 								summary:
 									"Convening and coordinating all student representatives serving on university governance bodies.",
+								detail: "Student representatives on Senate, the Board of Governors, and Faculty Councils often operate independently without shared strategy or support. I will bring them together regularly to coordinate positions, share information, and present a unified student voice on governance decisions.",
 							},
 							{
 								summary:
 									"Holding the University accountable for how funding is spent and how decisions affect students.",
+								detail: "Students contribute significantly to university revenues through tuition and fees. I will push for greater transparency in how the university allocates those resources and ensure that decisions affecting students are subject to meaningful consultation.",
 							},
 							{
 								summary:
 									"Establishing dedicated government relations and policy research capacity within UOSU.",
+								detail: "Effective advocacy requires preparation. I will work to build internal policy research and government relations capacity so that UOSU can develop evidence-based positions, track legislative changes, and engage proactively rather than reactively.",
 							},
 						],
 						closing: [
@@ -225,7 +229,7 @@ export const ui = {
 						intro: [
 							"Housing affordability is one of the most serious issues affecting students today.",
 							"Rent in Ottawa has increased dramatically, and students often face limited housing options near campus. Many students are forced to move far from campus or accept poor housing conditions simply because affordable options are scarce.",
-							"The student union must play an active rôle in advocating for solutions.",
+							"The student union must play an active role in advocating for solutions.",
 							"As President, I will:",
 						],
 						points: [
@@ -266,7 +270,7 @@ export const ui = {
 						closing: [
 							"Transit fares in Ottawa have risen dramatically, and service reliability has often been poor.",
 							"Students collectively pay tens of millions of dollars into the transit system every year. If we are paying for it, it needs to work.",
-							"As President, I will work to coordinate advocacy across Ottawa's universities and colleges, demand accountability for unreliable transit service, and ensure students are actively représented in future transit negotiations.",
+							"As President, I will work to coordinate advocacy across Ottawa's universities and colleges, demand accountability for unreliable transit service, and ensure students are actively represented in future transit negotiations.",
 						],
 					},
 					{
@@ -280,19 +284,23 @@ export const ui = {
 						points: [
 							{
 								summary:
-									"With Brooks and Lot K closing, push the university to maintain affordable and accessible parking options for students.",
+									"Push the university to maintain affordable and accessible parking",
+								detail: "With Brooks and Lot K closing, students who rely on driving to campus are losing affordable options. I will advocate for the university to provide replacement parking that is accessible and reasonably priced, especially for students commuting from areas with limited transit.",
 							},
 							{
 								summary:
-									"Fix the slow and unreliable co-op portal and ensure students are not charged for broken or inadequate co-op services.",
+									"Fix the co-op portal and stop charging for broken services",
+								detail: "The co-op portal is slow, unreliable, and frustrating for students trying to find placements. Students should not be paying full co-op fees for a service that does not work properly. I will push for a functional portal and ensure students are not charged for inadequate services.",
 							},
 							{
 								summary:
-									"Expand late-night and 24/7 study space so students are not forced out when they need to work most.",
+									"Expand late-night and 24/7 study space on campus",
+								detail: "During exams and peak periods, students are regularly forced out of study spaces when buildings close. I will work with the university to expand access to late-night and around-the-clock study areas so students can work when they need to.",
 							},
 							{
 								summary:
-									"Actively consult students and bring their priorities into major campus transportation and infrastructure planning.",
+									"Consult students on campus transportation and infrastructure planning",
+								detail: "Major campus planning decisions are too often made without meaningful student input. I will ensure students are actively consulted and that their priorities are included in transportation, infrastructure, and development decisions.",
 							},
 						],
 						closing: [],
@@ -437,17 +445,19 @@ export const ui = {
 							},
 							{
 								summary:
-									"Challenge arbitrary and excessive cleaning fees that make student events harder to organize.",
+									"Challenge arbitrary and excessive cleaning fees",
+								detail: "Some clubs are charged cleaning fees that are disproportionate to the events they host. These fees discourage student activity and place an unfair burden on smaller groups. I will push to review and standardize cleaning fee policies so they are transparent and reasonable.",
 							},
 							{
 								summary:
-									"Unlock underused campus spaces so student groups can run more events.",
+									"Unlock underused campus spaces for student events",
+								detail: "There are spaces on campus that sit empty while clubs struggle to find venues. I will work with the university to identify and open up underused rooms and facilities so student groups have more options for hosting events and activities.",
 							},
 						],
 						closing: [
 							"Much of this stems from outdated administrative tools.",
 							"As President, I will work to modernize the room booking system by integrating it directly into the UOSU portal. This would reduce administrative workload, speed up booking approvals, remove artificial credential caps, and improve visibility over campus events.",
-							"Clubs should be able to focus on building communities, not navigating bureaucratic obstaclés.",
+							"Clubs should be able to focus on building communities, not navigating bureaucratic obstacles.",
 						],
 					},
 					{
@@ -456,7 +466,7 @@ export const ui = {
 						icon: "🏫",
 						intro: [
 							"Recognized Student Governments represent the unique cultures and traditions of each faculty.",
-							"The rôle of UOSU should not be to micromanage them.",
+							"The role of UOSU should not be to micromanage them.",
 							"Instead, the union should act as an administrative backbone that strengthens their capacity.",
 							"As President, I will:",
 						],
@@ -500,7 +510,7 @@ export const ui = {
 						icon: "🎉",
 						intro: [
 							"101 Week is one of the most important traditions for welcoming new students.",
-							"The rôle of the student union should be to support RSGs while ensuring safety and accessibility.",
+							"The role of the student union should be to support RSGs while ensuring safety and accessibility.",
 							"My priorities include:",
 						],
 						points: [
@@ -526,7 +536,7 @@ export const ui = {
 							},
 						],
 						closing: [
-							"The student union should handle administrative complexity so student leaders can focus on creating meaningful expériences.",
+							"The student union should handle administrative complexity so student leaders can focus on creating meaningful experiences.",
 							"UOSU should provide the administrative backbone for 101 Week, including insurance and risk management support, centralized digital tools for contracts and waivers, coordination for multi-RSG initiatives, and advocacy when issues arise with the university.",
 						],
 					},
@@ -536,7 +546,7 @@ export const ui = {
 						icon: "⚜️",
 						intro: [
 							"French is the first language I spoke.",
-							"I grew up in Québec and later attended francophone elementary and secondary schools in Ottawa. I understand the linguistic pressures francophone students face on campus, including the tendency for English to become the default language and the linguistic insecurity some students feel.",
+							"I grew up in Quebec and later attended francophone elementary and secondary schools in Ottawa. I understand the linguistic pressures francophone students face on campus, including the tendency for English to become the default language and the linguistic insecurity some students feel.",
 							"I continue to actively maintain my French, including by taking courses in French even though my academic program is primarily offered in English.",
 							"As President, I will:",
 						],
@@ -547,7 +557,7 @@ export const ui = {
 							},
 							{
 								summary:
-									"Explore simultaneous interprétation for Board meetings.",
+									"Explore simultaneous interpretation for Board meetings.",
 							},
 							{
 								summary:
@@ -585,11 +595,12 @@ export const ui = {
 						points: [
 							{
 								summary:
-									"Protecting student union independece",
+									"Protecting student union independence",
 								detail: "Students pay for their union and should control it. I will defend the right of students to democratically decide how their union is run, how fees are used, and what issues the union advocates on, without political interference from governments, the university, or unelected administrators. This includes protecting the union from attempts to impose fees without democratic approval, dissolve services, or override student decisions.",
 							},
 							{
-								summary: "Making public information truly public",
+								summary:
+									"Making public information truly public",
 								detail: "Anything that is supposed to be public should be easy to find and actually visible. Students should not have to dig through hidden files or insider channels to understand what their union is doing.",
 							},
 							{
@@ -614,11 +625,11 @@ export const ui = {
 							{
 								summary:
 									"Restoring fair appeals and procedural protections",
-								detail: "Students must have a clear way to challenge decisions that affect them. I will strengthen the independece and accessibility of the Appeals Committee by simplifying the appeals process, reducing delays, publishing decisions for transparency, and ensuring the committee operates independently from political leadership.",
+								detail: "Students must have a clear way to challenge decisions that affect them. I will strengthen the independence and accessibility of the Appeals Committee by simplifying the appeals process, reducing delays, publishing decisions for transparency, and ensuring the committee operates independently from political leadership.",
 							},
 						],
 						closing: [
-							"Students deserve organized, informéd représentation where decisions are made.",
+							"Students deserve organized, informed representation where decisions are made.",
 						],
 					},
 					{
@@ -642,22 +653,24 @@ export const ui = {
 									"Advocated for stronger transparency in student institutions",
 							},
 							{
-								summary:
-									"Push to stop wasteful legal spending and use legal services to support students, not fight them",
+								summary: "Stop wasteful legal spending",
+								detail: "Legal services should be used to protect students and defend their interests, not to fight them. I will review how UOSU uses legal resources and redirect spending toward services that directly support students, such as tenant rights clinics and academic appeals support.",
 							},
 							{
 								summary:
-									"Prioritize sustainable, union-owned digital tools over expensive third-party systems that do not deliver value",
+									"Prioritize union-owned digital tools over expensive third-party platforms",
+								detail: "UOSU has spent significant money on third-party platforms that do not deliver adequate value. I will prioritize building and maintaining sustainable, union-owned digital infrastructure that serves students better and costs less over time.",
 							},
 							{
 								summary:
-									"Promote pragmatic and collaborative labour relations that protect student services and reduce unnecessary grievance costs",
+									"Promote pragmatic and collaborative labour relations",
+								detail: "A collaborative approach to labour relations protects the services students depend on while respecting workers. I will work to reduce unnecessary grievance costs through proactive communication and fair workplace practices.",
 							},
 						],
 						closing: [
 							"I have also made mistakes and taken responsibility for them.",
 							"Leadership is not about pretending to be perfect. It is about accountability, transparency, and growth.",
-							"The student union should stay focused on the issues students actually pay it to address: affordability, services, advocacy, campus life, and représentation.",
+							"The student union should stay focused on the issues students actually pay it to address: affordability, services, advocacy, campus life, and representation.",
 						],
 					},
 					{
@@ -690,11 +703,11 @@ export const ui = {
 				description:
 					"Frequently asked questions about my campaign for UOSU President, the election process, and how to get involved.",
 				heading: "Frequently Asked Questions",
-				lead: "Quick answers about the campaign, the election, and the rôle of UOSU President.",
+				lead: "Quick answers about the campaign, the election, and the role of UOSU President.",
 				items: [
 					{
 						question: "What does the UOSU President actually do?",
-						answer: "The President is the chief exécutive and spokesperson of the University of Ottawa Students' Union, representing more than 40,000 undergraduate students. They chair the Executive Committee, oversee union operations and staff, represent students to the university administration and external stakeholders, and are accountable to the elected Board of Directors. The rôle combines advocacy, governance, and day-to-day management.",
+						answer: "The President is the chief executive and spokesperson of the University of Ottawa Students' Union, representing more than 40,000 undergraduate students. They chair the Executive Committee, oversee union operations and staff, represent students to the university administration and external stakeholders, and are accountable to the elected Board of Directors. The role combines advocacy, governance, and day-to-day management.",
 					},
 					{
 						question:
@@ -740,8 +753,8 @@ export const ui = {
 				heading: "About Me",
 				lead: "Bilingual Software Engineering (CO-OP) student at the University of Ottawa, raised in the Ottawa region.",
 				personalIntro: [
-					"Daniel Thorp is a bilingual Software Engineering student at the University of Ottawa. He grew up in Chelsea, Québec and has spent most of his life in the Ottawa region.",
-					"He became involved in student organizations early in university and has since served in leadership rôles across UOSU, the Engineering Students' Society, and nonprofit organizations.",
+					"Daniel Thorp is a bilingual Software Engineering student at the University of Ottawa. He grew up in Chelsea, Quebec and has spent most of his life in the Ottawa region.",
+					"He became involved in student organizations early in university and has since served in leadership roles across UOSU, the Engineering Students' Society, and nonprofit organizations.",
 					"Daniel is running for UOSU President because students deserve a union that works, advocates effectively, and is accountable to the people who fund it.",
 				],
 				whyRunning: {
@@ -835,7 +848,7 @@ export const ui = {
 								points: [
 									"Presided over board meetings using Robert's Rules of Order, ensuring procedural clarity",
 									"Led governance modernization - improved meeting process, documentation, and compliance expectations",
-									"Created the Society's first centralized exécutive accountability tracking system",
+									"Created the Society's first centralized executive accountability tracking system",
 								],
 							},
 							{
@@ -850,7 +863,7 @@ export const ui = {
 								title: "Committee Member - Engineering Endowment Fund",
 								period: "May 2023 - Winter 2025",
 								points: [
-									"40+ hours of délibération evaluating proposals and budgets for student engineering initiatives",
+									"40+ hours of deliberation evaluating proposals and budgets for student engineering initiatives",
 									"Helped allocate over $400,000 to academic, technical, and student-run initiatives",
 								],
 							},
@@ -926,7 +939,6 @@ export const ui = {
 		buttons: {
 			readPlatform: "Lire ma plateforme",
 			aboutMe: "À propos de moi",
-			howToVote: "Comment voter ->",
 			fullPlatform: "Plateforme complète ->",
 			backHome: "<- Retour à l'accueil",
 			suggestIdea: "Proposer une idée ->",
@@ -978,7 +990,7 @@ export const ui = {
 						icon: "🏛️",
 						title: "Force de représentation",
 						description:
-							"Bâtir une capacité permanente de représentation au sein du SÉUO, avec une presence à Queen's Park, à la Colline du Parlement et à l'hôtel de ville.",
+							"Bâtir une capacité permanente de représentation au sein du SÉUO, avec une présence à Queen's Park, à la Colline du Parlement et à l'hôtel de ville.",
 					},
 					{
 						icon: "💰",
@@ -1017,15 +1029,17 @@ export const ui = {
 					"Le vote ouvre le 2 mars 2026 et se termine le 6 mars 2026.",
 				whyHeading: "Pourquoi je me présente",
 				whyBody: [
-					"Je me présente parce que les étudiant·e·s méritent un syndicat qui fonctionne vraiment.",
-					"En ce moment, trop d'étudiant·e·s paient des frais à un syndicat qui peine trop souvent à simplement fonctionner.",
-					"Des promesses sont faites. Des projets stagnent. L'information est cachée. L'argent est gaspillé. Et les étudiant·e·s paient toujours plus pour en recevoir toujours moins.",
-					"Ce n'est pas une question d'une seule mauvaise décision. C'est un problème structurel.",
+					"Les étudiant·e·s paient plus chaque année.",
+					"Les loyers augmentent. L'épicerie coûte plus cher. Les frais de scolarité continuent de grimper. Les coûts de transport en commun ne cessent d'augmenter.",
+					"Les étudiant·e·s contribuent des millions de dollars en frais au syndicat étudiant chaque année.",
+					"Mais trop souvent, le syndicat peine simplement à fonctionner.",
+					"Ce n'est pas une question d'une seule décision ou d'une seule erreur.",
+					"C'est un problème structurel.",
 					"Un syndicat étudiant qui a perdu de vue l'obtention de résultats pour les étudiant·e·s.",
-					"Je me présente pour changer cela.",
-					"Pour réparer ce qui ne fonctionne pas.",
-					"Pour rendre le syndicat transparent, responsable et concentré sur les priorités qui comptent vraiment pour les étudiant·e·s.",
-					"Pour bâtir un syndicat qui fonctionne pour tous les étudiant·e·s, pas seulement pour les initiés.",
+					"Je me présente à la présidence parce que les étudiant·e·s méritent mieux.",
+					"Un syndicat qui gère leur argent de manière responsable.",
+					"Un syndicat qui offre les services pour lesquels les étudiant·e·s ont voté.",
+					"Un syndicat qui se bat vraiment pour les étudiant·e·s.",
 					"Il est temps de changer.",
 				],
 			},
@@ -1039,12 +1053,13 @@ export const ui = {
 					title: "Il est temps de changer",
 					paragraphs: [
 						"Les étudiant·e·s font face à une crise du coût de la vie.",
-						"Les loyers augmentent. L'épicerie coûte plus cher. Les frais de scolarité continuent de grimper. Les subventions diminuent. Le transport en commun est cher, peu fiable et ne fait qu'empirer.",
-						"Les étudiant·e·s paient davantage chaque année tout en portant le risque lorsque les institutions échouent.",
-						"Trop souvent, le syndicat étudiant réagit seulement après que les décisions sont déjà prises. On se bat une fois les dommages faits au lieu d'influencer les décisions avant qu'elles ne tombent.",
-						"Le Syndicat étudiant de l'Université d'Ottawa devrait être l'une des organisations étudiantes les plus influentes du Canada. Or, il est trop souvent sous-équipé, réactif et affaibli par une mauvaise gouvernance.",
-						"Ma campagne vise à changer cela.",
-						"Nous devons rebâtir le SÉUO en une institution sérieuse et efficace qui livre des résultats pour les étudiant·e·s.",
+						"Les loyers augmentent. L'épicerie coûte plus cher. Les frais de scolarité continuent de monter. Les subventions gouvernementales diminuent. Le transport en commun coûte de plus en plus cher. Les étudiant·e·s paient davantage chaque année tout en absorbant les risques de changements économiques structurels.",
+						"Ce n'est pas un problème temporaire. C'est structurel.",
+						"Pourtant, trop souvent, le syndicat étudiant réagit seulement après que les décisions sont déjà prises. Au lieu d'influencer les décisions avant qu'elles ne tombent, on se bat une fois les dommages faits. On joue constamment sur la défensive.",
+						"Ça doit changer.",
+						"Le Syndicat étudiant de l'Université d'Ottawa devrait être l'une des organisations étudiantes les plus influentes du Canada. Or, on fonctionne trop souvent sans représentation coordonnée, sans stratégie institutionnelle et sans l'infrastructure à long terme nécessaire pour influencer les gouvernements et les institutions.",
+						"Ma campagne vise à construire cette infrastructure.",
+						"Nous devons bâtir un moteur de représentation permanent au sein du SÉUO.",
 					],
 				},
 				sections: [
@@ -1055,7 +1070,7 @@ export const ui = {
 						intro: [
 							"Le syndicat étudiant ne doit pas seulement réagir aux décisions des gouvernements et de l'université. Il doit contribuer à les façonner.",
 							"En ce moment, le SÉUO manque de moyens dans des dossiers de représentation clés.",
-							"Il n'y a pas de presence structurée à Queen's Park. Il n'y a pas de presence structurée sur la Colline du Parlement. Les représentant·e·s étudiant·e·s au Bureau des gouverneurs et au Sénat de l'université travaillent en grande partie de façon isolée, sans appui ni stratégie coordonnés.",
+							"Il n'y a pas de présence structurée à Queen's Park. Il n'y a pas de présence structurée sur la Colline du Parlement. Les représentant·e·s étudiant·e·s au Bureau des gouverneurs et au Sénat de l'université travaillent en grande partie de façon isolée, sans appui ni stratégie coordonnée.",
 							"Cela affaiblit notre capacité à défendre efficacement les étudiant·e·s.",
 							"Comme président, je travaillerai à mettre en place une structure de représentation coordonnée qui permettra au syndicat étudiant d'intervenir de façon stratégique auprès des gouvernements et des institutions.",
 							"Cela comprend:",
@@ -1064,22 +1079,27 @@ export const ui = {
 							{
 								summary:
 									"S'assurer que les représentant·e·s étudiant·e·s sont présent·e·s dans les discussions à Queen's Park et sur la Colline du Parlement.",
+								detail: "Le SÉUO n'a actuellement aucune presence structurée au niveau provincial ou fédéral. Je mettrai en place un engagement régulier auprès des député·e·s provinciaux et fédéraux sur les enjeux qui touchent les étudiant·e·s, incluant la politique de scolarité, l'aide financière, le logement et l'immigration.",
 							},
 							{
 								summary:
 									"Maintenir une pression constante à l'hôtel de ville sur des enjeux comme le logement et le transport.",
+								detail: "Les décisions municipales sur le zonage, le financement du transport et la réglementation locative touchent directement les étudiant·e·s. Je m'assurerai que le SÉUO suit activement les travaux du conseil municipal et intervient sur les enjeux qui comptent le plus pour les étudiant·e·s vivant et se déplaçant à Ottawa.",
 							},
 							{
 								summary:
 									"Rassembler et coordonner l'ensemble des représentant·e·s étudiant·e·s qui siègent dans les instances de gouvernance universitaire.",
+								detail: "Les représentant·e·s étudiant·e·s au Sénat, au Bureau des gouverneurs et aux conseils de faculté travaillent souvent de façon isolée, sans stratégie partagée ni appui. Je les rassemblerai régulièrement pour coordonner les positions, partager l'information et présenter une voix étudiante unifiée sur les décisions de gouvernance.",
 							},
 							{
 								summary:
 									"Exiger des comptes de l'université sur l'utilisation des fonds et sur l'impact de ses décisions pour les étudiant·e·s.",
+								detail: "Les étudiant·e·s contribuent considérablement aux revenus de l'université par les frais de scolarité et les droits divers. Je pousserai pour une plus grande transparence dans l'affectation de ces ressources et je m'assurerai que les décisions qui touchent les étudiant·e·s font l'objet d'une consultation significative.",
 							},
 							{
 								summary:
 									"Mettre en place au SÉUO une capacité dédiée en relations gouvernementales et en recherche de politiques publiques.",
+								detail: "Une représentation efficace exige de la préparation. Je travaillerai à développer une capacité interne en recherche de politiques et en relations gouvernementales afin que le SÉUO puisse formuler des positions fondées sur des données probantes, suivre les changements législatifs et intervenir de façon proactive plutôt que réactive.",
 							},
 						],
 						closing: [
@@ -1175,19 +1195,23 @@ export const ui = {
 						points: [
 							{
 								summary:
-									"Avec la fermeture de Brooks et du stationnement K, faire pression sur l'université pour maintenir des options de stationnement abordables et accessibles pour les étudiant·e·s.",
+									"Maintenir des options de stationnement abordables et accessibles",
+								detail: "Avec la fermeture de Brooks et du stationnement K, les étudiant·e·s qui dépendent de la voiture perdent des options abordables. Je ferai pression pour que l'université offre un stationnement de remplacement accessible et à prix raisonnable, surtout pour celles et ceux qui vivent dans des zones mal desservies par le transport en commun.",
 							},
 							{
 								summary:
-									"Corriger le portail co-op, trop lent et peu fiable, et s'assurer que les étudiant·e·s ne paient pas pour des services co-op inadéquats ou défectueux.",
+									"Corriger le portail co-op et cesser de facturer des services défaillants",
+								detail: "Le portail co-op est lent, peu fiable et frustrant pour les étudiant·e·s qui cherchent un stage. Les étudiant·e·s ne devraient pas payer le plein tarif pour un service qui ne fonctionne pas. Je pousserai pour un portail fonctionnel et m'assurerai que les étudiant·e·s ne sont pas facturé·e·s pour des services inadéquats.",
 							},
 							{
 								summary:
-									"Augmenter les espaces d'étude de fin de soirée et 24/7 afin que les étudiant·e·s ne soient pas forcés de quitter quand ils en ont le plus besoin.",
+									"Augmenter les espaces d'étude de fin de soirée et 24/7",
+								detail: "Pendant les examens et les périodes de pointe, les étudiant·e·s sont régulièrement forcé·e·s de quitter les espaces d'étude à la fermeture des bâtiments. Je travaillerai avec l'université pour élargir l'accès aux espaces d'étude en soirée et en tout temps.",
 							},
 							{
 								summary:
-									"Consulter activement les étudiant·e·s et intégrer leurs priorités aux grandes décisions de transport et d'infrastructure du campus.",
+									"Consulter les étudiant·e·s sur le transport et l'infrastructure du campus",
+								detail: "Les grandes décisions de planification du campus sont trop souvent prises sans consultation étudiante significative. Je m'assurerai que les étudiant·e·s sont activement consulté·e·s et que leurs priorités sont intégrées aux décisions de transport, d'infrastructure et de développement.",
 							},
 						],
 						closing: [],
@@ -1198,11 +1222,11 @@ export const ui = {
 						icon: "💰",
 						intro: [
 							"Les étudiant·e·s paient des millions de dollars en frais chaque année. Ces fonds doivent être gérés de manière responsable.",
-							"Au 30 avril 2025, le SÉUO détenait environ 15,9 millions de dollars en liquidités, dont environ 6,2 millions en reserves.",
+							"Au 30 avril 2025, le SÉUO détenait environ 15,9 millions de dollars en liquidités, dont environ 6,2 millions en réserves.",
 							"Malgré cela, aucun placement à long terme n'était en place.",
-							"Dans une période ou des instruments financiers sécuritaires, comme les obligations du gouvernement du Canada et les CPG, offraient des rendements d'environ 4 à 5 %, les reserves du syndicat sont demeurées entièrement en liquidités.",
+							"Dans une période où des instruments financiers sécuritaires, comme les obligations du gouvernement du Canada et les CPG, offraient des rendements d'environ 4 à 5 %, les réserves du syndicat sont demeurées entièrement en liquidités.",
 							"Cela représente un coût d'opportunité important.",
-							"Au début de l'exercice 2024, le SÉUO détenait environ 6,5 millions de dollars en reserves. Si ces fonds avaient été placés prudemment dans des instruments à faible risque, comme des CPG à environ 4,75 %, ils auraient pu générer près de 300 000 $ en une seule année.",
+							"Au début de l'exercice 2024, le SÉUO détenait environ 6,5 millions de dollars en réserves. Si ces fonds avaient été placés prudemment dans des instruments à faible risque, comme des CPG à environ 4,75 %, ils auraient pu générer près de 300 000 $ en une seule année.",
 							"Ce revenu aurait pu soutenir des services étudiants sans hausse de frais.",
 							"Les administrateur·trice·s du syndicat étudiant sont juridiquement considéré·e·s comme fiduciaires des fonds étudiants. Selon la norme ontarienne de l'investisseur prudent, ils et elles doivent faire preuve de diligence, de prudence et d'un jugement financier solide dans la gestion des fonds.",
 							"Laisser des millions en encaisse dans un contexte de taux élevés soulève de sérieuses inquiétudes de gouvernance.",
@@ -1228,7 +1252,7 @@ export const ui = {
 							},
 							{
 								summary:
-									"Répartir les reserves dans des bons du Trésor, obligations et CPG du gouvernement du Canada selon une structure échelonnée.",
+									"Répartir les réserves dans des bons du Trésor, obligations et CPG du gouvernement du Canada selon une structure échelonnée.",
 							},
 							{
 								summary:
@@ -1261,7 +1285,7 @@ export const ui = {
 						icon: "🧾",
 						intro: [
 							"De nombreux prélèvements étudiants sont approuvés par référendum pour des objectifs précis.",
-							"Or, selon les budgets récents, environ 1,5 million de dollars en opérations centrales est actuellement financé par des prélèvements initialement approuvés pour d'autres fins, notamment la santé et le bien-être, le soutien  académique, l'athlétisme et la vie étudiante.",
+							"Or, selon les budgets récents, environ 1,5 million de dollars en opérations centrales est actuellement financé par des prélèvements initialement approuvés pour d'autres fins, notamment la santé et le bien-être, le soutien académique, l'athlétisme et la vie étudiante.",
 							"Les étudiant·e·s ont approuvé ces frais selon des conditions précises.",
 							"Quand des fonds sont réaffectés au-delà de ces objectifs, les étudiant·e·s méritent une transparence complète et une supervision démocratique.",
 						],
@@ -1282,7 +1306,7 @@ export const ui = {
 						intro: [
 							"Les étudiant·e·s paient le prélèvement pour le pub depuis deux ans.",
 							"Pourtant, le pub n'a toujours pas été réalisé.",
-							"Ce prélèvement génère environ 270 000 $ par année et a accumulé environ 500 000 $ en reserves.",
+							"Ce prélèvement génère environ 270 000 $ par année et a accumulé environ 500 000 $ en réserves.",
 							"La stratégie actuelle mise sur l'achat d'un immeuble commercial près du campus. Or, ce type de propriété est extrêmement coûteux et rare dans le secteur, ce qui a bloqué le projet.",
 							"Il existe une avenue plus réaliste.",
 							"Le SÉUO gère déjà l'espace Déjà-Vu au Centre universitaire (UCU 230). Cet emplacement comprend déjà une cuisine, des places assises et une scène.",
@@ -1337,11 +1361,13 @@ export const ui = {
 							},
 							{
 								summary:
-									"Contester les frais de nettoyage arbitraires et excessifs qui compliquent inutilement l'organisation d'événements.",
+									"Contester les frais de nettoyage arbitraires et excessifs",
+								detail: "Certains clubs se voient imposer des frais de nettoyage disproportionnés par rapport aux événements qu'ils organisent. Ces frais découragent l'activité étudiante et pénalisent injustement les plus petits groupes. Je pousserai pour réviser et normaliser les politiques de frais de nettoyage afin qu'elles soient transparentes et raisonnables.",
 							},
 							{
 								summary:
-									"Débloquer des espaces campus sous-utilisés pour permettre plus d'activités étudiantes.",
+									"Débloquer des espaces campus sous-utilisés pour les événements étudiants",
+								detail: "Des espaces sur le campus restent vides alors que les clubs peinent à trouver des lieux. Je travaillerai avec l'université pour identifier et ouvrir les salles et installations sous-utilisées afin que les groupes étudiants aient plus d'options pour organiser des activités.",
 							},
 						],
 						closing: [
@@ -1491,7 +1517,7 @@ export const ui = {
 							{
 								summary:
 									"Rendre l'information publique vraiment publique",
-								detail: "Tout ce qui doit être public doit être facile à trouver et réellement visible. Les étudiant·e·s ne devraient pas avoir à fouiller des canaux cachés ou reserves aux initie·e·s pour comprendre les actions de leur syndicat.",
+								detail: "Tout ce qui doit être public doit être facile à trouver et réellement visible. Les étudiant·e·s ne devraient pas avoir à fouiller des canaux cachés ou réservés aux initié·e·s pour comprendre les actions de leur syndicat.",
 							},
 							{
 								summary:
@@ -1547,19 +1573,22 @@ export const ui = {
 							},
 							{
 								summary:
-									"Plaide pour une transparence accrue dans les institutions étudiantes",
+									"Plaidé pour une transparence accrue dans les institutions étudiantes",
 							},
 							{
 								summary:
-									"Mettre fin aux dépenses juridiques inutiles et utiliser les services juridiques pour soutenir les étudiant·e·s, pas les combattre",
+									"Mettre fin aux dépenses juridiques inutiles",
+								detail: "Les services juridiques doivent servir à protéger les étudiant·e·s et à défendre leurs intérêts, pas à les combattre. Je réviserai l'utilisation des ressources juridiques du SÉUO et redirigerai les dépenses vers des services qui soutiennent directement les étudiant·e·s, comme les cliniques de droits locatifs et l'appui aux appels académiques.",
 							},
 							{
 								summary:
-									"Privilégier des outils numériques durables, détenus par le syndicat, plutôt que des plateformes tierces coûteuses qui ne livrent pas",
+									"Privilégier les outils numériques détenus par le syndicat",
+								detail: "Le SÉUO a dépensé des sommes importantes en plateformes tierces qui ne livrent pas une valeur adéquate. Je prioriserai la construction et la maintenance d'une infrastructure numérique durable, détenue par le syndicat, qui sert mieux les étudiant·e·s et coûte moins cher à long terme.",
 							},
 							{
 								summary:
-									"Favoriser des relations de travail pragmatiques et collaboratives afin de protéger les services étudiants et réduire les coûts de griefs inutiles",
+									"Favoriser des relations de travail pragmatiques et collaboratives",
+								detail: "Une approche collaborative des relations de travail protège les services dont dépendent les étudiant·e·s tout en respectant les travailleur·euse·s. Je travaillerai à réduire les coûts de griefs inutiles grâce à une communication proactive et des pratiques de travail justes.",
 							},
 						],
 						closing: [
@@ -1611,7 +1640,8 @@ export const ui = {
 						answer: "La présidence est la direction générale et la porte-parole du Syndicat étudiant de l'Université d'Ottawa, qui représente plus de 40 000 étudiant·e·s de premier cycle. Elle préside le comité exécutif, supervise les opérations du syndicat et son personnel, représente les étudiant·e·s auprès de l'administration universitaire et des partenaires externes, et rend des comptes au conseil d'administration élu. Le rôle combine défense d'intérêts, gouvernance et gestion quotidienne.",
 					},
 					{
-						question: "Pourquoi les étudiant·e·s devraient-ils se soucier de cette élection?",
+						question:
+							"Pourquoi les étudiant·e·s devraient-ils se soucier de cette élection?",
 						answer: "Parce que le SÉUO gère des millions de dollars en frais étudiants, administre des services utilisés par des dizaines de milliers d'étudiant·e·s et représente les étudiant·e·s auprès de l'université et du gouvernement. Sa direction influence directement les services que vous utilisez et la manière dont vos intérêts sont défendus.",
 					},
 					{
@@ -1654,16 +1684,16 @@ export const ui = {
 				heading: "À propos de moi",
 				lead: "Étudiant bilingue en génie logiciel (CO-OP) à l'Université d'Ottawa, originaire de la région d'Ottawa.",
 				personalIntro: [
-					"Daniel Thorp est un étudiant bilingue en genie logiciel à l'Université d'Ottawa. Il à grandi à Chelsea, au Québec, et à passe la majeure partie de sa vie dans la region d'Ottawa.",
-					"Il s'est impliqué très tôt dans la vie étudiante et à depuis occupe des rôles de leadership au SÉUO, à la Société des étudiants en genie et dans des organismes sans but lucratif.",
+					"Daniel Thorp est un étudiant bilingue en génie logiciel à l'Université d'Ottawa. Il a grandi à Chelsea, au Québec, et a passé la majeure partie de sa vie dans la région d'Ottawa.",
+					"Il s'est impliqué très tôt dans la vie étudiante et a depuis occupé des rôles de leadership au SÉUO, à la Société des étudiants en génie et dans des organismes sans but lucratif.",
 					"Daniel se présente à la présidence du SÉUO parce que les étudiant·e·s méritent un syndicat qui fonctionne, qui défend leurs intérêts et qui rend des comptes.",
 				],
 				whyRunning: {
 					heading: "Pourquoi je me présente",
 					body: [
 						"Chaque étudiant·e de premier cycle à uOttawa paie des frais au Syndicat étudiant. Cet argent devrait financer des services, de la défense d'intérêts et des occasions concrètes.",
-						"Trop souvent, le syndicat peine à respecter ces engagements. Au cours des dernieres années, Daniel à travaillé de l'intérieur et à vu comment une gouvernance faible et un manque de reddition de comptes nuisent aux étudiant·e·s.",
-						"Il se présente à la présidence pour rebâtir un syndicat qui prend ses responsabilités au sérieux et qui livré des résultats concrets.",
+						"Trop souvent, le syndicat peine à respecter ces engagements. Au cours des dernières années, Daniel a travaillé de l'intérieur et a vu comment une gouvernance faible et un manque de reddition de comptes nuisent aux étudiant·e·s.",
+						"Il se présente à la présidence pour rebâtir un syndicat qui prend ses responsabilités au sérieux et qui livre des résultats concrets.",
 					],
 					priorities: [
 						"Une vraie défense des coûts étudiants",
@@ -1681,9 +1711,9 @@ export const ui = {
 						roles: [
 							{
 								title: "Implication sur le campus",
-								period: "Depuis la premiere année",
+								period: "Depuis la première année",
 								points: [
-									"Guide de la semaine 101 avec la Société des étudiants en genie",
+									"Guide de la semaine 101 avec la Société des étudiants en génie",
 									"Soutien à des clubs et organisation d'événements étudiants",
 									"Collaboration avec des groupes étudiants de plusieurs facultés",
 									"Organisation d'ateliers, de vitrines de projets et d'activités de hackathon",
@@ -1694,7 +1724,7 @@ export const ui = {
 					{
 						id: "uosu",
 						icon: "🏛️",
-						title: "Experience avec le Syndicat étudiant",
+						title: "Expérience avec le Syndicat étudiant",
 						intro: "J'ai servi le syndicat étudiant comme administrateur élu et comme membre de l'exécutif.",
 						roles: [
 							{
@@ -1702,11 +1732,11 @@ export const ui = {
 								period: "Nov 2023 - Avr 2024",
 								points: [
 									"Direction des communications pour plus de 40 000 étudiant·e·s via les réseaux sociaux, les infolettres et le site du SÉUO",
-									"Direction des élections générales de 2024: ajout du vote en personne, resolution de problèmes de courriel avec les TI de l'université et création d'un suivi en temps reel",
-									"Conception et déploiement du portail de vote en ligne utilisé pour les elections du SÉUO",
+									"Direction des élections générales de 2024: ajout du vote en personne, résolution de problèmes de courriel avec les TI de l'université et création d'un suivi en temps réel",
+									"Conception et déploiement du portail de vote en ligne utilisé pour les élections du SÉUO",
 									"Présidence de l'embauche de la première ombuds du SÉUO et rédaction de la politique de prévention de la violence au travail",
-									"Redaction de politiques sur les prises de position et organisation de consultations publiques et assemblées citoyennes",
-									"Coordination avec la Vie étudiante, les TI et les Installations pour aligner communications et operations",
+									"Rédaction de politiques sur les prises de position et organisation de consultations publiques et assemblées citoyennes",
+									"Coordination avec la Vie étudiante, les TI et les Installations pour aligner communications et opérations",
 									"Revues d'accessibilité avec le Centre en accessibilité",
 								],
 							},
@@ -1715,15 +1745,15 @@ export const ui = {
 								period: "Juin - Août 2024",
 								points: [
 									"Administration de Microsoft 365 et maintenance du site du SÉUO pour assurer une information étudiante exacte",
-									"Recrutement et integration du personnel TI et web (descriptions de poste, entrevues et recommandations d'embauche)",
+									"Recrutement et intégration du personnel TI et web (descriptions de poste, entrevues et recommandations d'embauche)",
 								],
 							},
 							{
-								title: "Directeur de genie",
+								title: "Directeur de génie",
 								period: "Mai - Août 2023",
 								points: [
-									"Elu pour représenter les étudiants en genie au conseil d'administration du SÉUO (~40 000 membres)",
-									"Leadership de  réformés de politiques et de règlements adoptées par le conseil",
+									"Élu pour représenter les étudiants en génie au conseil d'administration du SÉUO (~40 000 membres)",
+									"Leadership de réformes de politiques et de règlements adoptées par le conseil",
 									"Formation externe en gouvernance d'entreprise et devoir fiduciaire",
 								],
 							},
@@ -1733,35 +1763,35 @@ export const ui = {
 						id: "governance",
 						icon: "⚖️",
 						title: "Gouvernance du campus et leadership étudiant",
-						intro: "J'ai preside des conseils, redige des politiques et aide à allouer des fonds.",
+						intro: "J'ai présidé des conseils, rédigé des politiques et aidé à allouer des fonds.",
 						roles: [
 							{
-								title: "VP interne - Société des étudiants en genie",
+								title: "VP interne - Société des étudiants en génie",
 								period: "Mai - Sep 2025",
 								points: [
-									"Supervision de la gouvernance et de la conformite des sous-associations de la SEG",
-									"Representation auprès de la faculté sur les enjeux étudiants (espaces, experience étudiante et prise de decision institutionnelle)",
+									"Supervision de la gouvernance et de la conformité des sous-associations de la SEG",
+									"Représentation auprès de la faculté sur les enjeux étudiants (espaces, expérience étudiante et prise de décision institutionnelle)",
 								],
 							},
 							{
-								title: "Président du conseil - Société des étudiants en genie",
+								title: "Président du conseil - Société des étudiants en génie",
 								period: "Mai 2024 - Avr 2025",
 								points: [
 									"Présidence des réunions selon les règles de Robert pour assurer la clarté procédurale",
-									"Modernisation de la gouvernance: amelioration des processus, de la documentation et des attentes de conformite",
+									"Modernisation de la gouvernance: amélioration des processus, de la documentation et des attentes de conformité",
 									"Création du premier système centralisé de suivi de la reddition de comptes exécutive",
 								],
 							},
 							{
-								title: "Président du conseil - Federation canadienne des étudiants en genie",
+								title: "Président du conseil - Fédération canadienne des étudiants en génie",
 								period: "Mai - Août 2024",
 								points: [
-									"Présidence d'un conseil national et assurance de la conformite aux politiques et documents de gouvernance",
-									"Organisation de la premiere réunion saisonniere en ligne de la FCEG et création de modèles d'ordres du jour bilingues",
+									"Présidence d'un conseil national et assurance de la conformité aux politiques et documents de gouvernance",
+									"Organisation de la première réunion saisonnière en ligne de la FCEG et création de modèles d'ordres du jour bilingues",
 								],
 							},
 							{
-								title: "Membre du comité - Fonds de dotation en genie",
+								title: "Membre du comité - Fonds de dotation en génie",
 								period: "Mai 2023 - Hiver 2025",
 								points: [
 									"Plus de 40 heures de délibération pour évaluer des propositions et des budgets d'initiatives étudiantes",
