@@ -293,7 +293,9 @@ export const ui = {
 						id: "financial-reform",
 						title: "Financial Reform Plan",
 						icon: "📊",
-						intro: ["Within the first 90 days of my presidency, I will:"],
+						intro: [
+							"Within the first 90 days of my presidency, I will:",
+						],
 						points: [
 							{
 								summary:
@@ -398,7 +400,10 @@ export const ui = {
 								summary:
 									"Artificial limits exist on booking credentials.",
 							},
-							{ summary: "Clubs sometimes wait weeks for approval." },
+							{
+								summary:
+									"Clubs sometimes wait weeks for approval.",
+							},
 						],
 						closing: [
 							"Much of this stems from outdated administrative tools.",
@@ -535,25 +540,23 @@ export const ui = {
 						],
 						points: [
 							{
-								summary: "Protecting student union independence",
-								detail:
-									"Students pay for their union and should control it. I will defend the right of students to democratically decide how their union is run, how fees are used, and what issues the union advocates on, without political interference from governments or the university. This includes protecting the union from attempts to impose fees, dissolve services, or override student decisions.",
+								summary:
+									"Protecting student union independence",
+								detail: "Students pay for their union and should control it. I will defend the right of students to democratically decide how their union is run, how fees are used, and what issues the union advocates on, without political interference from governments or the university. This includes protecting the union from attempts to impose fees, dissolve services, or override student decisions.",
 							},
 							{
 								summary: "Creating a Student Governance Caucus",
-								detail:
-									"Students already sit on Senate, the Board of Governors, and Faculty Councils. But too often they operate in isolation. I will create a Student Governance Caucus to coordinate student representatives across the university so we can share information between Senate, Board, and student leadership, prepare joint student proposals, monitor decisions affecting students, and strengthen accountability and reporting to students.",
+								detail: "Students already sit on Senate, the Board of Governors, and Faculty Councils. But too often they operate in isolation. I will create a Student Governance Caucus to coordinate student representatives across the university so we can share information between Senate, Board, and student leadership, prepare joint student proposals, monitor decisions affecting students, and strengthen accountability and reporting to students.",
 							},
 							{
-								summary: "Making student representatives accountable",
-								detail:
-									"Students serving on Senate and the Board of Governors should report back to the students they represent. I will require student representatives to provide updates at General Assemblies, participate in regular coordination meetings, and publish summaries of key governance decisions where confidentiality allows.",
+								summary:
+									"Making student representatives accountable",
+								detail: "Students serving on Senate and the Board of Governors should report back to the students they represent. I will require student representatives to provide updates at General Assemblies, participate in regular coordination meetings, and publish summaries of key governance decisions where confidentiality allows.",
 							},
 							{
 								summary:
 									"Restoring fair appeals and procedural protections",
-								detail:
-									"Students must have a clear way to challenge decisions that affect them. I will strengthen the independence and accessibility of the Appeals Committee by simplifying the appeals process, reducing delays, publishing decisions for transparency, and ensuring the committee operates independently from political leadership.",
+								detail: "Students must have a clear way to challenge decisions that affect them. I will strengthen the independence and accessibility of the Appeals Committee by simplifying the appeals process, reducing delays, publishing decisions for transparency, and ensuring the committee operates independently from political leadership.",
 							},
 						],
 						closing: [
@@ -572,7 +575,10 @@ export const ui = {
 						points: [
 							{ summary: "Managed nonprofit budgets" },
 							{ summary: "Built financial oversight tools" },
-							{ summary: "Raised concerns about financial governance" },
+							{
+								summary:
+									"Raised concerns about financial governance",
+							},
 							{
 								summary:
 									"Advocated for stronger transparency in student institutions",
@@ -846,7 +852,7 @@ export const ui = {
 		layout: {
 			defaultTitle: "Votez Daniel Thorp - Présidence du SÉUO",
 			defaultDescription:
-				"Daniel Thorp se presente à la présidence du Syndicat étudiant de l'Universite d'Ottawa. Decouvrez sa plateforme et sa vision pour les étudiant·e·s.",
+				"Daniel Thorp se présente à la présidence du Syndicat étudiant de l'Université d'Ottawa. Découvrez sa plateforme et sa vision pour les étudiant·e·s.",
 			titleSuffix: "Vote Daniel Thorp",
 			author: "Daniel Thorp",
 			ogSiteName: "Vote Daniel Thorp",
@@ -920,7 +926,7 @@ export const ui = {
 					"Les étudiant·e·s contribuent des millions de dollars en frais au syndicat étudiant chaque année.",
 					"Mais trop souvent, le syndicat peine simplement à fonctionner.",
 					"Ce n'est pas une question d'une seule décision ou d'une seule erreur.",
-					"C'est un pattern.",
+					"C'est un problème structurel.",
 					"Un syndicat étudiant qui a perdu de vue l'obtention de résultats pour les étudiant·e·s.",
 					"Je me présente à la présidence parce que les étudiant·e·s méritent mieux.",
 					"Un syndicat qui gère leur argent de manière responsable.",
@@ -984,7 +990,7 @@ export const ui = {
 							},
 						],
 						closing: [
-							"Les etudiant·e·s merite une place a la table ou les decisions se prennent.",
+							"Les etudiant·e·s méritent une place à la table où les décisions se prennent.",
 						],
 					},
 					{
@@ -995,7 +1001,7 @@ export const ui = {
 							"Le Syndicat etudiant de l'Universite d'Ottawa est l'un des plus grands syndicats etudiants au Canada.",
 							"Nous devons agir en consequence.",
 							"Actuellement, le SÉUO opere largement en marge des coalitions etudiantes nationales et provinciales. Cela limite notre levier.",
-							"Les coalitions construisent de l'influence. La masse critique construit de la credibilite.",
+							"Les coalitions construisent de l'influence. L'ampleur renforce la crédibilité.",
 							"Comme président, j'explorerai une affiliation avec des organisations comme:",
 						],
 						points: [
@@ -1086,7 +1092,9 @@ export const ui = {
 						id: "financial-reform",
 						title: "Plan de reforme financiere",
 						icon: "📊",
-						intro: ["Dans les 90 premiers jours de ma présidence, je vais:"],
+						intro: [
+							"Dans les 90 premiers jours de ma présidence, je vais:",
+						],
 						points: [
 							{
 								summary:
@@ -1122,7 +1130,7 @@ export const ui = {
 							},
 						],
 						closing: [
-							"Les etudiant·e·s merite une gestion financiere transparente et responsable.",
+							"Les etudiant·e·s méritent une gestion financière transparente et responsable.",
 						],
 					},
 					{
@@ -1154,7 +1162,10 @@ export const ui = {
 							"Comme président, je poursuivrai un plan realiste pour livrer le pub pour lequel les etudiant·e·s ont vote:",
 						],
 						points: [
-							{ summary: "Mener une etude de faisabilite formelle." },
+							{
+								summary:
+									"Mener une etude de faisabilite formelle.",
+							},
 							{
 								summary:
 									"Travailler avec l'universite pour obtenir les approbations necessaires.",
@@ -1164,8 +1175,7 @@ export const ui = {
 									"Renover l'espace existant lorsque necessaire.",
 							},
 							{
-								summary:
-									"Obtenir le permis d'alcool requis.",
+								summary: "Obtenir le permis d'alcool requis.",
 							},
 							{
 								summary:
@@ -1251,7 +1261,7 @@ export const ui = {
 						icon: "🎉",
 						intro: [
 							"La Semaine 101 est l'une des traditions les plus importantes pour accueillir les nouvelles personnes etudiantes.",
-							"Le role du syndicat etudiant doit etre d'appuyer les GER tout en assurant la securite et l'accessibilite.",
+							"Le rôle du syndicat étudiant est d'appuyer les GER tout en assurant la sécurité et l'accessibilité.",
 							"Mes priorites incluent:",
 						],
 						points: [
@@ -1329,35 +1339,33 @@ export const ui = {
 						title: "Une democratie etudiante plus forte",
 						icon: "🗳️",
 						intro: [
-							"Le syndicat etudiant doit appartenir aux etudiant·e·s, pas aux inities.",
+							"Le syndicat étudiant doit appartenir aux étudiant·e·s, pas aux initié·e·s.",
 							"Je renforcerai la transparence et la reddition de comptes democratique en:",
 						],
 						points: [
 							{
-								summary: "Proteger l'independance du syndicat etudiant",
-								detail:
-									"Les etudiant·e·s financent leur syndicat et doivent en garder le controle. Je defendrai le droit des etudiant·e·s a decider democratiquement du fonctionnement de leur syndicat, de l'utilisation des frais et des enjeux de representation, sans ingerence politique des gouvernements ou de l'universite. Cela inclut proteger le syndicat contre les tentatives d'imposer des frais, de dissoudre des services ou d'annuler des decisions etudiantes.",
+								summary:
+									"Proteger l'independance du syndicat etudiant",
+								detail: "Les etudiant·e·s financent leur syndicat et doivent en garder le controle. Je defendrai le droit des etudiant·e·s a decider democratiquement du fonctionnement de leur syndicat, de l'utilisation des frais et des enjeux de representation, sans ingerence politique des gouvernements ou de l'universite. Cela inclut proteger le syndicat contre les tentatives d'imposer des frais, de dissoudre des services ou d'annuler des decisions etudiantes.",
 							},
 							{
-								summary: "Creer un caucus de gouvernance etudiante",
-								detail:
-									"Des etudiant·e·s siegent deja au Senat, au Conseil des gouverneurs et aux conseils de faculte. Mais trop souvent, ces personnes travaillent en silos. Je creerai un caucus de gouvernance etudiante pour coordonner la representation etudiante a travers l'universite, afin de partager l'information entre le Senat, le Conseil et les leaders etudiants, preparer des propositions conjointes, suivre les decisions qui touchent les etudiant·e·s et renforcer la reddition de comptes envers la population etudiante.",
+								summary:
+									"Creer un caucus de gouvernance etudiante",
+								detail: "Des etudiant·e·s siegent deja au Senat, au Conseil des gouverneurs et aux conseils de faculte. Mais trop souvent, ces personnes travaillent en silos. Je creerai un caucus de gouvernance etudiante pour coordonner la representation etudiante a travers l'universite, afin de partager l'information entre le Senat, le Conseil et les leaders etudiants, preparer des propositions conjointes, suivre les decisions qui touchent les etudiant·e·s et renforcer la reddition de comptes envers la population etudiante.",
 							},
 							{
 								summary:
 									"Rendre les representant·e·s etudiant·e·s responsables devant les etudiant·e·s",
-								detail:
-									"Les etudiant·e·s qui siegent au Senat et au Conseil des gouverneurs doivent rendre des comptes a celles et ceux qu'ils representent. J'exigerai que les representant·e·s etudiant·e·s presentent des mises a jour aux Assemblees generales, participent a des rencontres de coordination regulieres et publient des syntheses des decisions de gouvernance importantes lorsque la confidentialite le permet.",
+								detail: "Les etudiant·e·s qui siegent au Senat et au Conseil des gouverneurs doivent rendre des comptes a celles et ceux qu'ils representent. J'exigerai que les representant·e·s etudiant·e·s presentent des mises a jour aux Assemblees generales, participent a des rencontres de coordination regulieres et publient des syntheses des decisions de gouvernance importantes lorsque la confidentialite le permet.",
 							},
 							{
 								summary:
 									"Retablir des mecanismes d'appel equitables et des protections procedurales",
-								detail:
-									"Les etudiant·e·s doivent avoir une voie claire pour contester les decisions qui les touchent. Je renforcerai l'independance et l'accessibilite du Comite d'appel en simplifiant le processus, en reduisant les delais, en publiant les decisions pour plus de transparence, et en assurant l'autonomie du comite par rapport au leadership politique.",
+								detail: "Les etudiant·e·s doivent avoir une voie claire pour contester les decisions qui les touchent. Je renforcerai l'independance et l'accessibilite du Comite d'appel en simplifiant le processus, en reduisant les delais, en publiant les decisions pour plus de transparence, et en assurant l'autonomie du comite par rapport au leadership politique.",
 							},
 						],
 						closing: [
-							"Les etudiant·e·s merite une representation organisee et informee la ou les decisions se prennent.",
+							"Les étudiant·e·s méritent une représentation organisée et informée là où les décisions se prennent.",
 						],
 					},
 					{
@@ -1370,9 +1378,18 @@ export const ui = {
 							"J'ai:",
 						],
 						points: [
-							{ summary: "Gere des budgets d'organismes sans but lucratif" },
-							{ summary: "Developpe des outils de surveillance financiere" },
-							{ summary: "Souleve des enjeux de gouvernance financiere" },
+							{
+								summary:
+									"Gere des budgets d'organismes sans but lucratif",
+							},
+							{
+								summary:
+									"Developpe des outils de surveillance financiere",
+							},
+							{
+								summary:
+									"Souleve des enjeux de gouvernance financiere",
+							},
 							{
 								summary:
 									"Plaide pour une transparence accrue dans les institutions etudiantes",
@@ -1411,15 +1428,15 @@ export const ui = {
 				suggestAria: "Proposer une idee de plateforme",
 				suggestHeading: "Vous avez une idee?",
 				suggestBody:
-					"Cette plateforme est pour les etudiant·e·s. S'il manque quelque chose, je veux vous entendre.",
+					"Cette plateforme est pour les étudiant·e·s. S'il manque quelque chose, je veux vous écouter.",
 				backTopAria: "Retour en haut",
 			},
 			faq: {
 				title: "FAQ",
 				description:
-					"Questions frequentes sur la campagne de Daniel Thorp à la présidence du SÉUO, le processus electoral et les moyens de s'impliquer.",
-				heading: "Questions frequentes",
-				lead: "Reponses rapides sur la campagne, l'election et le role de la présidence du SÉUO.",
+					"Questions fréquentes sur la campagne de Daniel Thorp à la présidence du SÉUO, le processus électoral et les moyens de s'impliquer.",
+				heading: "Questions fréquentes",
+				lead: "Réponses rapides sur la campagne, l'élection et le rôle de la présidence du SÉUO.",
 				items: [
 					{
 						question: "Que fait exactement la présidence du SÉUO?",
@@ -1441,20 +1458,20 @@ export const ui = {
 			about: {
 				title: "À propos de moi",
 				description:
-					"Decouvrez qui est Daniel, pourquoi il se presente et l'experience qu'il apporte pour diriger le SÉUO.",
+					"Découvrez qui est Daniel, pourquoi il se présente et l'expérience qu'il apporte pour diriger le SÉUO.",
 				heading: "À propos de moi",
 				lead: "Etudiant bilingue en genie logiciel (CO-OP) a l'Université d'Ottawa, originaire de la region d'Ottawa.",
 				personalIntro: [
 					"Daniel Thorp est un etudiant bilingue en genie logiciel a l'Université d'Ottawa. Il a grandi a Chelsea, au Quebec, et a passe la majeure partie de sa vie dans la region d'Ottawa.",
 					"Il s'est implique tres tot dans la vie etudiante et a depuis occupe des roles de leadership au SÉUO, a la Societe des etudiants en genie et dans des organismes sans but lucratif.",
-					"Daniel se presente a la présidence du SÉUO parce que les etudiant·e·s meritent un syndicat qui fonctionne, qui defend leurs interets et qui rend des comptes.",
+					"Daniel se présente à la présidence du SÉUO parce que les étudiant·e·s méritent un syndicat qui fonctionne, qui défend leurs intérêts et qui rend des comptes.",
 				],
 				whyRunning: {
 					heading: "Pourquoi je me presente",
 					body: [
-						"Chaque etudiant·e de premier cycle a uOttawa paie des frais au Syndicat etudiant. Cet argent devrait financer des services, de la defense d'interets et des occasions concretes.",
+						"Chaque etudiant·e de premier cycle à uOttawa paie des frais au Syndicat etudiant. Cet argent devrait financer des services, de la defense d'interets et des occasions concretes.",
 						"Trop souvent, le syndicat peine a respecter ces engagements. Au cours des dernieres annees, Daniel a travaille de l'interieur et a vu comment une gouvernance faible et un manque de reddition de comptes nuisent aux etudiant·e·s.",
-						"Il se presente a la présidence pour rebâtir un syndicat qui prend ses responsabilites au serieux et qui livre des resultats concrets.",
+						"Il se présente à la présidence pour rebâtir un syndicat qui prend ses responsabilités au sérieux et qui livre des résultats concrets.",
 					],
 					priorities: [
 						"Une vraie defense des couts etudiants",
@@ -1535,7 +1552,7 @@ export const ui = {
 								],
 							},
 							{
-								title: "President du conseil - Societe des etudiants en genie",
+								title: "Président du conseil - Societe des etudiants en genie",
 								period: "Mai 2024 - Avr 2025",
 								points: [
 									"Présidence des reunions selon les regles de Robert pour assurer la clarte procedurale",
@@ -1544,7 +1561,7 @@ export const ui = {
 								],
 							},
 							{
-								title: "President du conseil - Federation canadienne des etudiants en genie",
+								title: "Président du conseil - Federation canadienne des etudiants en genie",
 								period: "Mai - Aout 2024",
 								points: [
 									"Présidence d'un conseil national et assurance de la conformite aux politiques et documents de gouvernance",
@@ -1568,25 +1585,25 @@ export const ui = {
 						roles: [
 							{
 								title: "Capital Technology Network / Hack the Hill",
-								period: "Nov 2022 - Present",
+								period: "Nov 2022 - présent",
 								summary:
 									"Direction de l'incorporation d'un OBNL jeunesse en tech. Planification et execution de Hack the Hill II - 826 participants, 113 projets et plus de 95 000 $ en commandites.",
 							},
 							{
 								title: "Membre du conseil - OpenMedia",
-								period: "Sep 2025 - Present",
+								period: "Sep 2025 - présent",
 								summary:
 									"Gouvernance, surveillance financiere et RH pour un organisme national defendant les droits numeriques, la vie privée et un internet ouvert.",
 							},
 							{
 								title: "Président et cofondateur - uOttawa Legal Hackers",
-								period: "Oct 2024 - Present",
+								period: "Oct 2024 - présent",
 								summary:
 									"Fondateur d'une organisation etudiante au croisement du droit, de la technologie et des politiques publiques. Organisation d'évenements sur les droits numeriques, l'IA et les enjeux emergents.",
 							},
 							{
 								title: "Redacteur - Vie etudiante, Université d'Ottawa",
-								period: "Jan 2026 - Present",
+								period: "Jan 2026 - présent",
 								summary:
 									"Contribution a l'infolettre étudiante de uOttawa et maintien du contenu web sur Drupal.",
 							},
