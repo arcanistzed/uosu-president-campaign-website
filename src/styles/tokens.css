@@ -2,9 +2,9 @@
  * Design Tokens — vote.danielthorp.com
  *
  * Campaign color palette: lavender + maroon + navy.
- * Brand colors: #9f9cd8, #560216, #292752, #b4c4f6, #ffffff.
+ * Brand colors: #9f9cd8, #560216, #292752, #111111, #b4c4f6, #ffffff.
  *
- * Fonts: Garet (sans), Yeseva One (display serif), Glacial Indifference (body alt).
+ * Fonts: Garet (headings), Yeseva One (fancy display), Glacial Indifference (body).
  * Garet & Glacial Indifference require font files in /public/fonts/.
  * Yeseva One + Plus Jakarta Sans loaded from Google Fonts.
  */
@@ -16,14 +16,16 @@
 	--brand-lavender: #9f9cd8;
 	--brand-maroon: #560216;
 	--brand-navy: #292752;
+	--brand-black: #111111;
 	--brand-lavender-light: #b4c4f6;
 	--brand-white: #ffffff;
 
 	/* ── Semantic colors (light) ── */
 	--color-bg: var(--brand-lavender);
 	--color-surface: rgba(255, 255, 255, 0.2);
-	--color-text: var(--brand-maroon);
-	--color-muted: rgba(86, 2, 22, 0.86);
+	--color-text: var(--brand-black);
+	--color-muted: rgba(17, 17, 17, 0.78);
+	--color-fancy: var(--brand-maroon);
 	--color-accent: var(--brand-navy);
 	--color-accent-hover: #1f1d46;
 	--color-accent-soft: rgba(86, 2, 22, 0.1);
@@ -39,7 +41,7 @@
 		"Segoe UI", sans-serif;
 	--font-display:
 		"Yeseva One", Georgia, "Times New Roman", serif;
-	--font-body-alt:
+	--font-body:
 		"Glacial Indifference", "Inter", ui-sans-serif, system-ui, sans-serif;
 
 	/* ── Sizing ── */
@@ -75,8 +77,9 @@
 		/* Keep campaign visuals consistent with printed/social materials. */
 		--color-bg: var(--brand-lavender);
 		--color-surface: rgba(255, 255, 255, 0.2);
-		--color-text: var(--brand-maroon);
-		--color-muted: rgba(86, 2, 22, 0.86);
+		--color-text: var(--brand-black);
+		--color-muted: rgba(17, 17, 17, 0.78);
+		--color-fancy: var(--brand-maroon);
 		--color-accent: var(--brand-navy);
 		--color-accent-hover: #1f1d46;
 		--color-accent-soft: rgba(86, 2, 22, 0.1);

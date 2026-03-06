@@ -12,45 +12,9 @@ interface PlatformHighlight {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const whyBodyParagraphs = t<string[]>("pages.index.whyBody");
-
-const platformHighlights: PlatformHighlight[] = [
-	{
-		icon: "🏛️",
-		title: "Advocacy Power",
-		description:
-			"Build a permanent advocacy engine inside UOSU, with a presence at Queen's Park, Parliament Hill, and City Hall.",
-	},
-	{
-		icon: "💰",
-		title: "Financial Reform",
-		description:
-			"Implement a formal investment policy, publish quarterly transparency reports, and ensure every fee is spent as students voted.",
-	},
-	{
-		icon: "🏠",
-		title: "Housing & Transit",
-		description:
-			"Push for affordable housing near campus and renegotiate the U-Pass to lower one of the most expensive student transit passes in Canada.",
-	},
-	{
-		icon: "🍺",
-		title: "Deliver the Student Pub",
-		description:
-			"Students have paid $500,000 into the pub levy. Time to use the existing Déjà-Vu space and finally deliver what students voted for.",
-	},
-	{
-		icon: "⚖️",
-		title: "Governance Reform",
-		description:
-			"End closed-door decision-making, improve procedural fairness and recourse, and hold regular open forums.",
-	},
-	{
-		icon: "🤝",
-		title: "End Isolationism",
-		description:
-			"Explore affiliation with OUSA and CASA so uOttawa students can fight alongside other Canadian students, not alone.",
-	},
-];
+const platformHighlights = t<PlatformHighlight[]>(
+	"pages.index.platformHighlights",
+);
 ---
 
 <Layout>
@@ -168,7 +132,7 @@ const platformHighlights: PlatformHighlight[] = [
 				{t("pages.index.whyHeading")}
 			</h2>
 			<div class="prose">
-				{whyBodyParagraphs.map((p) => <p>{p}</p>)}
+				{whyBodyParagraphs.map(p => <p>{p}</p>)}
 			</div>
 		</div>
 	</section>

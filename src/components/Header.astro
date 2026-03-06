@@ -28,7 +28,7 @@ const switchLabel = t<string>("lang.switch");
 			class="nav-logo"
 			aria-label={t("header.homeAria")}
 		>
-			<strong>{t("site.name")}</strong>
+			<strong class="display-title">{t("site.name")}</strong>
 			<span class="nav-tag">{t("site.tagline")}</span>
 		</a>
 		<button
@@ -100,11 +100,16 @@ const switchLabel = t<string>("lang.switch");
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 0.1em;
+		gap: 0.02em;
 		color: var(--color-text);
 		text-decoration: none;
 		font-size: 1.125rem;
 		font-weight: 800;
+	}
+
+	.nav-logo .display-title {
+		font-size: 1.38rem;
+		line-height: 1;
 	}
 
 	.nav-logo:hover {
@@ -113,8 +118,11 @@ const switchLabel = t<string>("lang.switch");
 	}
 
 	.nav-tag {
-		font-size: 0.8125rem;
-		font-weight: 600;
+		font-family: var(--font-body-alt);
+		font-size: 0.7rem;
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: 0.08em;
 		color: var(--color-muted);
 	}
 
