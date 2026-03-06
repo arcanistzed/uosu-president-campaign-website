@@ -1,10 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /platform
-Disallow: /about
-Disallow: /vote
-Disallow: /fr/platform
-Disallow: /fr/about
-Disallow: /fr/vote
 
 Sitemap: https://vote.danielthorp.com/sitemap-index.xml
