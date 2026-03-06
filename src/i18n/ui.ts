@@ -623,15 +623,40 @@ export const ui = {
 				items: [
 					{
 						question: "What does the UOSU President actually do?",
-						answer: "The President is the chief executive and spokesperson of the University of Ottawa Students' Union, representing over 40,000 undergraduate students. They chair the Executive Committee, oversee day-to-day union operations, manage staff, represent students to the university administration and external stakeholders, and are accountable to the elected Board of Directors. It's part advocacy, part governance, part operations.",
+						answer: "The President is the chief executive and spokesperson of the University of Ottawa Students' Union, representing more than 40,000 undergraduate students. They chair the Executive Committee, oversee union operations and staff, represent students to the university administration and external stakeholders, and are accountable to the elected Board of Directors. The role combines advocacy, governance, and day-to-day management.",
+					},
+					{
+						question:
+							"Why should students care about this election?",
+						answer: "Because the UOSU manages millions of dollars in student fees, runs services used by tens of thousands of students, and represents students to the university and government. Its leadership directly affects the services you use and how your interests are defended.",
 					},
 					{
 						question: "How do I vote?",
-						answer: "There are three ways: online through the <a href='https://vote.seuo-uosu.com' target='_blank' rel='noopener'>UOSU voting portal</a> (log in with your uOttawa Microsoft account), by email (a unique ballot link was sent to your uOttawa email), or in-person at the UOSU office with your student ID.",
+						answer: "There are three ways: online through the <a href='https://vote.seuo-uosu.com' target='_blank' rel='noopener'>UOSU voting portal</a> (log in with your uOttawa Microsoft account), by email (a unique ballot link was sent to your uOttawa email), or in person at the UOSU office with your student ID.",
 					},
 					{
 						question: "Who can vote in this election?",
-						answer: "All undergraduate students at the University of Ottawa who are members of the UOSU are eligible. If you're a full-time or part-time undergrad, you almost certainly qualify.",
+						answer: "All undergraduate students at the University of Ottawa who are members of the UOSU are eligible to vote. If you are a full-time or part-time undergraduate student, you almost certainly qualify.",
+					},
+					{
+						question: "Is my vote secret?",
+						answer: "Yes. All ballots are secret, and each eligible student can vote only once.",
+					},
+					{
+						question: "Why am I running?",
+						answer: "Because students deserve a union that actually works for them. Too often the UOSU struggles to deliver on its promises, manage its resources responsibly, or advocate effectively for students. I'm running to bring serious leadership, stronger accountability, and real advocacy power back to the student union.",
+					},
+					{
+						question: "What are my top priorities?",
+						answer: "You can read the full platform <a href='/platform'>here</a>.",
+					},
+					{
+						question: "What experience do I have with the UOSU?",
+						answer: "I have served the UOSU both as an elected Board Director and as Communications Commissioner. During that time I worked on governance reform, led the 2024 General Elections, and helped improve transparency and internal processes. I have also been involved in several student organizations across campus.",
+					},
+					{
+						question: "How can I help the campaign?",
+						answer: "The most important thing you can do is vote and encourage your friends to vote. You can also share the campaign on social media and talk to classmates about the election.",
 					},
 				],
 				askHeading: "Have another question?",
@@ -1440,15 +1465,39 @@ export const ui = {
 				items: [
 					{
 						question: "Que fait exactement la présidence du SÉUO?",
-						answer: "La présidence est la direction generale et la porte-parole du Syndicat etudiant de l'Université d'Ottawa, qui represente plus de 40 000 etudiant·e·s de premier cycle. Elle preside le comite executif, supervise les operations quotidiennes, gere le personnel, represente les etudiant·e·s aupres de l'administration universitaire et des partenaires externes, et rend des comptes au conseil d'administration elu. C'est a la fois de la defense d'interets, de la gouvernance et des operations.",
+						answer: "La présidence est la direction générale et la porte-parole du Syndicat étudiant de l'Université d'Ottawa, qui représente plus de 40 000 étudiant·e·s de premier cycle. Elle préside le comité exécutif, supervise les opérations du syndicat et son personnel, représente les étudiant·e·s auprès de l'administration universitaire et des partenaires externes, et rend des comptes au conseil d'administration élu. Le rôle combine défense d'intérêts, gouvernance et gestion quotidienne.",
+					},
+					{
+						question: "Pourquoi les étudiant·e·s devraient-ils se soucier de cette élection?",
+						answer: "Parce que le SÉUO gère des millions de dollars en frais étudiants, administre des services utilisés par des dizaines de milliers d'étudiant·e·s et représente les étudiant·e·s auprès de l'université et du gouvernement. Sa direction influence directement les services que vous utilisez et la manière dont vos intérêts sont défendus.",
 					},
 					{
 						question: "Comment voter?",
-						answer: "Il y a trois facons: en ligne via le <a href='https://vote.seuo-uosu.com' target='_blank' rel='noopener'>portail de vote du SÉUO</a> (connexion avec votre compte Microsoft uOttawa), par courriel (un lien unique est envoye a votre courriel uOttawa le 2 mars), ou en personne au bureau du SÉUO avec votre carte etudiante.",
+						answer: "Il y a trois façons: en ligne via le <a href='https://vote.seuo-uosu.com' target='_blank' rel='noopener'>portail de vote du SÉUO</a> (connexion avec votre compte Microsoft uOttawa), par courriel (un lien de bulletin unique a été envoyé à votre courriel uOttawa), ou en personne au bureau du SÉUO avec votre carte étudiante.",
 					},
 					{
-						question: "Qui peut voter a cette election?",
-						answer: "Tous les etudiant·e·s de premier cycle de l'Université d'Ottawa membres du SÉUO sont admissibles. Si vous etes a temps plein ou a temps partiel au premier cycle, vous etes presque certainement admissible.",
+						question: "Qui peut voter à cette élection?",
+						answer: "Tous les étudiant·e·s de premier cycle de l'Université d'Ottawa membres du SÉUO sont admissibles au vote. Si vous êtes étudiant·e de premier cycle à temps plein ou à temps partiel, vous êtes presque certainement admissible.",
+					},
+					{
+						question: "Mon vote est-il secret?",
+						answer: "Oui. Tous les bulletins sont secrets, et chaque étudiant·e admissible ne peut voter qu'une seule fois.",
+					},
+					{
+						question: "Pourquoi je me présente?",
+						answer: "Parce que les étudiant·e·s méritent un syndicat qui travaille réellement pour elles et eux. Trop souvent, le SÉUO a de la difficulté à respecter ses engagements, à gérer ses ressources de façon responsable ou à défendre efficacement les étudiant·e·s. Je me présente pour ramener un leadership sérieux, une meilleure reddition de comptes et une vraie force d'advocacy au syndicat étudiant.",
+					},
+					{
+						question: "Quelles sont mes priorités principales?",
+						answer: "Vous pouvez lire la plateforme complète <a href='/fr/platform'>ici</a>.",
+					},
+					{
+						question: "Quelle expérience ai-je avec le SÉUO?",
+						answer: "J'ai servi le SÉUO à la fois comme administrateur élu au conseil d'administration et comme commissaire aux communications. Pendant cette période, j'ai travaillé sur des réformes de gouvernance, dirigé les élections générales de 2024 et aidé à améliorer la transparence et les processus internes. Je me suis aussi impliqué dans plusieurs organisations étudiantes sur le campus.",
+					},
+					{
+						question: "Comment puis-je aider la campagne?",
+						answer: "La chose la plus importante que vous pouvez faire est de voter et d'encourager vos ami·e·s à voter. Vous pouvez aussi partager la campagne sur les réseaux sociaux et parler de l'élection à vos collègues de classe.",
 					},
 				],
 				askHeading: "Une autre question?",
