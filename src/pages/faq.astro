@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 interface FAQItem {
 	question: string;
@@ -27,27 +27,18 @@ const faqs = t<FAQItem[]>("pages.faq.items");
 						<div class="faq-answer">
 							<p>
 								{faq.answer}
-								{
-									i === 1 && (
-										<>
-											{" "}
-											<a href={localePath("/vote/", lang)}>{t("nav.vote")}</a>.
-										</>
-									)
-								}
-								{
-									i === 3 && (
-										<>
-											{" "}
-											<a href="mailto:vote@danielthorp.com?subject=I want to volunteer">
-												{t("buttons.volunteer")}
-											</a>{" "}
-											<a href={localePath("/get-involved/", lang)}>
-												{t("nav.getInvolved")}
-											</a>.
-										</>
-									)
-								}
+								{i === 1 && (
+									<>
+										{" "}
+										<a
+											href="https://vote.seuo-uosu.com"
+											target="_blank"
+											rel="noopener"
+										>
+											vote.seuo-uosu.com
+										</a>
+									</>
+								)}
 							</p>
 						</div>
 					</details>

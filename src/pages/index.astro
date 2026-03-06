@@ -12,11 +12,49 @@ interface PlatformHighlight {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const platformHighlights: PlatformHighlight[] = [];
+const platformHighlights: PlatformHighlight[] = [
+	{
+		icon: "🏛️",
+		title: "Advocacy Power",
+		description:
+			"Build a permanent advocacy engine inside UOSU — with a structured presence at Queen's Park, Parliament Hill, and City Hall.",
+	},
+	{
+		icon: "💰",
+		title: "Financial Reform",
+		description:
+			"Implement a formal investment policy, publish quarterly transparency reports, and ensure every fee is spent as students voted.",
+	},
+	{
+		icon: "🏠",
+		title: "Housing & Transit",
+		description:
+			"Push for affordable housing near campus and renegotiate the U-Pass to lower one of the most expensive student transit passes in Canada.",
+	},
+	{
+		icon: "🍺",
+		title: "Deliver the Student Pub",
+		description:
+			"Students have paid $500,000 into the pub levy. Time to use the existing Déjà-Vu space and finally deliver what students voted for.",
+	},
+	{
+		icon: "⚖️",
+		title: "Governance Reform",
+		description:
+			"End closed-door decision-making, restore student judicial mechanisms, and hold regular open forums.",
+	},
+	{
+		icon: "🤝",
+		title: "End Isolationism",
+		description:
+			"Explore affiliation with OUSA and CASA so uOttawa students can fight alongside other Canadian students, not alone.",
+	},
+];
 ---
 
 <Layout>
 	<section class="hero poster-section" aria-label={t("pages.index.heroAria")}>
+		<div class="hero-bg" aria-hidden="true"></div>
 		<div class="hero-inner poster-band">
 			<p class="hero-label">{t("pages.index.heroLabel")}</p>
 			<h1 class="hero-name display-title poster-band--lighttext">
@@ -76,37 +114,53 @@ const platformHighlights: PlatformHighlight[] = [];
 				<p class="countdown-label">{t("countdown.label")}</p>
 				<div class="countdown-timer" aria-hidden="true">
 					<div class="countdown-unit">
-						<span class="countdown-number" id="countdown-days">--</span>
-						<span class="countdown-text">{t("countdown.days")}</span>
+						<span class="countdown-number" id="countdown-days"
+							>--</span
+						>
+						<span class="countdown-text">{t("countdown.days")}</span
+						>
 					</div>
 					<div class="countdown-unit">
-						<span class="countdown-number" id="countdown-hours">--</span>
-						<span class="countdown-text">{t("countdown.hours")}</span>
+						<span class="countdown-number" id="countdown-hours"
+							>--</span
+						>
+						<span class="countdown-text"
+							>{t("countdown.hours")}</span
+						>
 					</div>
 					<div class="countdown-unit">
 						<span class="countdown-number" id="countdown-minutes"
 							>--</span
 						>
-						<span class="countdown-text">{t("countdown.minutes")}</span>
+						<span class="countdown-text"
+							>{t("countdown.minutes")}</span
+						>
 					</div>
 					<div class="countdown-unit">
 						<span class="countdown-number" id="countdown-seconds"
 							>--</span
 						>
-						<span class="countdown-text">{t("countdown.seconds")}</span>
+						<span class="countdown-text"
+							>{t("countdown.seconds")}</span
+						>
 					</div>
 				</div>
 				<noscript><p>{t("pages.index.noscriptCountdown")}</p></noscript>
 			</div>
-			<a href={localePath("/vote/", lang)} class="btn btn-primary"
+			<a href="https://vote.seuo-uosu.com" class="btn btn-primary" target="_blank" rel="noopener"
 				>{t("buttons.howToVote")}</a
 			>
 		</div>
 	</section>
 
-	<section class="section section-alt poster-band" aria-labelledby="why-heading">
+	<section
+		class="section section-alt poster-band"
+		aria-labelledby="why-heading"
+	>
 		<div class="section-inner">
-			<h2 id="why-heading" class="section-heading">{t("pages.index.whyHeading")}</h2>
+			<h2 id="why-heading" class="section-heading">
+				{t("pages.index.whyHeading")}
+			</h2>
 			<div class="prose">
 				<p>{t("pages.index.whyBody")}</p>
 			</div>
@@ -116,11 +170,24 @@ const platformHighlights: PlatformHighlight[] = [];
 
 <style>
 	.hero {
+		position: relative;
 		padding: var(--space-10) var(--space-5) var(--space-9);
 		text-align: center;
 	}
 
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		background-image: url('/daniel.jpg');
+		background-size: cover;
+		background-position: center top;
+		opacity: 0.18;
+		z-index: 0;
+	}
+
 	.hero-inner {
+		position: relative;
+		z-index: 1;
 		max-width: var(--content-max);
 		margin: 0 auto;
 		padding: var(--space-7) var(--space-6);
@@ -285,7 +352,8 @@ const platformHighlights: PlatformHighlight[] = [];
 		const minutes = document.getElementById("countdown-minutes");
 		const seconds = document.getElementById("countdown-seconds");
 
-		if (!countdown || !label || !days || !hours || !minutes || !seconds) return;
+		if (!countdown || !label || !days || !hours || !minutes || !seconds)
+			return;
 
 		const openText = countdown.getAttribute("data-label-open") || "";
 		const closedText = countdown.getAttribute("data-label-closed") || "";
@@ -317,7 +385,9 @@ const platformHighlights: PlatformHighlight[] = [];
 
 		const remaining = VOTE_OPEN - now;
 		const d = Math.floor(remaining / (1000 * 60 * 60 * 24));
-		const h = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		const h = Math.floor(
+			(remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+		);
 		const m = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
 		const s = Math.floor((remaining % (1000 * 60)) / 1000);
 		days.textContent = String(d);

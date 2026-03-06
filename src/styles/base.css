@@ -144,8 +144,8 @@ ol {
 
 /* ── Selection ── */
 ::selection {
-	background: var(--color-accent-soft);
-	color: var(--color-text);
+	background: var(--brand-navy);
+	color: var(--brand-white);
 }
 
 /* ── Cloud background ── */
@@ -159,7 +159,7 @@ ol {
 
 .cloud-bg::before,
 .cloud-bg::after {
-	content: '';
+	content: "";
 	position: absolute;
 	width: 160%;
 	height: 160%;
@@ -171,21 +171,61 @@ ol {
 
 .cloud-bg::before {
 	background:
-		radial-gradient(ellipse 46% 40% at 18% 22%, rgba(158, 151, 202, 0.24) 0%, transparent 70%),
-		radial-gradient(ellipse 52% 44% at 74% 14%, rgba(184, 161, 189, 0.22) 0%, transparent 72%),
-		radial-gradient(ellipse 56% 42% at 52% 72%, rgba(166, 163, 210, 0.22) 0%, transparent 72%),
-		radial-gradient(ellipse 36% 30% at 86% 80%, rgba(186, 176, 211, 0.22) 0%, transparent 72%),
-		radial-gradient(ellipse 40% 34% at 30% 90%, rgba(160, 154, 190, 0.2) 0%, transparent 70%);
+		radial-gradient(
+			ellipse 46% 40% at 18% 22%,
+			rgba(158, 151, 202, 0.24) 0%,
+			transparent 70%
+		),
+		radial-gradient(
+			ellipse 52% 44% at 74% 14%,
+			rgba(184, 161, 189, 0.22) 0%,
+			transparent 72%
+		),
+		radial-gradient(
+			ellipse 56% 42% at 52% 72%,
+			rgba(166, 163, 210, 0.22) 0%,
+			transparent 72%
+		),
+		radial-gradient(
+			ellipse 36% 30% at 86% 80%,
+			rgba(186, 176, 211, 0.22) 0%,
+			transparent 72%
+		),
+		radial-gradient(
+			ellipse 40% 34% at 30% 90%,
+			rgba(160, 154, 190, 0.2) 0%,
+			transparent 70%
+		);
 	animation: cloudDrift1 56s ease-in-out infinite alternate;
 }
 
 .cloud-bg::after {
 	background:
-		radial-gradient(ellipse 50% 40% at 62% 40%, rgba(41, 39, 82, 0.18) 0%, transparent 72%),
-		radial-gradient(ellipse 34% 44% at 22% 60%, rgba(230, 235, 245, 0.2) 0%, transparent 72%),
-		radial-gradient(ellipse 24% 18% at 72% 30%, rgba(247, 208, 177, 0.2) 0%, transparent 70%),
-		radial-gradient(ellipse 28% 24% at 48% 94%, rgba(221, 165, 201, 0.18) 0%, transparent 72%),
-		radial-gradient(ellipse 34% 28% at 92% 56%, rgba(170, 164, 200, 0.2) 0%, transparent 72%);
+		radial-gradient(
+			ellipse 50% 40% at 62% 40%,
+			rgba(41, 39, 82, 0.18) 0%,
+			transparent 72%
+		),
+		radial-gradient(
+			ellipse 34% 44% at 22% 60%,
+			rgba(230, 235, 245, 0.2) 0%,
+			transparent 72%
+		),
+		radial-gradient(
+			ellipse 24% 18% at 72% 30%,
+			rgba(247, 208, 177, 0.2) 0%,
+			transparent 70%
+		),
+		radial-gradient(
+			ellipse 28% 24% at 48% 94%,
+			rgba(221, 165, 201, 0.18) 0%,
+			transparent 72%
+		),
+		radial-gradient(
+			ellipse 34% 28% at 92% 56%,
+			rgba(170, 164, 200, 0.2) 0%,
+			transparent 72%
+		);
 	animation: cloudDrift2 74s ease-in-out infinite alternate;
 }
 
@@ -194,16 +234,30 @@ ol {
 }
 
 @keyframes cloudDrift1 {
-	0% { transform: translate(0, 0) scale(1); }
-	33% { transform: translate(3%, -2%) scale(1.02); }
-	66% { transform: translate(-2%, 3%) scale(0.98); }
-	100% { transform: translate(1%, -1%) scale(1.01); }
+	0% {
+		transform: translate(0, 0) scale(1);
+	}
+	33% {
+		transform: translate(3%, -2%) scale(1.02);
+	}
+	66% {
+		transform: translate(-2%, 3%) scale(0.98);
+	}
+	100% {
+		transform: translate(1%, -1%) scale(1.01);
+	}
 }
 
 @keyframes cloudDrift2 {
-	0% { transform: translate(0, 0) scale(1); }
-	50% { transform: translate(-4%, 2%) scale(1.03); }
-	100% { transform: translate(2%, -3%) scale(0.97); }
+	0% {
+		transform: translate(0, 0) scale(1);
+	}
+	50% {
+		transform: translate(-4%, 2%) scale(1.03);
+	}
+	100% {
+		transform: translate(2%, -3%) scale(0.97);
+	}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -277,7 +331,8 @@ ol {
 	overflow: hidden;
 	background: var(--color-banner) !important;
 	color: var(--color-on-banner);
-	border: 1px solid color-mix(in srgb, var(--color-banner) 88%, var(--brand-white) 12%) !important;
+	border: 1px solid
+		color-mix(in srgb, var(--color-banner) 88%, var(--brand-white) 12%) !important;
 	border-radius: var(--radius-2);
 	padding: var(--space-6) var(--space-5);
 	box-shadow: 0 0.9rem 2rem rgba(41, 39, 82, 0.2);
@@ -285,7 +340,8 @@ ol {
 
 .poster-band.poster-band {
 	background: var(--color-banner) !important;
-	border: 1px solid color-mix(in srgb, var(--color-banner) 88%, var(--brand-white) 12%) !important;
+	border: 1px solid
+		color-mix(in srgb, var(--color-banner) 88%, var(--brand-white) 12%) !important;
 	border-radius: var(--radius-2);
 }
 
@@ -293,7 +349,11 @@ ol {
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(168deg, transparent 0 44%, rgba(0, 0, 0, 0.09) 44% 100%);
+	background: linear-gradient(
+		168deg,
+		transparent 0 44%,
+		rgba(0, 0, 0, 0.09) 44% 100%
+	);
 	opacity: 0.45;
 	pointer-events: none;
 }

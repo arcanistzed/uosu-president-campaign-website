@@ -91,7 +91,7 @@ export const ui = {
 					"Voting opens March 2, 2026 and closes March 6, 2026.",
 				whyHeading: "Why I'm Running",
 				whyBody:
-					"I'm running because I believe the union can be better.",
+					"Students are facing a cost-of-living crisis. Rent is rising. Tuition keeps increasing. Government grants are shrinking. And yet, the student union too often reacts after decisions are already made — playing defense instead of shaping the outcome. I'm running to change that. To build a real advocacy engine inside UOSU. To manage student money responsibly and transparently. To deliver the services students voted for. To end the isolationism that limits our leverage. And to govern openly, with students actually in the room.",
 			},
 			getInvolved: {
 				title: "Get Involved",
@@ -183,15 +183,11 @@ export const ui = {
 					},
 					{
 						question: "How do I vote?",
-						answer: "There are three ways: online through the UOSU voting portal (log in with your uOttawa Microsoft account), by email (a unique ballot link is sent to your uOttawa email on March 2nd), or in-person at the UOSU office with your student ID. Visit the How to Vote page for full details.",
+						answer: "Vote online at vote.seuo-uosu.com. You can also vote in person at the UOSU office with your student ID.",
 					},
 					{
 						question: "Who can vote in this election?",
-						answer: "All undergraduate students at the University of Ottawa who are members of the UOSU are eligible. If you're a full-time or part-time undergrad, you almost certainly qualify.",
-					},
-					{
-						question: "How can I get involved in the campaign?",
-						answer: "Tell your friends, share the website, or volunteer directly. Visit the Get Involved page for more ways to help.",
+						answer: "All undergraduate students at the University of Ottawa who are members of the UOSU are eligible to vote in the presidential election. To be eligible to vote, you must be enrolled in at least one course for the Winter semester or be on a co-op work term.",
 					},
 				],
 				askHeading: "Have another question?",
@@ -414,7 +410,7 @@ export const ui = {
 					"Le vote ouvre le 2 mars 2026 et se termine le 6 mars 2026.",
 				whyHeading: "Pourquoi je me presente",
 				whyBody:
-					"Je me presente parce que je crois que le syndicat peut faire mieux.",
+					"Les etudiant·e·s font face à une crise du coût de la vie. Les loyers augmentent. Les frais de scolarité continuent de grimper. Les subventions gouvernementales diminuent. Et pourtant, le syndicat etudiant réagit trop souvent après que les décisions ont déjà été prises. Je me presente pour changer cela : bâtir un véritable moteur de représentation au sein du SÉUO, gérer les fonds etudiants de manière responsable et transparente, et gouverner ouvertement, avec les etudiant·e·s vraiment dans la salle.",
 			},
 			getInvolved: {
 				title: "S'impliquer",
@@ -506,16 +502,11 @@ export const ui = {
 					},
 					{
 						question: "Comment voter?",
-						answer: "Il y a trois facons: en ligne via le portail de vote du SÉUO (connexion avec votre compte Microsoft uOttawa), par courriel (un lien unique est envoye a votre courriel uOttawa le 2 mars), ou en personne au bureau du SÉUO avec votre carte etudiante. Consultez la page Comment voter pour tous les details.",
+						answer: "Votez en ligne sur vote.seuo-uosu.com. Vous pouvez aussi voter en personne au bureau du SÉUO avec votre carte etudiante.",
 					},
 					{
 						question: "Qui peut voter a cette election?",
-						answer: "Tous les etudiant·e·s de premier cycle de l'Université d'Ottawa membres du SÉUO sont admissibles. Si vous etes a temps plein ou a temps partiel au premier cycle, vous etes presque certainement admissible.",
-					},
-					{
-						question:
-							"Comment puis-je m'impliquer dans la campagne?",
-						answer: "Parlez-en a vos amis, partagez le site web ou faites du benevolat directement. Consultez la page S'impliquer pour plus de facons d'aider.",
+						answer: "Tous les etudiant·e·s de premier cycle de l'Université d'Ottawa membres du SÉUO sont admissibles au vote. Pour etre admissible, vous devez etre inscrit a au moins un cours a la session d'hiver ou etre en stage CO-OP.",
 					},
 				],
 				askHeading: "Une autre question?",

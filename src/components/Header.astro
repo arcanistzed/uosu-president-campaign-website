@@ -14,8 +14,6 @@ const links = [
 	{ href: localePath("/", lang), label: t("nav.home") },
 	{ href: localePath("/platform/", lang), label: t("nav.platform") },
 	{ href: localePath("/about/", lang), label: t("nav.about") },
-	{ href: localePath("/vote/", lang), label: t("nav.vote") },
-	{ href: localePath("/get-involved/", lang), label: t("nav.getInvolved") },
 	{ href: localePath("/faq/", lang), label: t("nav.faq") },
 ];
 
@@ -24,7 +22,7 @@ const switchLabel = t<string>("lang.switch");
 ---
 
 <header class="site-header">
-	<nav class="nav" aria-label={t("header.navAria")}> 
+	<nav class="nav" aria-label={t("header.navAria")}>
 		<a
 			href={localePath("/", lang)}
 			class="nav-logo"
@@ -65,14 +63,16 @@ const switchLabel = t<string>("lang.switch");
 				<a
 					href={switchHref}
 					class="lang-switch"
-					aria-label={t("lang.switchTo", { language: switchLabel })}>{switchLabel}</a
+					aria-label={t("lang.switchTo", { language: switchLabel })}
+					>{switchLabel}</a
 				>
 			</li>
 		</ul>
 		<a
 			href={switchHref}
 			class="lang-switch lang-switch-desktop"
-			aria-label={t("lang.switchTo", { language: switchLabel })}>{switchLabel}</a
+			aria-label={t("lang.switchTo", { language: switchLabel })}
+			>{switchLabel}</a
 		>
 	</nav>
 </header>

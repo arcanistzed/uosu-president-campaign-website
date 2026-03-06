@@ -22,7 +22,10 @@ const t = useTranslations(lang);
 const sections = t<AboutSection[]>("pages.about.sections");
 ---
 
-<Layout title={t("pages.about.title")} description={t("pages.about.description")}>
+<Layout
+	title={t("pages.about.title")}
+	description={t("pages.about.description")}
+>
 	<section class="about-page">
 		<div class="about-header poster-band">
 			<h1>{t("pages.about.heading")}</h1>
@@ -33,10 +36,14 @@ const sections = t<AboutSection[]>("pages.about.sections");
 			sections.map(section => (
 				<article class="about-section" id={section.id}>
 					<h2>
-						<span class="section-icon" aria-hidden="true">{section.icon}</span>
+						<span class="section-icon" aria-hidden="true">
+							{section.icon}
+						</span>
 						{section.title}
 					</h2>
-					{section.intro && <p class="section-intro">{section.intro}</p>}
+					{section.intro && (
+						<p class="section-intro">{section.intro}</p>
+					)}
 
 					{section.roles.map(role => (
 						<div class="role-card">
@@ -44,10 +51,14 @@ const sections = t<AboutSection[]>("pages.about.sections");
 							<p class="role-period">{role.period}</p>
 							{role.points && (
 								<ul class="role-points">
-									{role.points.map(point => <li>{point}</li>)}
+									{role.points.map(point => (
+										<li>{point}</li>
+									))}
 								</ul>
 							)}
-							{role.summary && <p class="role-summary">{role.summary}</p>}
+							{role.summary && (
+								<p class="role-summary">{role.summary}</p>
+							)}
 						</div>
 					))}
 				</article>
@@ -58,8 +69,11 @@ const sections = t<AboutSection[]>("pages.about.sections");
 			<a href={localePath("/platform/", lang)} class="btn btn-primary"
 				>{t("buttons.readPlatform")}</a
 			>
-			<a href={localePath("/vote/", lang)} class="btn btn-secondary"
-				>{t("buttons.howToVote")}</a
+			<a
+				href="https://vote.seuo-uosu.com"
+				class="btn btn-secondary"
+				target="_blank"
+				rel="noopener">{t("buttons.howToVote")}</a
 			>
 		</div>
 	</section>
