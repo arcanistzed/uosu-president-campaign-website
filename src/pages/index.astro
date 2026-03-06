@@ -53,11 +53,10 @@ const platformHighlights: PlatformHighlight[] = [
 ---
 
 <Layout>
-	<section class="hero poster-section" aria-label={t("pages.index.heroAria")}>
-		<div class="hero-bg" aria-hidden="true"></div>
-		<div class="hero-inner poster-band">
+	<section class="hero" aria-label={t("pages.index.heroAria")}>
+		<div class="hero-inner">
 			<p class="hero-label">{t("pages.index.heroLabel")}</p>
-			<h1 class="hero-name display-title poster-band--lighttext">
+			<h1 class="hero-name display-title">
 				{t("site.name")}
 			</h1>
 			<p class="hero-tagline">{t("pages.index.heroTagline")}</p>
@@ -173,16 +172,9 @@ const platformHighlights: PlatformHighlight[] = [
 		position: relative;
 		padding: var(--space-10) var(--space-5) var(--space-9);
 		text-align: center;
-	}
-
-	.hero-bg {
-		position: absolute;
-		inset: 0;
-		background-image: url('/daniel.jpg');
-		background-size: cover;
-		background-position: center top;
-		opacity: 0.18;
-		z-index: 0;
+		background:
+			linear-gradient(rgba(86, 2, 22, 0.55), rgba(41, 39, 82, 0.7)),
+			url('/daniel.jpg') center top / cover no-repeat;
 	}
 
 	.hero-inner {
@@ -191,7 +183,6 @@ const platformHighlights: PlatformHighlight[] = [
 		max-width: var(--content-max);
 		margin: 0 auto;
 		padding: var(--space-7) var(--space-6);
-		clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
 	}
 
 	.hero-label {
@@ -199,7 +190,7 @@ const platformHighlights: PlatformHighlight[] = [
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
-		color: var(--color-accent);
+		color: var(--brand-lavender-light);
 		margin-bottom: var(--space-3);
 	}
 
@@ -209,11 +200,12 @@ const platformHighlights: PlatformHighlight[] = [
 		letter-spacing: normal;
 		line-height: 1.05;
 		margin-bottom: var(--space-4);
+		color: var(--brand-white) !important;
 	}
 
 	.hero-tagline {
 		font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
-		color: var(--color-muted);
+		color: var(--brand-lavender-light);
 		max-width: 36rem;
 		margin: 0 auto var(--space-6);
 		line-height: 1.5;
@@ -224,6 +216,30 @@ const platformHighlights: PlatformHighlight[] = [
 		gap: var(--space-3);
 		justify-content: center;
 		flex-wrap: wrap;
+	}
+
+	.hero-actions .btn-primary {
+		background: var(--brand-lavender-light);
+		border-color: rgba(255, 255, 255, 0.36);
+		color: var(--brand-navy) !important;
+		font-weight: 700;
+	}
+
+	.hero-actions .btn-primary:hover {
+		background: var(--brand-white);
+		color: var(--brand-navy) !important;
+	}
+
+	.hero-actions .btn-secondary {
+		background: transparent;
+		border-color: rgba(255, 255, 255, 0.5);
+		color: var(--brand-white) !important;
+		font-weight: 700;
+	}
+
+	.hero-actions .btn-secondary:hover {
+		background: rgba(255, 255, 255, 0.15);
+		color: var(--brand-white) !important;
 	}
 
 	.section {
@@ -326,7 +342,6 @@ const platformHighlights: PlatformHighlight[] = [
 
 		.hero-inner {
 			padding: var(--space-6) var(--space-4);
-			clip-path: none;
 		}
 
 		.section {
