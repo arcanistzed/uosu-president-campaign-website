@@ -13,8 +13,6 @@ export const ui = {
 			home: "Home",
 			platform: "Platform",
 			about: "About",
-			vote: "How to Vote",
-			getInvolved: "Get Involved",
 			faq: "FAQ",
 		},
 		site: {
@@ -22,10 +20,7 @@ export const ui = {
 			tagline: "for UOSU President",
 		},
 		banner: {
-			text: "Voting is March 2-6, 2026",
-			cta: "Make your voice heard.",
-			link: "How to Vote ->",
-			aria: "Election voting reminder",
+			text: "Vote Now",
 		},
 		footer: {
 			copyright: "Daniel Thorp",
@@ -33,8 +28,8 @@ export const ui = {
 			faq: "FAQ",
 		},
 		buttons: {
-			readPlatform: "Read the Platform",
-			aboutDaniel: "About Daniel",
+			readPlatform: "Read my Platform",
+			aboutMe: "About Me",
 			howToVote: "How to Vote ->",
 			fullPlatform: "Full Platform ->",
 			backHome: "<- Back to Home",
@@ -79,19 +74,33 @@ export const ui = {
 			},
 			index: {
 				heroAria: "Campaign introduction",
-				heroLabel: "Candidate for UOSU President",
-				heroTagline: "A Union that Works for All.",
+				heroLabel: "For President",
+				heroLabelPrefix: "For",
+				heroLabelEmphasis: "President",
+				heroTagline: "A Union that Works for All",
+				heroTaglineStrong: "A Union that Works",
+				heroTaglineRest: "for All",
 				platformHeading: "Platform Priorities",
-				platformLead:
-					"These are the commitments that will guide my presidency. Each one is specific, measurable, and achievable within a single term.",
 				countdownAria: "Election countdown",
 				countdownSr:
 					"Voting opens March 2, 2026 and closes March 6, 2026.",
 				noscriptCountdown:
 					"Voting opens March 2, 2026 and closes March 6, 2026.",
 				whyHeading: "Why I'm Running",
-				whyBody:
-					"Students are facing a cost-of-living crisis. Rent is rising. Tuition keeps increasing. Government grants are shrinking. And yet, the student union too often reacts after decisions are already made — playing defense instead of shaping the outcome. I'm running to change that. To build a real advocacy engine inside UOSU. To manage student money responsibly and transparently. To deliver the services students voted for. To end the isolationism that limits our leverage. And to govern openly, with students actually in the room.",
+				whyBody: [
+					"Students are paying more every year.",
+					"Rent is rising. Groceries are up. Tuition keeps increasing. Transit costs keep climbing.",
+					"Students are contributing millions of dollars in fees to the student union every year.",
+					"But too often, the union struggles just to function.",
+					"This is not about one decision or one mistake.",
+					"It is a pattern.",
+					"A student union that has lost focus on delivering results for students.",
+					"I'm running for President because students deserve better.",
+					"A union that manages their money responsibly.",
+					"A union that delivers the services students voted for.",
+					"A union that actually fights for students.",
+					"It's time for a change.",
+				],
 			},
 			getInvolved: {
 				title: "Get Involved",
@@ -173,7 +182,7 @@ export const ui = {
 			faq: {
 				title: "FAQ",
 				description:
-					"Frequently asked questions about Daniel Thorp's campaign for UOSU President, the election process, and how to get involved.",
+					"Frequently asked questions about my campaign for UOSU President, the election process, and how to get involved.",
 				heading: "Frequently Asked Questions",
 				lead: "Quick answers about the campaign, the election, and the role of UOSU President.",
 				items: [
@@ -183,38 +192,75 @@ export const ui = {
 					},
 					{
 						question: "How do I vote?",
-						answer: "Vote online at vote.seuo-uosu.com. You can also vote in person at the UOSU office with your student ID.",
+						answer: "There are three ways: online through the <a href='https://vote.seuo-uosu.com' target='_blank' rel='noopener'>UOSU voting portal</a> (log in with your uOttawa Microsoft account), by email (a unique ballot link was sent to your uOttawa email), or in-person at the UOSU office with your student ID.",
 					},
 					{
 						question: "Who can vote in this election?",
-						answer: "All undergraduate students at the University of Ottawa who are members of the UOSU are eligible to vote in the presidential election. To be eligible to vote, you must be enrolled in at least one course for the Winter semester or be on a co-op work term.",
+						answer: "All undergraduate students at the University of Ottawa who are members of the UOSU are eligible. If you're a full-time or part-time undergrad, you almost certainly qualify.",
 					},
 				],
 				askHeading: "Have another question?",
 				askBody: "Send it over and it may be added to this page.",
 			},
 			about: {
-				title: "About Daniel",
+				title: "About Me",
 				description:
-					"Learn about Daniel Thorp - his experience in student governance, campus leadership, and why he's running for UOSU President.",
-				heading: "About Daniel",
-				lead: "Bilingual Software Engineering (CO-OP) student at the University of Ottawa.",
+					"Learn who Daniel is, why he is running, and the experience he brings to lead UOSU.",
+				heading: "About Me",
+				lead: "Bilingual Software Engineering (CO-OP) student at the University of Ottawa, raised in the Ottawa region.",
+				personalIntro: [
+					"Daniel Thorp is a bilingual Software Engineering student at the University of Ottawa. He grew up in Chelsea, Quebec and has spent most of his life in the Ottawa region.",
+					"He became involved in student organizations early in university and has since served in leadership roles across UOSU, the Engineering Students' Society, and nonprofit organizations.",
+					"Daniel is running for UOSU President because students deserve a union that works, advocates effectively, and is accountable to the people who fund it.",
+				],
+				whyRunning: {
+					heading: "Why I'm Running",
+					body: [
+						"Every undergraduate student at uOttawa pays fees to the Students' Union. That money should fund services, advocacy, and opportunities for students.",
+						"Too often, the union struggles to deliver on those promises. Over the past several years, Daniel has worked inside student government and seen where weak governance and poor accountability hold students back.",
+						"He is running for President to rebuild a union that takes its responsibilities seriously and delivers results students can actually feel.",
+					],
+					priorities: [
+						"Real advocacy on student costs",
+						"Transparency and financial accountability",
+						"Services that actually work",
+						"A union that represents all students",
+					],
+				},
 				sections: [
+					{
+						id: "student-life",
+						icon: "🎒",
+						title: "Student Life on Campus",
+						intro: "Daniel's experience is not only in governance. He has also been active in the day-to-day student community.",
+						roles: [
+							{
+								title: "Campus Involvement",
+								period: "Since First Year",
+								points: [
+									"Served as a 101 Week Guide with the Engineering Students' Society",
+									"Supported student clubs and helped organize campus events",
+									"Worked with student groups across faculties on outreach and programming",
+									"Organized workshops, project showcases, and hackathon activities",
+								],
+							},
+						],
+					},
 					{
 						id: "uosu",
 						icon: "🏛️",
-						title: "UOSU Experience",
+						title: "Experience with the Students' Union",
 						intro: "I've served the Students' Union as both an elected Board Director and an Executive.",
 						roles: [
 							{
 								title: "Communications Commissioner",
 								period: "Nov 2023 - Apr 2024",
 								points: [
-									"Directed multi-channel communications for 40,000+ students across social media, newsletters, website, and physical outreach",
-									"Led the 2024 General Elections: introduced in-person voting, resolved email delivery issues with University IT, and built a real-time turnout tracker",
-									"Designed and deployed the election voting portal (Next.js + Microsoft Entra ID + ElectionBuddy) that's still in use today",
+									"Directed communications reaching 40,000+ undergraduate students across social media, newsletters, and the UOSU website",
+									"Led the 2024 General Elections, introducing in-person voting and resolving election email delivery issues with University IT",
+									"Designed and deployed the online voting portal used in UOSU elections",
 									"Chaired the hiring of UOSU's first Ombudsperson and drafted the Workplace Violence Prevention Policy",
-									"Authored policy on union advocacy statements and ran public consultations and town halls",
+									"Drafted governance and advocacy policies and ran public consultations and town halls",
 									"Coordinated with Student Affairs, University IT, and Facilities to align communications and operations",
 									"Conducted accessibility reviews with the Centre for Students with Disabilities",
 								],
@@ -241,7 +287,7 @@ export const ui = {
 					{
 						id: "governance",
 						icon: "⚖️",
-						title: "Campus Governance",
+						title: "Campus Governance & Student Leadership",
 						intro: "I've chaired boards, drafted policy, and helped allocate money.",
 						roles: [
 							{
@@ -341,10 +387,8 @@ export const ui = {
 			tagline: "à la presidence du SÉUO",
 		},
 		banner: {
-			text: "Le vote est du 2 au 6 mars 2026",
-			cta: "Faites entendre votre voix.",
-			link: "Comment voter ->",
-			aria: "Rappel de vote",
+			text: "Votez maintenant",
+			aria: "Votez maintenant",
 		},
 		footer: {
 			copyright: "Daniel Thorp",
@@ -352,8 +396,8 @@ export const ui = {
 			faq: "FAQ",
 		},
 		buttons: {
-			readPlatform: "Lire la plateforme",
-			aboutDaniel: "A propos de Daniel",
+			readPlatform: "Lire ma plateforme",
+			aboutMe: "A propos de moi",
 			howToVote: "Comment voter ->",
 			fullPlatform: "Plateforme complete ->",
 			backHome: "<- Retour a l'accueil",
@@ -398,19 +442,32 @@ export const ui = {
 			},
 			index: {
 				heroAria: "Presentation de la campagne",
-				heroLabel: "Candidat à la présidence du SÉUO",
+				heroLabel: "Pour la présidence du SÉUO",
+				heroLabelPrefix: "Pour la",
+				heroLabelEmphasis: "présidence",
 				heroTagline: "Un syndicat qui fonctionne pour tous.",
+				heroTaglineStrong: "Un syndicat qui fonctionne",
+				heroTaglineRest: "pour tous.",
 				platformHeading: "Priorites de la plateforme",
-				platformLead:
-					"Voici les engagements qui guideront ma présidence. Chaque engagement est precis, mesurable et realisable pendant un seul mandat.",
-				countdownAria: "Compte a rebours electoral",
 				countdownSr:
 					"Le vote ouvre le 2 mars 2026 et se termine le 6 mars 2026.",
 				noscriptCountdown:
 					"Le vote ouvre le 2 mars 2026 et se termine le 6 mars 2026.",
 				whyHeading: "Pourquoi je me presente",
-				whyBody:
-					"Les etudiant·e·s font face à une crise du coût de la vie. Les loyers augmentent. Les frais de scolarité continuent de grimper. Les subventions gouvernementales diminuent. Et pourtant, le syndicat etudiant réagit trop souvent après que les décisions ont déjà été prises. Je me presente pour changer cela : bâtir un véritable moteur de représentation au sein du SÉUO, gérer les fonds etudiants de manière responsable et transparente, et gouverner ouvertement, avec les etudiant·e·s vraiment dans la salle.",
+				whyBody: [
+					"Les étudiant·e·s paient plus chaque année.",
+					"Les loyers augmentent. L'épicerie coûte plus cher. Les frais de scolarité continuent de grimper. Les coûts de transport en commun ne cessent d'augmenter.",
+					"Les étudiant·e·s contribuent des millions de dollars en frais au syndicat étudiant chaque année.",
+					"Mais trop souvent, le syndicat peine simplement à fonctionner.",
+					"Ce n'est pas une question d'une seule décision ou d'une seule erreur.",
+					"C'est un pattern.",
+					"Un syndicat étudiant qui a perdu de vue l'obtention de résultats pour les étudiant·e·s.",
+					"Je me présente à la présidence parce que les étudiant·e·s méritent mieux.",
+					"Un syndicat qui gère leur argent de manière responsable.",
+					"Un syndicat qui offre les services pour lesquels les étudiant·e·s ont voté.",
+					"Un syndicat qui se bat vraiment pour les étudiant·e·s.",
+					"Il est temps de changer.",
+				],
 			},
 			getInvolved: {
 				title: "S'impliquer",
@@ -502,11 +559,11 @@ export const ui = {
 					},
 					{
 						question: "Comment voter?",
-						answer: "Votez en ligne sur vote.seuo-uosu.com. Vous pouvez aussi voter en personne au bureau du SÉUO avec votre carte etudiante.",
+						answer: "Il y a trois facons: en ligne via le <a href='https://vote.seuo-uosu.com' target='_blank' rel='noopener'>portail de vote du SÉUO</a> (connexion avec votre compte Microsoft uOttawa), par courriel (un lien unique est envoye a votre courriel uOttawa le 2 mars), ou en personne au bureau du SÉUO avec votre carte etudiante.",
 					},
 					{
 						question: "Qui peut voter a cette election?",
-						answer: "Tous les etudiant·e·s de premier cycle de l'Université d'Ottawa membres du SÉUO sont admissibles au vote. Pour etre admissible, vous devez etre inscrit a au moins un cours a la session d'hiver ou etre en stage CO-OP.",
+						answer: "Tous les etudiant·e·s de premier cycle de l'Université d'Ottawa membres du SÉUO sont admissibles. Si vous etes a temps plein ou a temps partiel au premier cycle, vous etes presque certainement admissible.",
 					},
 				],
 				askHeading: "Une autre question?",
@@ -514,25 +571,62 @@ export const ui = {
 					"Envoyez-la et elle pourrait etre ajoutee a cette page.",
 			},
 			about: {
-				title: "A propos de Daniel",
+				title: "A propos de moi",
 				description:
-					"Decouvrez Daniel Thorp - son experience en gouvernance étudiante, leadership sur le campus et pourquoi il se presente à la présidence du SÉUO.",
-				heading: "A propos de Daniel",
-				lead: "Etudiant bilingue en genie logiciel (CO-OP) a l'Université d'Ottawa.",
+					"Decouvrez qui est Daniel, pourquoi il se presente et l'experience qu'il apporte pour diriger le SÉUO.",
+				heading: "A propos de moi",
+				lead: "Etudiant bilingue en genie logiciel (CO-OP) a l'Université d'Ottawa, originaire de la region d'Ottawa.",
+				personalIntro: [
+					"Daniel Thorp est un etudiant bilingue en genie logiciel a l'Université d'Ottawa. Il a grandi a Chelsea, au Quebec, et a passe la majeure partie de sa vie dans la region d'Ottawa.",
+					"Il s'est implique tres tot dans la vie etudiante et a depuis occupe des roles de leadership au SÉUO, a la Societe des etudiants en genie et dans des organismes sans but lucratif.",
+					"Daniel se presente a la présidence du SÉUO parce que les etudiant·e·s meritent un syndicat qui fonctionne, qui defend leurs interets et qui rend des comptes.",
+				],
+				whyRunning: {
+					heading: "Pourquoi je me presente",
+					body: [
+						"Chaque etudiant·e de premier cycle a uOttawa paie des frais au Syndicat etudiant. Cet argent devrait financer des services, de la defense d'interets et des occasions concretes.",
+						"Trop souvent, le syndicat peine a respecter ces engagements. Au cours des dernieres annees, Daniel a travaille de l'interieur et a vu comment une gouvernance faible et un manque de reddition de comptes nuisent aux etudiant·e·s.",
+						"Il se presente a la présidence pour rebâtir un syndicat qui prend ses responsabilites au serieux et qui livre des resultats concrets.",
+					],
+					priorities: [
+						"Une vraie defense des couts etudiants",
+						"Transparence et responsabilite financiere",
+						"Des services qui fonctionnent vraiment",
+						"Un syndicat qui represente tous les etudiant·e·s",
+					],
+				},
 				sections: [
+					{
+						id: "vie-etudiante",
+						icon: "🎒",
+						title: "Vie etudiante sur le campus",
+						intro: "L'experience de Daniel ne se limite pas a la gouvernance. Il est aussi implique dans la vie etudiante au quotidien.",
+						roles: [
+							{
+								title: "Implication sur le campus",
+								period: "Depuis la premiere annee",
+								points: [
+									"Guide de la semaine 101 avec la Societe des etudiants en genie",
+									"Soutien a des clubs et organisation d'evenements etudiants",
+									"Collaboration avec des groupes etudiants de plusieurs facultes",
+									"Organisation d'ateliers, de vitrines de projets et d'activites de hackathon",
+								],
+							},
+						],
+					},
 					{
 						id: "uosu",
 						icon: "🏛️",
-						title: "Experience au SÉUO",
+						title: "Experience avec le Syndicat etudiant",
 						intro: "J'ai servi le syndicat etudiant comme administrateur elu et comme membre de l'executif.",
 						roles: [
 							{
 								title: "Commissaire aux communications",
 								period: "Nov 2023 - Avr 2024",
 								points: [
-									"Direction des communications multicanales pour plus de 40 000 etudiants (reseaux sociaux, infolettres, site web et outreach en personne)",
+									"Direction des communications pour plus de 40 000 etudiant·e·s via les reseaux sociaux, les infolettres et le site du SÉUO",
 									"Direction des elections generales de 2024: ajout du vote en personne, resolution de problemes de courriel avec les TI de l'universite et creation d'un suivi en temps reel",
-									"Conception et deploiement du portail de vote (Next.js + Microsoft Entra ID + ElectionBuddy), toujours utilise aujourd'hui",
+									"Conception et deploiement du portail de vote en ligne utilise pour les elections du SÉUO",
 									"Presidence de l'embauche de la premiere ombuds du SÉUO et redaction de la politique de prevention de la violence au travail",
 									"Redaction de politiques sur les prises de position et organisation de consultations publiques et assemblees citoyennes",
 									"Coordination avec la Vie etudiante, les TI et les Installations pour aligner communications et operations",
@@ -561,7 +655,7 @@ export const ui = {
 					{
 						id: "governance",
 						icon: "⚖️",
-						title: "Gouvernance du campus",
+						title: "Gouvernance du campus et leadership etudiant",
 						intro: "J'ai preside des conseils, redige des politiques et aide a allouer des fonds.",
 						roles: [
 							{

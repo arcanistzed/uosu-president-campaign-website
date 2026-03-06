@@ -11,13 +11,14 @@ interface PlatformHighlight {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const whyBodyParagraphs = t<string[]>("pages.index.whyBody");
 
 const platformHighlights: PlatformHighlight[] = [
 	{
 		icon: "🏛️",
 		title: "Advocacy Power",
 		description:
-			"Build a permanent advocacy engine inside UOSU — with a structured presence at Queen's Park, Parliament Hill, and City Hall.",
+			"Build a permanent advocacy engine inside UOSU, with a presence at Queen's Park, Parliament Hill, and City Hall.",
 	},
 	{
 		icon: "💰",
@@ -41,7 +42,7 @@ const platformHighlights: PlatformHighlight[] = [
 		icon: "⚖️",
 		title: "Governance Reform",
 		description:
-			"End closed-door decision-making, restore student judicial mechanisms, and hold regular open forums.",
+			"End closed-door decision-making, improve procedural fairness and recourse, and hold regular open forums.",
 	},
 	{
 		icon: "🤝",
@@ -55,17 +56,23 @@ const platformHighlights: PlatformHighlight[] = [
 <Layout>
 	<section class="hero" aria-label={t("pages.index.heroAria")}>
 		<div class="hero-inner">
-			<p class="hero-label">{t("pages.index.heroLabel")}</p>
+			<p class="hero-tagline">
+				<strong>{t("pages.index.heroTaglineStrong")}</strong>
+				<span>{` ${t("pages.index.heroTaglineRest")}`}</span>
+			</p>
 			<h1 class="hero-name display-title">
 				{t("site.name")}
 			</h1>
-			<p class="hero-tagline">{t("pages.index.heroTagline")}</p>
+			<p class="hero-label">
+				<span>{t("pages.index.heroLabelPrefix")}</span>
+				<strong>{` ${t("pages.index.heroLabelEmphasis")}`}</strong>
+			</p>
 			<div class="hero-actions">
 				<a href={localePath("/platform/", lang)} class="btn btn-primary"
 					>{t("buttons.readPlatform")}</a
 				>
 				<a href={localePath("/about/", lang)} class="btn btn-secondary">
-					{t("buttons.aboutDaniel")}
+					{t("buttons.aboutMe")}
 				</a>
 			</div>
 		</div>
@@ -76,9 +83,6 @@ const platformHighlights: PlatformHighlight[] = [
 			<h2 id="platform-heading" class="section-heading">
 				{t("pages.index.platformHeading")}
 			</h2>
-			<p class="section-lead">
-				{t("pages.index.platformLead")}
-			</p>
 			<div class="platform-grid">
 				{
 					platformHighlights?.map(item => (
@@ -164,7 +168,7 @@ const platformHighlights: PlatformHighlight[] = [
 				{t("pages.index.whyHeading")}
 			</h2>
 			<div class="prose">
-				<p>{t("pages.index.whyBody")}</p>
+				{whyBodyParagraphs.map((p) => <p>{p}</p>)}
 			</div>
 		</div>
 	</section>
@@ -173,28 +177,57 @@ const platformHighlights: PlatformHighlight[] = [
 <style>
 	.hero {
 		position: relative;
-		padding: var(--space-10) var(--space-5) var(--space-9);
-		text-align: center;
-		background:
-			linear-gradient(rgba(86, 2, 22, 0.35), rgba(41, 39, 82, 0.55)),
-			url("/daniel.jpg") center top / cover no-repeat;
+		overflow: hidden;
+		padding: var(--space-10) var(--space-5) var(--space-10);
+		text-align: left;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	.hero::before,
+	.hero::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
+
+	.hero::before {
+		background: url(/daniel.webp) no-repeat;
+		background-position-x: right;
+		background-position-y: 20%;
+		background-size: cover;
+	}
+
+	.hero::after {
+		background: linear-gradient(
+			rgba(86, 2, 22, 0.45),
+			rgba(41, 39, 82, 0.65)
+		);
+		pointer-events: none;
 	}
 
 	.hero-inner {
 		position: relative;
 		z-index: 1;
-		max-width: var(--content-max);
-		margin: 0 auto;
-		padding: var(--space-7) var(--space-6);
+		margin: 0;
+		padding: var(--space-6);
+		background: rgba(41, 39, 82, 0.45);
+		border-radius: var(--radius-2);
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
 	}
 
 	.hero-label {
-		font-size: 0.875rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		font-size: clamp(1rem, 1vw + 0.55rem, 1.25rem);
+		font-weight: 400;
+		letter-spacing: 0.02em;
 		color: var(--brand-lavender-light);
-		margin-bottom: var(--space-3);
+		margin-bottom: var(--space-6);
+	}
+
+	.hero-label strong {
+		font-weight: 800;
 	}
 
 	.hero-name {
@@ -202,7 +235,7 @@ const platformHighlights: PlatformHighlight[] = [
 		font-weight: 400;
 		letter-spacing: normal;
 		line-height: 1.05;
-		margin-bottom: var(--space-4);
+		margin-bottom: var(--space-3);
 		color: var(--brand-white) !important;
 	}
 
@@ -210,14 +243,22 @@ const platformHighlights: PlatformHighlight[] = [
 		font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
 		color: var(--brand-lavender-light);
 		max-width: 36rem;
-		margin: 0 auto var(--space-6);
+		margin: 0 0 var(--space-4);
 		line-height: 1.5;
+	}
+
+	.hero-tagline strong {
+		font-weight: 800;
+	}
+
+	.hero-tagline span {
+		font-weight: 500;
 	}
 
 	.hero-actions {
 		display: flex;
 		gap: var(--space-3);
-		justify-content: center;
+		justify-content: flex-start;
 		flex-wrap: wrap;
 	}
 
@@ -338,21 +379,102 @@ const platformHighlights: PlatformHighlight[] = [
 		font-weight: 600;
 	}
 
-	@media (max-width: 640px) {
+	@media (max-width: 480px) {
 		.hero {
-			padding: var(--space-8) var(--space-4) var(--space-7);
+			padding: 0;
+			display: block;
+			text-align: center;
+		}
+
+		.hero::before,
+		.hero::after {
+			inset: 0 0 auto 0;
+			height: 55svh;
+		}
+
+		.hero::before {
+			background-size: cover;
+			background-position: center 15%;
+			transform: none;
+		}
+
+		.hero::after {
+			inset: 0 0 auto 0;
 		}
 
 		.hero-inner {
-			padding: var(--space-6) var(--space-4);
+			margin-top: 55svh;
+			padding: var(--space-6) var(--space-4) var(--space-4);
+			border-radius: 0;
+			background: var(--color-bg);
+			backdrop-filter: none;
+			-webkit-backdrop-filter: none;
 		}
 
+		.hero-tagline {
+			color: var(--color-accent);
+		}
+
+		.hero-tagline span {
+			color: var(--color-text);
+		}
+
+		.hero-name {
+			color: var(--color-text) !important;
+		}
+
+		.hero-label {
+			color: var(--color-muted);
+		}
+
+		.hero-actions .btn-primary {
+			background: var(--color-accent);
+			border-color: var(--color-accent);
+			color: var(--color-on-accent) !important;
+		}
+
+		.hero-actions .btn-primary:hover {
+			background: var(--color-accent-hover);
+			border-color: var(--color-accent-hover);
+			color: var(--color-on-accent) !important;
+		}
+
+		.hero-actions .btn-secondary {
+			background: transparent;
+			border-color: var(--color-border);
+			color: var(--color-text) !important;
+		}
+
+		.hero-actions .btn-secondary:hover {
+			background: var(--color-accent-soft);
+			color: var(--color-text) !important;
+		}
+	}
+
+	@media (max-width: 640px) {
 		.section {
 			padding: var(--space-7) var(--space-4);
 		}
 
 		.section-alt {
 			clip-path: none;
+		}
+	}
+
+	@media (max-width: 1700px) {
+		.hero::before {
+			background-size: 150%;
+		}
+	}
+	@media (max-width: 1200px) {
+		.hero::before {
+			background-size: 160%;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.hero::before {
+			background-size: 175%;
 		}
 	}
 </style>

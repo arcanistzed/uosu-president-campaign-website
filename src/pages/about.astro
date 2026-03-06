@@ -17,8 +17,16 @@ interface AboutSection {
 	roles: AboutRole[];
 }
 
+interface AboutWhyRunning {
+	heading: string;
+	body: string[];
+	priorities: string[];
+}
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const personalIntro = t<string[]>("pages.about.personalIntro");
+const whyRunning = t<AboutWhyRunning>("pages.about.whyRunning");
 const sections = t<AboutSection[]>("pages.about.sections");
 ---
 
@@ -30,7 +38,20 @@ const sections = t<AboutSection[]>("pages.about.sections");
 		<div class="about-header poster-band">
 			<h1>{t("pages.about.heading")}</h1>
 			<p class="about-lead">{t("pages.about.lead")}</p>
+			<div class="about-personal">
+				{personalIntro.map(paragraph => <p>{paragraph}</p>)}
+			</div>
 		</div>
+
+		<article class="about-section about-why-running" id="why-running">
+			<h2>{whyRunning.heading}</h2>
+			<div class="section-copy">
+				{whyRunning.body.map(paragraph => <p>{paragraph}</p>)}
+			</div>
+			<ul class="role-points">
+				{whyRunning.priorities.map(priority => <li>{priority}</li>)}
+			</ul>
+		</article>
 
 		{
 			sections.map(section => (
@@ -101,10 +122,36 @@ const sections = t<AboutSection[]>("pages.about.sections");
 		line-height: 1.6;
 	}
 
+	.about-personal {
+		margin-top: var(--space-4);
+		display: grid;
+		gap: var(--space-3);
+		max-width: 70ch;
+	}
+
+	.about-personal p {
+		font-size: 0.98rem;
+		line-height: 1.7;
+		color: var(--color-text);
+	}
+
 	.about-section {
 		margin-bottom: var(--space-8);
 		padding-bottom: var(--space-7);
 		border-bottom: 1px solid var(--color-border);
+	}
+
+	.about-why-running .section-copy {
+		display: grid;
+		gap: var(--space-3);
+		margin-bottom: var(--space-4);
+		max-width: 70ch;
+	}
+
+	.about-why-running .section-copy p {
+		font-size: 0.98rem;
+		line-height: 1.7;
+		color: var(--color-text);
 	}
 
 	.about-section:last-of-type {

@@ -25,21 +25,7 @@ const faqs = t<FAQItem[]>("pages.faq.items");
 					<details class="faq-item" id={`faq-${i}`}>
 						<summary class="faq-question">{faq.question}</summary>
 						<div class="faq-answer">
-							<p>
-								{faq.answer}
-								{i === 1 && (
-									<>
-										{" "}
-										<a
-											href="https://vote.seuo-uosu.com"
-											target="_blank"
-											rel="noopener"
-										>
-											vote.seuo-uosu.com
-										</a>
-									</>
-								)}
-							</p>
+							<p set:html={faq.answer} />
 						</div>
 					</details>
 				))

@@ -2,18 +2,14 @@
 import HomePage from "../index.astro";
 import AboutPage from "../about.astro";
 import FAQPage from "../faq.astro";
-import GetInvolvedPage from "../get-involved.astro";
 import PlatformPage from "../platform.astro";
-import VotePage from "../vote.astro";
 
 export function getStaticPaths() {
 	return [
 		{ params: { lang: "fr" } },
 		{ params: { lang: "fr", slug: "about" } },
 		{ params: { lang: "fr", slug: "faq" } },
-		{ params: { lang: "fr", slug: "get-involved" } },
 		{ params: { lang: "fr", slug: "platform" } },
-		{ params: { lang: "fr", slug: "vote" } },
 	];
 }
 
@@ -23,9 +19,7 @@ const pages: Record<string, typeof HomePage> = {
 	"": HomePage,
 	about: AboutPage,
 	faq: FAQPage,
-	"get-involved": GetInvolvedPage,
 	platform: PlatformPage,
-	vote: VotePage,
 };
 
 const Page = pages[slug];

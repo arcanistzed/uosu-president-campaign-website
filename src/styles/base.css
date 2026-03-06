@@ -144,8 +144,16 @@ ol {
 
 /* ── Selection ── */
 ::selection {
-	background: var(--brand-navy);
+	background: var(--brand-maroon);
 	color: var(--brand-white);
+}
+
+.poster-band ::selection,
+.poster-band::selection,
+.vote-banner ::selection,
+.vote-banner::selection {
+	background: var(--brand-lavender-light);
+	color: var(--brand-maroon);
 }
 
 /* ── Cloud background ── */
