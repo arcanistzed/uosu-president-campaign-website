@@ -1,20 +1,27 @@
 ---
+import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
 	<div class="footer-inner">
 		<p class="footer-text">
-			&copy; {year} Daniel Thorp. Campaign for UOSU President.
+			&copy; {year}
+			{t("footer.copyright")}
 		</p>
 		<div class="footer-links">
 			<a
 				href="https://instagram.com/daniel.thorp.seuo.uosu"
 				rel="noopener noreferrer"
-				aria-label="Instagram">Instagram</a
+				aria-label={t("footer.instagram")}>{t("footer.instagram")}</a
 			>
 			<span class="footer-sep" aria-hidden="true">·</span>
 			<a href="mailto:vote@danielthorp.com">vote@danielthorp.com</a>
+			<span class="footer-sep" aria-hidden="true">·</span>
+			<a href={localePath("/faq/", lang)}>{t("footer.faq")}</a>
 			<span class="footer-sep" aria-hidden="true">·</span>
 			<a href="https://danielthorp.com" rel="noopener noreferrer"
 				>danielthorp.com</a
@@ -25,7 +32,7 @@ const year = new Date().getFullYear();
 
 <style>
 	.site-footer {
-		border-top: 1px solid var(--color-border);
+		border-top: 1px solid color-mix(in srgb, var(--color-border) 90%, var(--color-text) 10%);
 		margin-top: var(--space-9);
 		padding: var(--space-6) var(--space-5);
 	}
@@ -52,7 +59,7 @@ const year = new Date().getFullYear();
 	}
 
 	.footer-text a:hover {
-		color: var(--color-text);
+		color: var(--color-accent);
 	}
 
 	.footer-links {
@@ -70,7 +77,7 @@ const year = new Date().getFullYear();
 	}
 
 	.footer-links a:hover {
-		color: var(--color-text);
+		color: var(--color-accent);
 	}
 
 	.footer-sep {

@@ -1,0 +1,181 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+
+interface FAQItem {
+	question: string;
+	answer: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const faqs = t<FAQItem[]>("pages.faq.items");
+---
+
+<Layout title={t("pages.faq.title")} description={t("pages.faq.description")}>
+	<section class="faq-page">
+		<div class="faq-header poster-band">
+			<h1>{t("pages.faq.heading")}</h1>
+			<p class="faq-lead">{t("pages.faq.lead")}</p>
+		</div>
+
+		<div class="faq-list">
+			{
+				faqs.map((faq, i) => (
+					<details class="faq-item" id={`faq-${i}`}>
+						<summary class="faq-question">{faq.question}</summary>
+						<div class="faq-answer">
+							<p>
+								{faq.answer}
+								{
+									i === 1 && (
+										<>
+											{" "}
+											<a href={localePath("/vote/", lang)}>{t("nav.vote")}</a>.
+										</>
+									)
+								}
+								{
+									i === 3 && (
+										<>
+											{" "}
+											<a href="mailto:vote@danielthorp.com?subject=I want to volunteer">
+												{t("buttons.volunteer")}
+											</a>{" "}
+											<a href={localePath("/get-involved/", lang)}>
+												{t("nav.getInvolved")}
+											</a>.
+										</>
+									)
+								}
+							</p>
+						</div>
+					</details>
+				))
+			}
+		</div>
+
+		<div class="ask-section poster-band">
+			<h2>{t("pages.faq.askHeading")}</h2>
+			<p>{t("pages.faq.askBody")}</p>
+			<a
+				href="mailto:vote@danielthorp.com?subject=Campaign Question"
+				class="btn btn-primary">{t("buttons.askQuestion")}</a
+			>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.faq-page {
+		max-width: var(--content-max);
+		margin: 0 auto;
+		padding: var(--space-8) var(--space-5) var(--space-9);
+	}
+
+	.faq-header {
+		margin-bottom: var(--space-8);
+	}
+
+	.faq-header h1 {
+		margin-bottom: var(--space-3);
+	}
+
+	.faq-lead {
+		font-size: 1.125rem;
+		color: var(--color-muted);
+		max-width: 56ch;
+		line-height: 1.6;
+	}
+
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+		margin-bottom: var(--space-8);
+	}
+
+	.faq-item {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-2);
+		overflow: hidden;
+		transition: border-color var(--dur-2) var(--ease-out);
+	}
+
+	.faq-item[open] {
+		border-color: var(--color-accent);
+	}
+
+	.faq-question {
+		padding: var(--space-4) var(--space-5);
+		font-weight: 600;
+		font-size: 1.0625rem;
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-3);
+	}
+
+	.faq-question::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-question::after {
+		content: "+";
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--color-accent);
+		flex-shrink: 0;
+		transition: transform var(--dur-fast) var(--ease-out);
+	}
+
+	.faq-item[open] .faq-question::after {
+		content: "-";
+	}
+
+	.faq-answer {
+		padding: 0 var(--space-5) var(--space-5);
+		font-size: 0.9375rem;
+		color: var(--color-muted);
+		line-height: 1.7;
+		max-width: 65ch;
+	}
+
+	.faq-answer a {
+		font-weight: 500;
+	}
+
+	.ask-section {
+		text-align: center;
+		padding: var(--space-6) var(--space-5);
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-2);
+	}
+
+	.ask-section h2 {
+		margin-bottom: var(--space-2);
+	}
+
+	.ask-section p {
+		color: var(--color-muted);
+		margin: 0 auto var(--space-5);
+	}
+
+	@media (max-width: 640px) {
+		.faq-page {
+			padding: var(--space-6) var(--space-4) var(--space-7);
+		}
+
+		.faq-question {
+			padding: var(--space-3) var(--space-4);
+		}
+
+		.faq-answer {
+			padding: 0 var(--space-4) var(--space-4);
+		}
+	}
+</style>

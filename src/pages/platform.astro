@@ -1,71 +1,257 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+
+interface PlatformPoint {
+	summary: string;
+	detail?: string;
+}
 
 interface PlatformSection {
 	id: string;
 	title: string;
 	icon: string;
-	points: string[];
+	intro?: string;
+	points: PlatformPoint[];
 }
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const platform: PlatformSection[] = [
 	{
-		id: "transparency",
-		title: "Transparency & Accountability",
-		icon: "📋",
+		id: "the-challenge",
+		title: "Building Real Advocacy Power",
+		icon: "⚡",
 		points: [
-			"Publish detailed budget breakdowns accessible to all students",
-			"Publish meeting agendas before meetings and minutes within one week",
-			"Create a public dashboard tracking campaign commitments and progress",
-			"Regular open forums where executives answer student questions directly",
+			{
+				summary: "Students are facing a cost-of-living crisis.",
+				detail: "Rent is rising. Groceries are more expensive. Tuition continues to increase. Government grants are shrinking. Transit costs continue to climb. Students are paying more every year while being asked to absorb the risk of structural economic changes. This is not a temporary problem. It is structural.",
+			},
+			{
+				summary: "Too often the student union reacts only after decisions have already been made.",
+				detail: "Instead of shaping decisions before they happen, we fight after the damage is done. We are constantly playing defense. That must change.",
+			},
+			{
+				summary: "UOSU should be one of the most powerful student organizations in Canada.",
+				detail: "Instead, we often operate without coordinated advocacy, without institutional strategy, and without the long-term infrastructure required to influence governments and institutions.",
+			},
+			{ summary: "My campaign is about building that permanent advocacy engine inside UOSU." },
+		],
+	},
+	{
+		id: "advocacy",
+		title: "Advocacy Power: Putting Students in the Room",
+		icon: "🏛️",
+		intro: "The student union should not simply react to decisions made by governments and universities. It should shape those decisions. As President, I will work to build a coordinated advocacy structure that allows the student union to engage with governments and institutions strategically.",
+		points: [
+			{ summary: "Ensuring student representatives are present in discussions at Queen's Park and Parliament Hill." },
+			{ summary: "Maintaining consistent pressure at City Hall on issues such as housing and transit." },
+			{ summary: "Convening and coordinating all student representatives serving on university governance bodies." },
+			{ summary: "Holding the University accountable for how funding is spent and how decisions affect students." },
+			{ summary: "Establishing dedicated government relations and policy research capacity within UOSU." },
+		],
+	},
+	{
+		id: "coalitions",
+		title: "Ending Isolationism",
+		icon: "🤝",
+		intro: "The University of Ottawa Students' Union is one of the largest student unions in Canada. We should act like it. Currently, UOSU operates largely independently from national and provincial student coalitions. That limits our leverage. Coalitions build influence. Scale builds credibility.",
+		points: [
+			{ summary: "Explore affiliation with the Ontario Undergraduate Student Alliance (OUSA)." },
+			{ summary: "Explore affiliation with the Canadian Alliance of Student Associations (CASA)." },
+			{ summary: "Advocate collectively on issues like student financial aid, tuition policy, housing, and public transit." },
+		],
+	},
+	{
+		id: "housing",
+		title: "Housing",
+		icon: "🏠",
+		intro: "Housing affordability is one of the most serious issues affecting students today. Rent in Ottawa has increased dramatically, and students often face limited housing options near campus. The student union must play an active role in advocating for solutions.",
+		points: [
+			{ summary: "Push the university to expand and maintain affordable residence options." },
+			{ summary: "Work with the City of Ottawa to prioritize the development of student housing near campus." },
+			{ summary: "Advocate for stronger protections against exploitative rental practices that disproportionately affect students." },
+		],
+	},
+	{
+		id: "transit",
+		title: "U-Pass and Transit",
+		icon: "🚌",
+		intro: "Public transit is essential for thousands of students who rely on OC Transpo to commute to campus. The U-Pass was originally negotiated in 2009–2010 with only a 20% discount — significantly smaller than discounts at other universities. Today, uOttawa students pay $234.80 per term, compared to $187.60 at UBC, $180.00 at the University of Alberta, $158.59 at Western, and $131.16 at Waterloo. Students collectively pay tens of millions of dollars into the transit system every year. If we are paying for it, it needs to work.",
+		points: [
+			{ summary: "Coordinate advocacy across Ottawa's universities and colleges." },
+			{ summary: "Demand accountability for unreliable transit service." },
+			{ summary: "Ensure students are actively represented in future transit negotiations." },
+		],
+	},
+	{
+		id: "financial-stewardship",
+		title: "Financial Responsibility and Stewardship",
+		icon: "💰",
+		points: [
+			{
+				summary: "As of April 30, 2025, UOSU held approximately $15.9 million in cash, including about $6.2 million in reserves — with no long-term investments in place.",
+			},
+			{
+				summary: "During a period when safe financial instruments were offering 4–5% returns, the union's reserves remained entirely in cash.",
+				detail: "At the beginning of the 2024 fiscal year, UOSU held roughly $6.5 million in reserves. If those funds had been invested prudently in low-risk instruments such as GICs earning approximately 4.75%, they could have generated nearly $300,000 in a single year. That revenue could have supported student services without increasing fees.",
+			},
+			{
+				summary: "Student union directors are legally considered trustees under Ontario's prudent investor standard.",
+				detail: "Under Ontario's prudent investor standard, trustees are expected to exercise care, diligence, and sound financial judgment when managing funds. Leaving millions of dollars in cash during a high-interest environment raises serious governance concerns.",
+			},
+		],
+	},
+	{
+		id: "financial-reform",
+		title: "Financial Reform Plan",
+		icon: "📋",
+		intro: "Within the first 90 days of my presidency, I will:",
+		points: [
+			{ summary: "Implement a formal investment policy for UOSU." },
+			{ summary: "Establish clear liquidity requirements and cash flow projections." },
+			{ summary: "Allocate reserves into laddered Government of Canada treasury bills, bonds, and GICs." },
+			{ summary: "Develop ethical screening criteria for future investment exposure." },
+			{ summary: "Publish quarterly financial transparency reports." },
+			{ summary: "Ensure monthly financial statements are published on time." },
+			{ summary: "Provide financial literacy and oversight training for Finance Committee members." },
+			{ summary: "Review existing student fees to ensure they are spent according to their approved purposes." },
+		],
+	},
+	{
+		id: "fee-accountability",
+		title: "Fee Accountability",
+		icon: "🔍",
+		points: [
+			{
+				summary: "Many student levies are approved through referendums with specific purposes.",
+			},
+			{
+				summary: "Roughly $1.5 million in core operations is currently funded through levies originally approved for different purposes.",
+				detail: "These include levies for health and wellness services, academic support, athletics, and student life programs. Students approved these fees under specific conditions. When funds are reallocated beyond those purposes, students deserve full transparency and democratic oversight.",
+			},
+			{
+				summary: "Ensure that fees are used in accordance with their original mandates and bring any necessary changes to referendum.",
+			},
+		],
+	},
+	{
+		id: "student-pub",
+		title: "Delivering the Student Pub",
+		icon: "🍺",
+		intro: "Students have been paying the pub levy for two years, yet the pub has not been built. The levy generates approximately $270,000 per year and has accumulated roughly $500,000 in reserves. UOSU already manages the Déjà-Vu space in the University Centre (UCU 230), which includes existing kitchen facilities, seating areas, and a stage. There is a more realistic path forward.",
+		points: [
+			{ summary: "Conduct a formal feasibility study." },
+			{ summary: "Work with the university to secure necessary approvals." },
+			{ summary: "Renovate the existing Déjà-Vu space where necessary." },
+			{ summary: "Obtain the required liquor licence." },
+			{ summary: "Develop a sustainable operational model." },
+		],
+	},
+	{
+		id: "clubs",
+		title: "Clubs and Campus Life",
+		icon: "🎭",
+		intro: "Student clubs are one of the most important parts of campus life. However, many clubs face barriers simply trying to organize events — room booking systems are slow and bureaucratic, artificial limits exist on booking credentials, and clubs sometimes wait weeks for approval. Much of this stems from outdated administrative tools.",
+		points: [
+			{ summary: "Modernize the room booking system by integrating it directly into the UOSU portal." },
+			{ summary: "Reduce administrative workload and speed up booking approvals." },
+			{ summary: "Remove artificial credential caps." },
+			{ summary: "Improve visibility over campus events." },
+		],
+	},
+	{
+		id: "rsgs",
+		title: "Supporting Recognized Student Governments",
+		icon: "🎓",
+		intro: "Recognized Student Governments represent the unique cultures and traditions of each faculty. The role of UOSU should not be to micromanage them — it should act as an administrative backbone that strengthens their capacity.",
+		points: [
+			{ summary: "Organize regular consultation roundtables with RSG leaders." },
+			{ summary: "Maintain availability for one-on-one meetings." },
+			{ summary: "Provide governance training for student leaders." },
+			{ summary: "Provide audit training and financial oversight support." },
+			{ summary: "Assist incorporated RSGs with legal compliance." },
+			{ summary: "Offer translation services for constitutions and governance documents." },
+		],
+	},
+	{
+		id: "101-week",
+		title: "101 Week",
+		icon: "🎉",
+		intro: "101 Week is one of the most important traditions for welcoming new students. The role of the student union should be to support RSGs while ensuring safety and accessibility.",
+		points: [
+			{ summary: "Keep participation costs as low as possible." },
+			{ summary: "Subsidize participation for students facing financial barriers." },
+			{ summary: "Simplify the 101 Week Code to ensure it is clear and consistently applied." },
+			{ summary: "Improve logistics and planning for large events." },
+			{ summary: "Reduce waste and improve sustainability." },
+		],
+	},
+	{
+		id: "francophonie",
+		title: "Francophonie",
+		icon: "🇫🇷",
+		intro: "French is the first language I spoke. I grew up in Quebec and later attended francophone elementary and secondary schools in Ottawa. I understand the linguistic pressures francophone students face on campus. I continue to actively maintain my French, including by taking courses in French even though my academic program is primarily offered in English.",
+		points: [
+			{ summary: "Hold Executive Committee meetings in French when possible." },
+			{ summary: "Explore simultaneous interpretation for Board meetings." },
+			{ summary: "Strengthen support for the Francophone Affairs Commissioner." },
+			{ summary: "Ensure all staff are trained to provide active offer of services in French." },
+			{ summary: "Ensure French communications are idiomatic and of equal quality to English communications." },
+			{ summary: "Encourage francophone and bilingual clubs and initiatives." },
+			{ summary: "Advocate for the maintenance and expansion of French-language courses, including summer courses." },
 		],
 	},
 	{
 		id: "governance",
 		title: "Governance Reform",
-		icon: "🏛️",
+		icon: "⚖️",
+		intro: "A student union must operate democratically and transparently. Too many decisions today are made behind closed doors or are difficult for students to access.",
 		points: [
-			"Review and simplify union bylaws to make them understandable",
-			"Establish clear conflict-of-interest policies for all executives",
-			"Ensure proper oversight mechanisms are in place and enforced",
-			"Advocate for independent auditing of student union finances",
+			{ summary: "Ensure public documents are easily accessible." },
+			{ summary: "End unnecessary closed-door decision-making." },
+			{ summary: "Hold regular town halls and open forums." },
+			{ summary: "Create accessible mechanisms for students to participate in governance discussions." },
 		],
 	},
 	{
-		id: "representation",
-		title: "Real Representation",
-		icon: "🤝",
+		id: "student-democracy",
+		title: "Protecting Student Democracy",
+		icon: "🗳️",
+		intro: "Students deserve real procedural protections. I support restoring stronger procedural recourse for students and ensuring members can challenge decisions when necessary.",
 		points: [
-			"Meaningful consultation before major decisions, not after",
-			"Strengthen faculty-level representation within the union",
-			"Ensure diverse student voices are part of policy discussions",
-			"Regular check-ins with student groups across campus",
+			{ summary: "Re-establish a student judicial mechanism." },
+			{ summary: "Ensure elected representatives can speak freely." },
+			{ summary: "Protect democratic participation within the union." },
 		],
 	},
 	{
-		id: "services",
-		title: "Student Services",
-		icon: "💡",
+		id: "leadership",
+		title: "Leadership and Accountability",
+		icon: "👤",
+		intro: "Leadership means accountability. Throughout my work in student organizations, I have pushed for stronger transparency and governance.",
 		points: [
-			"Improve the student health plan — better coverage, clearer information",
-			"Strengthen academic advocacy for students navigating university processes",
-			"Make campus resources easier to find and access",
-			"Evaluate existing services and cut what isn't working",
+			{ summary: "Managed nonprofit budgets." },
+			{ summary: "Built financial oversight tools." },
+			{ summary: "Raised concerns about financial governance." },
+			{ summary: "Advocated for stronger transparency in student institutions." },
+			{
+				summary: "I have also made mistakes and taken responsibility for them.",
+				detail: "Leadership is not about pretending to be perfect. It is about accountability, transparency, and growth.",
+			},
 		],
 	},
 ];
 ---
 
 <Layout
-	title="Platform"
-	description="Daniel Thorp's platform for UOSU President — transparency, governance reform, real representation, and better student services."
+	title={t("pages.platform.title")}
+	description={t("pages.platform.description")}
 >
 	<section class="platform-page">
-		<div class="platform-header">
-			<h1>Platform</h1>
-			<p class="platform-lead">
-				Specific commitments. Measurable outcomes. Accountable leadership.
-			</p>
+		<div class="platform-header poster-band">
+			<h1>{t("pages.platform.heading")}</h1>
+			<p class="platform-lead">{t("pages.platform.lead")}</p>
 		</div>
 
 		{
@@ -81,17 +267,46 @@ const platform: PlatformSection[] = [
 						</span>
 						{section.title}
 					</h2>
+					{section.intro && <p class="section-intro">{section.intro}</p>}
 					<ul class="platform-list">
-						{section.points.map(point => (
-							<li>{point}</li>
-						))}
+						{section.points.map(point =>
+							point.detail ? (
+								<li>
+									<details class="point-details">
+										<summary>{point.summary}</summary>
+										<p class="point-detail">
+											{point.detail}
+										</p>
+									</details>
+								</li>
+							) : (
+								<li>{point.summary}</li>
+							),
+						)}
 					</ul>
 				</article>
 			))
 		}
 
-		<section class="platform-cta" aria-label="Back to top">
-			<a href="/" class="btn btn-primary">← Back to Home</a>
+		<section
+			class="suggest-section poster-band"
+			aria-label={t("pages.platform.suggestAria")}
+		>
+			<h2>{t("pages.platform.suggestHeading")}</h2>
+			<p>{t("pages.platform.suggestBody")}</p>
+			<a
+				href="mailto:vote@danielthorp.com?subject=Platform Idea"
+				class="btn btn-secondary">{t("buttons.suggestIdea")}</a
+			>
+		</section>
+
+		<section
+			class="platform-cta poster-band"
+			aria-label={t("pages.platform.backTopAria")}
+		>
+			<a href={localePath("/", lang)} class="btn btn-primary"
+				>{t("buttons.backHome")}</a
+			>
 		</section>
 	</section>
 </Layout>
@@ -135,6 +350,13 @@ const platform: PlatformSection[] = [
 		margin-bottom: var(--space-4);
 	}
 
+	.section-intro {
+		margin-bottom: var(--space-4);
+		color: var(--color-muted);
+		line-height: 1.7;
+		max-width: 60ch;
+	}
+
 	.section-icon {
 		font-size: 1.5rem;
 	}
@@ -156,37 +378,63 @@ const platform: PlatformSection[] = [
 		color: var(--color-accent);
 	}
 
+	.point-details {
+		cursor: pointer;
+	}
+
+	.point-details summary {
+		list-style: none;
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-2);
+	}
+
+	.point-details summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.point-details summary::after {
+		content: "▸";
+		font-size: 0.75rem;
+		color: var(--color-accent);
+		transition: transform var(--dur-fast) var(--ease-out);
+		flex-shrink: 0;
+	}
+
+	.point-details[open] summary::after {
+		transform: rotate(90deg);
+	}
+
+	.point-detail {
+		margin-top: var(--space-2);
+		font-size: 0.875rem;
+		color: var(--color-muted);
+		line-height: 1.7;
+		padding-left: 0;
+		max-width: 58ch;
+	}
+
+	.suggest-section {
+		text-align: center;
+		padding: var(--space-6) var(--space-5);
+		margin-bottom: var(--space-7);
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-2);
+	}
+
+	.suggest-section h2 {
+		margin-bottom: var(--space-2);
+	}
+
+	.suggest-section p {
+		color: var(--color-muted);
+		margin: 0 auto var(--space-5);
+	}
+
 	.platform-cta {
 		text-align: center;
 		padding-top: var(--space-6);
-	}
-
-	/* Reuse btn styles */
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		padding: var(--space-3) var(--space-5);
-		font-size: 0.9375rem;
-		font-weight: 600;
-		border-radius: var(--radius-1);
-		text-decoration: none;
-		transition:
-			background var(--dur-fast) var(--ease-out),
-			color var(--dur-fast) var(--ease-out);
-	}
-
-	.btn:hover {
-		text-decoration: none;
-	}
-
-	.btn-primary {
-		background: var(--color-accent);
-		color: #fff;
-	}
-
-	.btn-primary:hover {
-		background: var(--color-accent-hover);
-		color: #fff;
 	}
 
 	@media (max-width: 640px) {

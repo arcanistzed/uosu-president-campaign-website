@@ -4,45 +4,52 @@ import Footer from "../components/Footer.astro";
 import VoteBanner from "../components/VoteBanner.astro";
 import "../styles/tokens.css";
 import "../styles/base.css";
+import {
+	getLangFromUrl,
+	switchLangPath,
+	useTranslations,
+} from "../i18n/utils";
 
 interface Props {
 	title?: string;
 	description?: string;
 }
 
-const {
-	title = "Vote Daniel Thorp — UOSU President",
-	description = "Daniel Thorp is running for President of the University of Ottawa Students' Union. Learn about his platform and vision for students.",
-} = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
-const canonicalURL = new URL(
-	Astro.url.pathname,
-	"https://vote.danielthorp.com",
-);
+const defaultTitle = t<string>("layout.defaultTitle");
+const defaultDescription = t<string>("layout.defaultDescription");
+
+const { title = defaultTitle, description = defaultDescription } = Astro.props;
+
+const canonicalURL = Astro.url;
 const pageTitle =
-	title === "Vote Daniel Thorp — UOSU President"
-		? title
-		: `${title} · Vote Daniel Thorp`;
+	title === defaultTitle ? title : `${title} · ${t<string>("layout.titleSuffix")}`;
+
+const alternatePath = switchLangPath(Astro.url.pathname, lang);
+const alternateURL = new URL(alternatePath, "https://vote.danielthorp.com");
+const alternateLang = lang === "en" ? "fr" : "en";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
-		<meta name="author" content="Daniel Thorp" />
+		<meta name="author" content={t("layout.author")} />
 		<meta name="generator" content={Astro.generator} />
 
 		<link rel="canonical" href={canonicalURL} />
+		<link rel="alternate" hreflang={alternateLang} href={alternateURL} />
+		<link rel="alternate" hreflang={lang} href={canonicalURL} />
 
-		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={description} />
-		<meta property="og:site_name" content="Vote Daniel Thorp" />
-		<!-- TODO: Replace with actual OG image once designed (1200×630px) -->
+		<meta property="og:site_name" content={t("layout.ogSiteName")} />
 		<meta
 			property="og:image"
 			content="https://vote.danielthorp.com/og-image.png"
@@ -50,7 +57,6 @@ const pageTitle =
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 
-		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={description} />
@@ -61,7 +67,20 @@ const pageTitle =
 
 		<link rel="manifest" href="/manifest.json" />
 
-		<!-- Fonts -->
+		<link
+			rel="preload"
+			href="/fonts/Garet-Book.woff"
+			as="font"
+			type="font/woff"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/Garet-Heavy.woff"
+			as="font"
+			type="font/woff"
+			crossorigin
+		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -69,7 +88,20 @@ const pageTitle =
 			rel="stylesheet"
 		/>
 
-		<!-- Favicon — TODO: Replace with actual favicon assets -->
+		<script
+			is:inline
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-PL71KBEP9H"
+		></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-PL71KBEP9H");
+		</script>
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link
 			rel="icon"
@@ -83,10 +115,9 @@ const pageTitle =
 			href="/apple-touch-icon.png"
 		/>
 
-		<!-- Theme color -->
 		<meta
 			name="theme-color"
-			content="#1a1840"
+			content="#9f9cd8"
 			media="(prefers-color-scheme: dark)"
 		/>
 		<meta
@@ -100,7 +131,7 @@ const pageTitle =
 
 	<body>
 		<div class="cloud-bg" aria-hidden="true"></div>
-		<a href="#content" class="skip-link">Skip to content</a>
+		<a href="#content" class="skip-link">{t("layout.skipToContent")}</a>
 		<VoteBanner />
 		<Header />
 		<main id="content">

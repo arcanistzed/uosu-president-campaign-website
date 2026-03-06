@@ -1,9 +1,8 @@
 /*
  * Design Tokens — vote.danielthorp.com
  *
- * Campaign color palette: lavender purple + deep navy.
- * Approachable, confident, and distinctly branded.
- * Brand colors: #292752 (deep navy), #9f9cd8 (lavender), #b4c4f7 (light blue).
+ * Campaign color palette: lavender + maroon + navy.
+ * Brand colors: #9f9cd8, #560216, #292752, #b4c4f6, #ffffff.
  *
  * Fonts: Garet (sans), Yeseva One (display serif), Glacial Indifference (body alt).
  * Garet & Glacial Indifference require font files in /public/fonts/.
@@ -11,18 +10,28 @@
  */
 
 :root {
-	color-scheme: light dark;
+	color-scheme: light;
 
-	/* ── Colors (brand purple theme — default) ── */
-	--color-bg: #9f9cd8;
-	--color-surface: rgba(255, 255, 255, 0.18);
-	--color-text: #292752;
-	--color-muted: rgba(41, 39, 82, 0.6);
-	--color-accent: #292752;
-	--color-accent-hover: #1a1840;
-	--color-accent-soft: rgba(41, 39, 82, 0.08);
-	--color-banner: #292752;
-	--color-border: rgba(41, 39, 82, 0.15);
+	/* ── Brand primitives ── */
+	--brand-lavender: #9f9cd8;
+	--brand-maroon: #560216;
+	--brand-navy: #292752;
+	--brand-lavender-light: #b4c4f6;
+	--brand-white: #ffffff;
+
+	/* ── Semantic colors (light) ── */
+	--color-bg: var(--brand-lavender);
+	--color-surface: rgba(255, 255, 255, 0.2);
+	--color-text: var(--brand-maroon);
+	--color-muted: rgba(86, 2, 22, 0.86);
+	--color-accent: var(--brand-navy);
+	--color-accent-hover: #1f1d46;
+	--color-accent-soft: rgba(86, 2, 22, 0.1);
+	--color-banner: var(--brand-maroon);
+	--color-border: rgba(86, 2, 22, 0.22);
+	--color-on-accent: var(--brand-white);
+	--color-on-banner: var(--brand-white);
+	--color-band-text: var(--brand-lavender-light);
 
 	/* ── Typography ── */
 	--font-sans:
@@ -63,14 +72,18 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-bg: #1a1840;
-		--color-surface: rgba(180, 196, 247, 0.08);
-		--color-text: #e1ebf5;
-		--color-muted: #b4c4f7;
-		--color-accent: #5b52e0;
-		--color-accent-hover: #7c6ef0;
-		--color-accent-soft: rgba(91, 82, 224, 0.12);
-		--color-banner: #292752;
-		--color-border: rgba(180, 196, 247, 0.12);
+		/* Keep campaign visuals consistent with printed/social materials. */
+		--color-bg: var(--brand-lavender);
+		--color-surface: rgba(255, 255, 255, 0.2);
+		--color-text: var(--brand-maroon);
+		--color-muted: rgba(86, 2, 22, 0.86);
+		--color-accent: var(--brand-navy);
+		--color-accent-hover: #1f1d46;
+		--color-accent-soft: rgba(86, 2, 22, 0.1);
+		--color-banner: var(--brand-maroon);
+		--color-border: rgba(86, 2, 22, 0.22);
+		--color-on-accent: var(--brand-white);
+		--color-on-banner: var(--brand-white);
+		--color-band-text: var(--brand-lavender-light);
 	}
 }

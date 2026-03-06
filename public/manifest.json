@@ -3,7 +3,7 @@
 	"short_name": "Vote Daniel",
 	"start_url": "/",
 	"display": "standalone",
-	"background_color": "#0f172a",
-	"theme_color": "#0f172a",
+	"background_color": "#9f9cd8",
+	"theme_color": "#292752",
 	"icons": []
 }

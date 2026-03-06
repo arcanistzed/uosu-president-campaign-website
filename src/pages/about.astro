@@ -1,298 +1,66 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+
+interface AboutRole {
+	title: string;
+	period: string;
+	points?: string[];
+	summary?: string;
+}
+
+interface AboutSection {
+	id: string;
+	icon: string;
+	title: string;
+	intro?: string;
+	roles: AboutRole[];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const sections = t<AboutSection[]>("pages.about.sections");
 ---
 
-<Layout
-	title="About Daniel"
-	description="Learn about Daniel Thorp — his experience in student governance, campus leadership, and why he's running for UOSU President."
->
+<Layout title={t("pages.about.title")} description={t("pages.about.description")}>
 	<section class="about-page">
-		<div class="about-header">
-			<h1>About Daniel</h1>
-			<p class="about-lead">
-				Bilingual Software Engineering (CO-OP) student at the University
-				of Ottawa with deep experience in student governance, nonprofit
-				leadership, campus advocacy, and operational delivery.
-			</p>
+		<div class="about-header poster-band">
+			<h1>{t("pages.about.heading")}</h1>
+			<p class="about-lead">{t("pages.about.lead")}</p>
 		</div>
 
-		<!-- By the Numbers -->
-		<div class="highlights-box" aria-label="Experience highlights">
-			<h2 class="sr-only">By the Numbers</h2>
-			<ul class="highlights-grid" role="list">
-				<li class="highlight-item">
-					<span class="highlight-stat">UOSU Director & Executive</span
-					>
-					<span class="highlight-label"
-						>Served on both sides of union governance</span
-					>
-				</li>
-				<li class="highlight-item">
-					<span class="highlight-stat">Built the Voting Portal</span>
-					<span class="highlight-label"
-						>Still in use for UOSU elections today</span
-					>
-				</li>
-				<li class="highlight-item">
-					<span class="highlight-stat">4 Boards Chaired</span>
-					<span class="highlight-label"
-						>Across student and nonprofit organizations</span
-					>
-				</li>
-				<li class="highlight-item">
-					<span class="highlight-stat">826-Person Hackathon</span>
-					<span class="highlight-label"
-						>With $95K+ in sponsorship secured</span
-					>
-				</li>
-				<li class="highlight-item">
-					<span class="highlight-stat">$400K+ Allocated</span>
-					<span class="highlight-label"
-						>In engineering student funding decisions</span
-					>
-				</li>
-				<li class="highlight-item">
-					<span class="highlight-stat">7 Clubs + ESS + UOSU</span>
-					<span class="highlight-label"
-						>Unmatched depth of student leadership</span
-					>
-				</li>
-			</ul>
-		</div>
+		{
+			sections.map(section => (
+				<article class="about-section" id={section.id}>
+					<h2>
+						<span class="section-icon" aria-hidden="true">{section.icon}</span>
+						{section.title}
+					</h2>
+					{section.intro && <p class="section-intro">{section.intro}</p>}
 
-		<!-- UOSU Experience -->
-		<article class="about-section" id="uosu">
-			<h2>
-				<span class="section-icon" aria-hidden="true">🏛️</span>
-				UOSU Experience
-			</h2>
-			<p class="section-intro">
-				I've served the Students' Union as both an elected Board
-				Director and an Executive Officer — giving me a perspective most
-				candidates simply don't have.
-			</p>
+					{section.roles.map(role => (
+						<div class="role-card">
+							<h3>{role.title}</h3>
+							<p class="role-period">{role.period}</p>
+							{role.points && (
+								<ul class="role-points">
+									{role.points.map(point => <li>{point}</li>)}
+								</ul>
+							)}
+							{role.summary && <p class="role-summary">{role.summary}</p>}
+						</div>
+					))}
+				</article>
+			))
+		}
 
-			<div class="role-card">
-				<h3>Communications Commissioner (Executive)</h3>
-				<p class="role-period">Nov 2023 – Apr 2024</p>
-				<ul class="role-points">
-					<li>
-						Directed multi-channel communications for 40,000+
-						students across social media, newsletters, website, and
-						physical outreach
-					</li>
-					<li>
-						Led the 2024 General Elections: introduced in-person
-						voting, resolved email delivery issues with University
-						IT, and built a real-time turnout tracker
-					</li>
-					<li>
-						Designed and deployed the election voting portal
-						(Next.js + Microsoft Entra ID + ElectionBuddy) that's
-						still in use today
-					</li>
-					<li>
-						Chaired the hiring of UOSU's first Ombudsperson and
-						drafted the Workplace Violence Prevention Policy
-					</li>
-					<li>
-						Authored policy on union advocacy statements and ran
-						public consultations and town halls
-					</li>
-					<li>
-						Coordinated with Student Affairs, University IT, and
-						Facilities to align communications and operations
-					</li>
-					<li>
-						Conducted accessibility reviews with the Centre for
-						Students with Disabilities / Access Service
-					</li>
-				</ul>
-			</div>
-
-			<div class="role-card">
-				<h3>Information Technology Consultant</h3>
-				<p class="role-period">Jun – Aug 2024</p>
-				<ul class="role-points">
-					<li>
-						Administered Microsoft 365 and maintained the UOSU
-						website for accurate student-facing information
-					</li>
-					<li>
-						Recruited and onboarded IT and Web staff, including job
-						descriptions, interviews, and hiring recommendations
-					</li>
-				</ul>
-			</div>
-
-			<div class="role-card">
-				<h3>Engineering Director (Elected)</h3>
-				<p class="role-period">May – Aug 2023</p>
-				<ul class="role-points">
-					<li>
-						Elected to represent engineering students on the UOSU
-						Board of Directors (~40,000 members)
-					</li>
-					<li>
-						Led policy and bylaw reforms adopted by the Board and
-						chaired an ad hoc committee
-					</li>
-					<li>
-						Received corporate governance and fiduciary duty
-						training from external legal counsel
-					</li>
-				</ul>
-			</div>
-		</article>
-
-		<!-- Campus Governance -->
-		<article class="about-section" id="governance">
-			<h2>
-				<span class="section-icon" aria-hidden="true">⚖️</span>
-				Campus Governance
-			</h2>
-			<p class="section-intro">
-				I've chaired boards, drafted policy, and helped allocate real
-				money — the same skills the UOSU President needs every day.
-			</p>
-
-			<div class="role-card">
-				<h3>VP Internal — Engineering Students' Society</h3>
-				<p class="role-period">May – Sep 2025</p>
-				<ul class="role-points">
-					<li>
-						Oversaw governance and compliance of ESS
-						sub-associations
-					</li>
-					<li>
-						Advocated to Faculty leadership on student issues
-						including space, student experience, and institutional
-						decision-making
-					</li>
-				</ul>
-			</div>
-
-			<div class="role-card">
-				<h3>Chair of the Board — Engineering Students' Society</h3>
-				<p class="role-period">May 2024 – Apr 2025</p>
-				<ul class="role-points">
-					<li>
-						Presided over board meetings using Robert's Rules of
-						Order, ensuring procedural clarity
-					</li>
-					<li>
-						Led governance modernization — improved meeting process,
-						documentation, and compliance expectations
-					</li>
-					<li>
-						Created the Society's first centralized executive
-						accountability tracking system
-					</li>
-				</ul>
-			</div>
-
-			<div class="role-card">
-				<h3>
-					Chair of the Board — Canadian Federation of Engineering
-					Students
-				</h3>
-				<p class="role-period">May – Aug 2024</p>
-				<ul class="role-points">
-					<li>
-						Chaired a national board, ensuring compliance with
-						organizational policies and governing documents
-					</li>
-					<li>
-						Organized CFES's first Online Seasonal Updates Meeting
-						and created bilingual agenda templates
-					</li>
-				</ul>
-			</div>
-
-			<div class="role-card">
-				<h3>Committee Member — Engineering Endowment Fund</h3>
-				<p class="role-period">May 2023 – Winter 2025</p>
-				<ul class="role-points">
-					<li>
-						40+ hours of deliberation evaluating proposals and
-						budgets for student engineering initiatives
-					</li>
-					<li>
-						Helped allocate over $400,000 to academic, technical,
-						and student-run initiatives
-					</li>
-				</ul>
-			</div>
-		</article>
-
-		<!-- Community & Nonprofit Leadership -->
-		<article class="about-section" id="community">
-			<h2>
-				<span class="section-icon" aria-hidden="true">🌍</span>
-				Community & Nonprofit Leadership
-			</h2>
-
-			<div class="role-card">
-				<h3>Capital Technology Network / Hack the Hill</h3>
-				<p class="role-period">Nov 2022 – Present</p>
-				<p class="role-summary">
-					Led the incorporation of a youth tech nonprofit. Planned and
-					executed Hack the Hill II — 826 participants, 113 projects,
-					and over $95,000 in sponsorship. Currently serving as Chair
-					of the Board.
-				</p>
-			</div>
-
-			<div class="role-card">
-				<h3>Board Member — OpenMedia</h3>
-				<p class="role-period">Sep 2025 – Present</p>
-				<p class="role-summary">
-					Governance, financial oversight, and HR for a national
-					nonprofit advocating for digital rights, privacy, and an
-					open internet.
-				</p>
-			</div>
-
-			<div class="role-card">
-				<h3>President & Co-Founder — uOttawa Legal Hackers</h3>
-				<p class="role-period">Oct 2024 – Present</p>
-				<p class="role-summary">
-					Founded a student organization at the intersection of law,
-					technology, and public policy. Organized events on digital
-					rights, AI, and emerging policy issues.
-				</p>
-			</div>
-
-			<div class="role-card compact">
-				<h3>Writer — Student Affairs, University of Ottawa</h3>
-				<p class="role-period">Jan 2026 – Present</p>
-				<p class="role-summary">
-					Contributes to the uOttawa student newsletter and maintains
-					student-facing web content on Drupal.
-				</p>
-			</div>
-		</article>
-
-		<!-- Education -->
-		<article class="about-section" id="education">
-			<h2>
-				<span class="section-icon" aria-hidden="true">🎓</span>
-				Education
-			</h2>
-			<div class="role-card">
-				<h3>University of Ottawa</h3>
-				<p class="role-period">Sep 2022 – Apr 2027 (expected)</p>
-				<p class="role-summary">
-					Bachelor of Applied Science, Software Engineering (CO-OP).
-					Bilingual (English/French).
-				</p>
-			</div>
-		</article>
-
-		<!-- CTA -->
-		<div class="about-cta">
-			<a href="/platform/" class="btn btn-primary">Read the Platform →</a>
-			<a href="/vote/" class="btn btn-secondary">How to Vote →</a>
+		<div class="about-cta poster-band">
+			<a href={localePath("/platform/", lang)} class="btn btn-primary"
+				>{t("buttons.readPlatform")}</a
+			>
+			<a href={localePath("/vote/", lang)} class="btn btn-secondary"
+				>{t("buttons.howToVote")}</a
+			>
 		</div>
 	</section>
 </Layout>
@@ -319,55 +87,6 @@ import Layout from "../layouts/Layout.astro";
 		line-height: 1.6;
 	}
 
-	/* ── Highlights box ── */
-	.highlights-box {
-		margin-bottom: var(--space-8);
-		padding: var(--space-5);
-		background: var(--color-accent-soft);
-		border: 1px solid var(--color-accent);
-		border-radius: var(--radius-2);
-	}
-
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border-width: 0;
-	}
-
-	.highlights-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-		gap: var(--space-4);
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.highlight-item {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-1);
-	}
-
-	.highlight-stat {
-		font-weight: 700;
-		font-size: 1rem;
-		color: var(--color-text);
-	}
-
-	.highlight-label {
-		font-size: 0.8125rem;
-		color: var(--color-muted);
-		line-height: 1.4;
-	}
-
-	/* ── About sections ── */
 	.about-section {
 		margin-bottom: var(--space-8);
 		padding-bottom: var(--space-7);
@@ -397,7 +116,6 @@ import Layout from "../layouts/Layout.astro";
 		margin-bottom: var(--space-5);
 	}
 
-	/* ── Role cards ── */
 	.role-card {
 		margin-bottom: var(--space-5);
 		padding: var(--space-4) var(--space-5);
@@ -447,51 +165,12 @@ import Layout from "../layouts/Layout.astro";
 		color: var(--color-accent);
 	}
 
-	/* ── CTA ── */
 	.about-cta {
 		display: flex;
 		gap: var(--space-3);
 		justify-content: center;
 		flex-wrap: wrap;
 		padding-top: var(--space-6);
-	}
-
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		padding: var(--space-3) var(--space-5);
-		font-size: 0.9375rem;
-		font-weight: 600;
-		border-radius: var(--radius-1);
-		text-decoration: none;
-		transition:
-			background var(--dur-fast) var(--ease-out),
-			color var(--dur-fast) var(--ease-out);
-	}
-
-	.btn:hover {
-		text-decoration: none;
-	}
-
-	.btn-primary {
-		background: var(--color-accent);
-		color: #fff;
-	}
-
-	.btn-primary:hover {
-		background: var(--color-accent-hover);
-		color: #fff;
-	}
-
-	.btn-secondary {
-		background: var(--color-surface);
-		color: var(--color-text);
-		border: 1px solid var(--color-border);
-	}
-
-	.btn-secondary:hover {
-		border-color: var(--color-muted);
-		color: var(--color-text);
 	}
 
 	@media (max-width: 640px) {

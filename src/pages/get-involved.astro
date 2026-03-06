@@ -1,89 +1,85 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+
+interface InvolvedCard {
+	icon: string;
+	title: string;
+	body: string;
+	cta?: string;
+}
+
+interface ContactItem {
+	label: string;
+	value: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const cards = t<InvolvedCard[]>("pages.getInvolved.cards");
+const contacts = t<ContactItem[]>("pages.getInvolved.contacts");
 ---
 
-<Layout
-	title="Get Involved"
-	description="Support Daniel Thorp's campaign for UOSU President. Volunteer, connect on social media, or get in touch."
->
+<Layout title={t("pages.getInvolved.title")} description={t("pages.getInvolved.description")}>
 	<section class="involve-page">
-		<div class="involve-header">
-			<h1>Get Involved</h1>
-			<p class="involve-lead">
-				This campaign is about students showing up for students. Here's
-				how you can help.
-			</p>
+		<div class="involve-header poster-band">
+			<h1>{t("pages.getInvolved.heading")}</h1>
+			<p class="involve-lead">{t("pages.getInvolved.lead")}</p>
 		</div>
 
-		<!-- Ways to help -->
 		<div class="ways-grid">
-			<article class="way-card">
-				<span class="way-icon" aria-hidden="true">📣</span>
-				<h2>Spread the Word</h2>
-				<p>
-					Tell your friends, classmates, and group chats. Share the
-					website. The most effective campaign tool is a personal
-					recommendation from someone they trust.
-				</p>
-			</article>
-
-			<article class="way-card">
-				<span class="way-icon" aria-hidden="true">🤝</span>
-				<h2>Volunteer</h2>
-				<p>
-					Want to help with campaigning, tabling, or outreach? Reach
-					out — every bit of support makes a difference.
-				</p>
-				<a
-					href="mailto:vote@danielthorp.com?subject=I want to volunteer"
-					class="btn btn-primary">Sign Up to Volunteer →</a
-				>
-			</article>
-
-			<article class="way-card">
-				<span class="way-icon" aria-hidden="true">🗳️</span>
-				<h2>Vote March 2–6</h2>
-				<p>
-					The single most important thing you can do. It takes a few
-					minutes and it matters.
-				</p>
-				<a href="/vote/" class="btn btn-secondary">How to Vote →</a>
-			</article>
+			{
+				cards.map((card, i) => (
+					<article class="way-card">
+						<span class="way-icon" aria-hidden="true">{card.icon}</span>
+						<h2>{card.title}</h2>
+						<p>{card.body}</p>
+						{
+							i === 1 && (
+								<a
+									href="mailto:vote@danielthorp.com?subject=I want to volunteer"
+									class="btn btn-primary">{card.cta}</a
+								>
+							)
+						}
+						{
+							i === 2 && (
+								<a href={localePath("/vote/", lang)} class="btn btn-secondary"
+									>{card.cta}</a
+								>
+							)
+						}
+					</article>
+				))
+			}
 		</div>
 
-		<!-- Contact -->
-		<div class="contact-section">
-			<h2>Get in Touch</h2>
+		<div class="contact-section poster-band">
+			<h2>{t("pages.getInvolved.contactHeading")}</h2>
 			<div class="contact-grid">
-				<div class="contact-item">
-					<h3>Email</h3>
-					<a href="mailto:vote@danielthorp.com"
-						>vote@danielthorp.com</a
-					>
-				</div>
-				<div class="contact-item">
-					<h3>Instagram</h3>
-					<a
-						href="https://instagram.com/daniel.thorp.seuo.uosu"
-						rel="noopener noreferrer">@daniel.thorp.seuo.uosu</a
-					>
-				</div>
-				<div class="contact-item">
-					<h3>Website</h3>
-					<a href="https://danielthorp.com" rel="noopener noreferrer"
-						>danielthorp.com</a
-					>
-				</div>
+				{contacts.map((item, i) => (
+					<div class="contact-item">
+						<h3>{item.label}</h3>
+						{
+							i === 0 && <a href="mailto:vote@danielthorp.com">{item.value}</a>
+						}
+						{
+							i === 1 && (
+								<a
+									href="https://instagram.com/daniel.thorp.seuo.uosu"
+									rel="noopener noreferrer">{item.value}</a
+								>
+							)
+						}
+						{
+							i === 2 && (
+								<a href="https://danielthorp.com" rel="noopener noreferrer">{item.value}</a>
+							)
+						}
+					</div>
+				))}
 			</div>
-		</div>
-
-		<!-- No donations note -->
-		<div class="note-section">
-			<p>
-				<strong>Note:</strong> No financial donations are accepted or allowed
-				for UOSU elections. The best way to contribute is your time, your
-				voice, and your vote.
-			</p>
 		</div>
 	</section>
 </Layout>
@@ -110,7 +106,6 @@ import Layout from "../layouts/Layout.astro";
 		line-height: 1.6;
 	}
 
-	/* ── Ways grid ── */
 	.ways-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
@@ -143,11 +138,15 @@ import Layout from "../layouts/Layout.astro";
 		flex: 1;
 	}
 
-	/* ── Contact ── */
 	.contact-section {
 		margin-bottom: var(--space-7);
 		padding-bottom: var(--space-7);
 		border-bottom: 1px solid var(--color-border);
+	}
+
+	.contact-section.poster-band {
+		padding: var(--space-6) var(--space-5);
+		border-bottom: none;
 	}
 
 	.contact-section h2 {
@@ -172,60 +171,6 @@ import Layout from "../layouts/Layout.astro";
 	.contact-item a {
 		font-size: 1rem;
 		word-break: break-all;
-	}
-
-	/* ── Note ── */
-	.note-section {
-		padding: var(--space-4) var(--space-5);
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-2);
-	}
-
-	.note-section p {
-		font-size: 0.9375rem;
-		color: var(--color-muted);
-		line-height: 1.65;
-	}
-
-	/* ── Buttons ── */
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		padding: var(--space-3) var(--space-5);
-		font-size: 0.9375rem;
-		font-weight: 600;
-		border-radius: var(--radius-1);
-		text-decoration: none;
-		align-self: flex-start;
-		transition:
-			background var(--dur-fast) var(--ease-out),
-			color var(--dur-fast) var(--ease-out);
-	}
-
-	.btn:hover {
-		text-decoration: none;
-	}
-
-	.btn-primary {
-		background: var(--color-accent);
-		color: #fff;
-	}
-
-	.btn-primary:hover {
-		background: var(--color-accent-hover);
-		color: #fff;
-	}
-
-	.btn-secondary {
-		background: var(--color-surface);
-		color: var(--color-text);
-		border: 1px solid var(--color-border);
-	}
-
-	.btn-secondary:hover {
-		border-color: var(--color-muted);
-		color: var(--color-text);
 	}
 
 	@media (max-width: 640px) {

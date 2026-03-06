@@ -1,12 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<Layout title="Page Not Found" description="This page doesn't exist.">
-	<section class="not-found">
-		<h1>404</h1>
-		<p>This page doesn't exist.</p>
-		<a href="/" class="back-link">← Back to home</a>
+<Layout title={t("pages.notFound.title")} description={t("pages.notFound.description")}>
+	<section class="not-found poster-band">
+		<h1>{t("pages.notFound.heading")}</h1>
+		<p>{t("pages.notFound.body")}</p>
+		<a href={localePath("/", lang)} class="back-link">{t("buttons.backHome")}</a>
 	</section>
 </Layout>
 

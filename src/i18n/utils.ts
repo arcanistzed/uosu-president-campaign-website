@@ -1,12 +1,33 @@
 import { ui, defaultLang, type Lang } from "./ui";
 
+function getValueByPath(obj: unknown, path: string): unknown {
+	return path.split(".").reduce<unknown>((current, segment) => {
+		if (current && typeof current === "object" && segment in current) {
+			return (current as Record<string, unknown>)[segment];
+		}
+		return undefined;
+	}, obj);
+}
+
+function interpolate(template: string, vars?: Record<string, string | number>): string {
+	if (!vars) return template;
+	return template.replace(/\{(\w+)\}/g, (_, key) => {
+		const value = vars[key];
+		return value === undefined ? `{${key}}` : String(value);
+	});
+}
+
 /**
- * Derive the current language from the URL pathname.
+ * Derive the current language from URL pathname.
  * English lives at root (/about/), French at /fr/about/.
  */
 export function getLangFromUrl(url: URL): Lang {
 	const [, maybeLang] = url.pathname.split("/");
 	if (maybeLang in ui) return maybeLang as Lang;
+
+	const queryLang = url.searchParams.get("lang");
+	if (queryLang === "en" || queryLang === "fr") return queryLang;
+
 	return defaultLang;
 }
 
@@ -14,8 +35,18 @@ export function getLangFromUrl(url: URL): Lang {
  * Return a translation helper bound to a given language.
  */
 export function useTranslations(lang: Lang) {
-	return function t(key: keyof (typeof ui)[typeof defaultLang]): string {
-		return (ui[lang]?.[key] ?? ui[defaultLang][key]) as string;
+	return function t<T = string>(
+		key: string,
+		vars?: Record<string, string | number>,
+	): T {
+		const value =
+			getValueByPath(ui[lang], key) ?? getValueByPath(ui[defaultLang], key);
+
+		if (typeof value === "string") {
+			return interpolate(value, vars) as T;
+		}
+
+		return value as T;
 	};
 }
 
@@ -25,6 +56,7 @@ export function useTranslations(lang: Lang) {
  */
 export function localePath(path: string, lang: Lang): string {
 	if (lang === "en") return path;
+	if (path === "/fr" || path.startsWith("/fr/")) return path;
 	return `/fr${path === "/" ? "/" : path}`;
 }
 
@@ -33,10 +65,8 @@ export function localePath(path: string, lang: Lang): string {
  */
 export function switchLangPath(pathname: string, currentLang: Lang): string {
 	if (currentLang === "fr") {
-		// Strip /fr prefix → go to English
 		const stripped = pathname.replace(/^\/fr/, "") || "/";
 		return stripped;
 	}
-	// Add /fr prefix → go to French
 	return `/fr${pathname === "/" ? "/" : pathname}`;
 }

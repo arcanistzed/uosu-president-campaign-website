@@ -1,22 +1,48 @@
 ---
+import {
+	getLangFromUrl,
+	useTranslations,
+	localePath,
+	switchLangPath,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const currentPath = Astro.url.pathname;
 
 const links = [
-	{ href: "/", label: "Home" },
-	{ href: "/platform/", label: "Platform" },
-	{ href: "/about/", label: "About" },
-	{ href: "/vote/", label: "How to Vote" },
-	{ href: "/get-involved/", label: "Get Involved" },
+	{ href: localePath("/", lang), label: t("nav.home") },
+	{ href: localePath("/platform/", lang), label: t("nav.platform") },
+	{ href: localePath("/about/", lang), label: t("nav.about") },
+	{ href: localePath("/vote/", lang), label: t("nav.vote") },
+	{ href: localePath("/get-involved/", lang), label: t("nav.getInvolved") },
+	{ href: localePath("/faq/", lang), label: t("nav.faq") },
 ];
+
+const switchHref = switchLangPath(currentPath, lang);
+const switchLabel = t<string>("lang.switch");
 ---
 
 <header class="site-header">
-	<nav class="nav" aria-label="Main navigation">
-		<a href="/" class="nav-logo" aria-label="Vote Daniel Thorp — Home">
-			<strong>Daniel Thorp</strong>
-			<span class="nav-tag">for UOSU President</span>
+	<nav class="nav" aria-label={t("header.navAria")}> 
+		<a
+			href={localePath("/", lang)}
+			class="nav-logo"
+			aria-label={t("header.homeAria")}
+		>
+			<strong>{t("site.name")}</strong>
+			<span class="nav-tag">{t("site.tagline")}</span>
 		</a>
-		<ul class="nav-links" role="list">
+		<button
+			class="nav-toggle"
+			aria-expanded="false"
+			aria-controls="nav-menu"
+			aria-label={t("header.menuAria")}
+			type="button"
+		>
+			<span class="nav-toggle-icon" aria-hidden="true">☰</span>
+		</button>
+		<ul class="nav-links" id="nav-menu" role="list">
 			{
 				links.map(({ href, label }) => (
 					<li>
@@ -35,7 +61,19 @@ const links = [
 					</li>
 				))
 			}
+			<li class="lang-switch-mobile">
+				<a
+					href={switchHref}
+					class="lang-switch"
+					aria-label={t("lang.switchTo", { language: switchLabel })}>{switchLabel}</a
+				>
+			</li>
 		</ul>
+		<a
+			href={switchHref}
+			class="lang-switch lang-switch-desktop"
+			aria-label={t("lang.switchTo", { language: switchLabel })}>{switchLabel}</a
+		>
 	</nav>
 </header>
 
@@ -44,7 +82,8 @@ const links = [
 		position: sticky;
 		top: 0;
 		z-index: 50;
-		background: var(--color-bg);
+		background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+		backdrop-filter: blur(8px);
 		border-bottom: 1px solid var(--color-border);
 	}
 
@@ -64,6 +103,7 @@ const links = [
 		color: var(--color-text);
 		text-decoration: none;
 		font-size: 1.125rem;
+		font-weight: 800;
 	}
 
 	.nav-logo:hover {
@@ -73,7 +113,7 @@ const links = [
 
 	.nav-tag {
 		font-size: 0.8125rem;
-		font-weight: 400;
+		font-weight: 600;
 		color: var(--color-muted);
 	}
 
@@ -86,9 +126,9 @@ const links = [
 	}
 
 	.nav-link {
-		color: var(--color-muted);
+		color: var(--color-text);
 		font-size: 0.9375rem;
-		font-weight: 500;
+		font-weight: 600;
 		text-decoration: none;
 		padding: var(--space-1) 0;
 		border-bottom: 2px solid transparent;
@@ -104,20 +144,102 @@ const links = [
 	}
 
 	.nav-link.active {
-		border-bottom-color: var(--color-accent);
+		border-bottom-color: var(--color-banner);
+	}
+
+	.lang-switch {
+		color: var(--color-text);
+		font-size: 0.8125rem;
+		font-weight: 700;
+		text-decoration: none;
+		padding: var(--space-1) var(--space-3);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-1);
+		transition:
+			color var(--dur-fast) var(--ease-out),
+			border-color var(--dur-fast) var(--ease-out);
+		white-space: nowrap;
+	}
+
+	.lang-switch:hover {
+		color: var(--color-banner);
+		border-color: var(--color-banner);
+		text-decoration: none;
+	}
+
+	.nav-toggle {
+		display: none;
+		background: none;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-1);
+		padding: var(--space-1) var(--space-2);
+		color: var(--color-text);
+		font-size: 1.25rem;
+		cursor: pointer;
+		line-height: 1;
+	}
+
+	.lang-switch-mobile {
+		display: none;
 	}
 
 	@media (max-width: 640px) {
 		.nav {
 			padding: var(--space-3) var(--space-4);
+			flex-wrap: wrap;
 		}
 
 		.nav-tag {
 			display: none;
 		}
 
+		.nav-toggle {
+			display: flex;
+			align-items: center;
+			order: 2;
+		}
+
+		.lang-switch-desktop {
+			display: none;
+		}
+
+		.lang-switch-mobile {
+			display: list-item;
+			padding-top: var(--space-2);
+			border-top: 1px solid var(--color-border);
+		}
+
 		.nav-links {
-			gap: var(--space-4);
+			display: none;
+			flex-direction: column;
+			gap: 0;
+			width: 100%;
+			order: 3;
+			padding-top: var(--space-3);
+		}
+
+		.nav-links.open {
+			display: flex;
+		}
+
+		.nav-link {
+			display: block;
+			padding: var(--space-2) 0;
+			border-bottom: none;
 		}
 	}
 </style>
+
+<script>
+	const toggle = document.querySelector(".nav-toggle");
+	const menu = document.getElementById("nav-menu");
+	if (toggle && menu) {
+		toggle.addEventListener("click", () => {
+			const expanded = toggle.getAttribute("aria-expanded") === "true";
+			toggle.setAttribute("aria-expanded", String(!expanded));
+			menu.classList.toggle("open");
+			const icon = toggle.querySelector(".nav-toggle-icon");
+			if (icon) icon.textContent = expanded ? "☰" : "✕";
+		});
+	}
+</script>

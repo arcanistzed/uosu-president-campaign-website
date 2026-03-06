@@ -2,6 +2,23 @@
  * Base styles — vote.danielthorp.com
  */
 
+/* ── @font-face — Garet (Book + Heavy) ── */
+@font-face {
+	font-family: "Garet";
+	src: url("/fonts/Garet-Book.woff") format("woff");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Garet";
+	src: url("/fonts/Garet-Heavy.woff") format("woff");
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
 /* ── Reset ── */
 *,
 *::before,
@@ -36,9 +53,9 @@ body {
 
 /* ── Typography ── */
 h1 {
-	font-family: var(--font-display);
+	font-family: var(--font-sans);
 	line-height: 1.15;
-	font-weight: 400;
+	font-weight: 800;
 	letter-spacing: normal;
 }
 
@@ -47,7 +64,7 @@ h3,
 h4 {
 	font-family: var(--font-sans);
 	line-height: 1.2;
-	font-weight: 700;
+	font-weight: 800;
 	letter-spacing: -0.01em;
 }
 
@@ -63,8 +80,15 @@ h3 {
 	font-size: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
 }
 
+.display-title {
+	font-family: var(--font-display);
+	font-weight: 400;
+	letter-spacing: normal;
+}
+
 p {
 	max-width: 68ch;
+	font-weight: 500;
 }
 
 /* ── Links ── */
@@ -94,7 +118,7 @@ a:focus-visible {
 	z-index: 100;
 	padding: var(--space-2) var(--space-4);
 	background: var(--color-accent);
-	color: #fff;
+	color: var(--color-on-accent);
 	font-weight: 600;
 	border-radius: var(--radius-1);
 	text-decoration: none;
@@ -142,26 +166,31 @@ ol {
 	top: -30%;
 	left: -30%;
 	will-change: transform;
+	filter: blur(10px);
 }
 
 .cloud-bg::before {
 	background:
-		radial-gradient(ellipse 45% 40% at 15% 25%, rgba(184, 161, 189, 0.55) 0%, transparent 70%),
-		radial-gradient(ellipse 50% 45% at 75% 15%, rgba(166, 163, 210, 0.5) 0%, transparent 70%),
-		radial-gradient(ellipse 55% 40% at 50% 70%, rgba(186, 176, 211, 0.5) 0%, transparent 70%),
-		radial-gradient(ellipse 35% 30% at 85% 80%, rgba(155, 158, 199, 0.5) 0%, transparent 70%),
-		radial-gradient(ellipse 40% 35% at 30% 90%, rgba(160, 154, 190, 0.45) 0%, transparent 70%);
-	animation: cloudDrift1 50s ease-in-out infinite alternate;
+		radial-gradient(ellipse 46% 40% at 18% 22%, rgba(158, 151, 202, 0.24) 0%, transparent 70%),
+		radial-gradient(ellipse 52% 44% at 74% 14%, rgba(184, 161, 189, 0.22) 0%, transparent 72%),
+		radial-gradient(ellipse 56% 42% at 52% 72%, rgba(166, 163, 210, 0.22) 0%, transparent 72%),
+		radial-gradient(ellipse 36% 30% at 86% 80%, rgba(186, 176, 211, 0.22) 0%, transparent 72%),
+		radial-gradient(ellipse 40% 34% at 30% 90%, rgba(160, 154, 190, 0.2) 0%, transparent 70%);
+	animation: cloudDrift1 56s ease-in-out infinite alternate;
 }
 
 .cloud-bg::after {
 	background:
-		radial-gradient(ellipse 50% 40% at 60% 40%, rgba(170, 164, 200, 0.4) 0%, transparent 70%),
-		radial-gradient(ellipse 35% 45% at 20% 60%, rgba(158, 151, 202, 0.4) 0%, transparent 70%),
-		radial-gradient(ellipse 25% 20% at 70% 30%, rgba(230, 210, 180, 0.2) 0%, transparent 70%),
-		radial-gradient(ellipse 40% 30% at 90% 55%, rgba(230, 235, 245, 0.25) 0%, transparent 70%),
-		radial-gradient(ellipse 30% 35% at 40% 20%, rgba(41, 39, 82, 0.08) 0%, transparent 70%);
-	animation: cloudDrift2 70s ease-in-out infinite alternate;
+		radial-gradient(ellipse 50% 40% at 62% 40%, rgba(41, 39, 82, 0.18) 0%, transparent 72%),
+		radial-gradient(ellipse 34% 44% at 22% 60%, rgba(230, 235, 245, 0.2) 0%, transparent 72%),
+		radial-gradient(ellipse 24% 18% at 72% 30%, rgba(247, 208, 177, 0.2) 0%, transparent 70%),
+		radial-gradient(ellipse 28% 24% at 48% 94%, rgba(221, 165, 201, 0.18) 0%, transparent 72%),
+		radial-gradient(ellipse 34% 28% at 92% 56%, rgba(170, 164, 200, 0.2) 0%, transparent 72%);
+	animation: cloudDrift2 74s ease-in-out infinite alternate;
+}
+
+.cloud-bg {
+	opacity: 1;
 }
 
 @keyframes cloudDrift1 {
@@ -180,8 +209,133 @@ ol {
 @media (prefers-color-scheme: dark) {
 	.cloud-bg::before,
 	.cloud-bg::after {
-		opacity: 0.3;
+		opacity: 1;
 	}
+}
+
+/* ── Screen reader only utility ── */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* ── Buttons ── */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	padding: var(--space-3) var(--space-5);
+	font-size: 0.9375rem;
+	font-weight: 600;
+	border-radius: var(--radius-1);
+	text-decoration: none;
+	transition:
+		background var(--dur-fast) var(--ease-out),
+		color var(--dur-fast) var(--ease-out),
+		box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.btn:hover {
+	text-decoration: none;
+}
+
+.btn-primary {
+	background: var(--color-accent);
+	color: var(--color-on-accent);
+}
+
+.btn-primary:hover {
+	background: var(--color-accent-hover);
+	color: var(--color-on-accent);
+}
+
+.btn-secondary {
+	background: var(--color-surface);
+	color: var(--color-text);
+	border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+	border-color: var(--color-muted);
+	color: var(--color-text);
+}
+
+/* ── Poster utilities ── */
+.poster-section {
+	position: relative;
+	overflow: hidden;
+}
+
+.poster-band {
+	position: relative;
+	overflow: hidden;
+	background: var(--color-banner) !important;
+	color: var(--color-on-banner);
+	border: 1px solid color-mix(in srgb, var(--color-banner) 88%, var(--brand-white) 12%) !important;
+	border-radius: var(--radius-2);
+	padding: var(--space-6) var(--space-5);
+	box-shadow: 0 0.9rem 2rem rgba(41, 39, 82, 0.2);
+}
+
+.poster-band.poster-band {
+	background: var(--color-banner) !important;
+	border: 1px solid color-mix(in srgb, var(--color-banner) 88%, var(--brand-white) 12%) !important;
+	border-radius: var(--radius-2);
+}
+
+.poster-band::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(168deg, transparent 0 44%, rgba(0, 0, 0, 0.09) 44% 100%);
+	opacity: 0.45;
+	pointer-events: none;
+}
+
+.poster-band > * {
+	position: relative;
+	z-index: 1;
+}
+
+.poster-band h1,
+.poster-band h2,
+.poster-band h3,
+.poster-band p,
+.poster-band li,
+.poster-band a {
+	color: var(--color-on-banner) !important;
+}
+
+.poster-band [class$="-lead"],
+.poster-band [class$="-tagline"],
+.poster-band [class$="-label"],
+.poster-band [class$="-detail"],
+.poster-band [class$="-period"],
+.poster-band [class$="-note"],
+.poster-band [class$="-sub"] {
+	color: var(--color-band-text) !important;
+}
+
+.poster-band :is(.btn-primary, .btn-secondary) {
+	background: var(--brand-lavender-light);
+	border-color: rgba(255, 255, 255, 0.36);
+	color: var(--brand-navy) !important;
+	font-weight: 700;
+}
+
+.poster-band :is(.btn-primary, .btn-secondary):hover {
+	background: var(--brand-white);
+	color: var(--brand-navy) !important;
+}
+
+.poster-band--lighttext {
+	color: var(--color-band-text) !important;
 }
 
 /* ── Reduced motion ── */

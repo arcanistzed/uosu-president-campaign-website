@@ -1,25 +1,27 @@
 ---
-/*
-  Persistent vote CTA banner — shown site-wide via Layout.astro.
-  Displays voting dates and a link to the How to Vote page.
-*/
+import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<aside class="vote-banner" aria-label="Election voting reminder">
+<aside class="vote-banner" aria-label={t("banner.aria")}>
 	<div class="vote-banner-inner">
 		<p class="vote-banner-text">
-			<strong>🗳️ Voting is March 2–6, 2026</strong>
-			<span class="vote-banner-sep">—</span>
-			<span>Make your voice heard.</span>
+			<strong>🗳️ {t("banner.text")}</strong>
+			<span class="vote-banner-sep">-</span>
+			<span>{t("banner.cta")}</span>
 		</p>
-		<a href="/vote/" class="vote-banner-link">How to Vote →</a>
+		<a href={localePath("/vote/", lang)} class="vote-banner-link"
+			>{t("banner.link")}</a
+		>
 	</div>
 </aside>
 
 <style>
 	.vote-banner {
 		background: var(--color-banner);
-		color: #fff;
+		color: var(--color-on-banner);
 		padding: var(--space-2) var(--space-5);
 	}
 
@@ -48,14 +50,14 @@
 	.vote-banner-link {
 		font-size: 0.8125rem;
 		font-weight: 700;
-		color: #fff;
+		color: var(--color-on-banner);
 		text-decoration: underline;
 		text-underline-offset: 0.15em;
 		white-space: nowrap;
 	}
 
 	.vote-banner-link:hover {
-		color: #fff;
+		color: var(--color-on-banner);
 		opacity: 0.85;
 	}
 

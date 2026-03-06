@@ -1,100 +1,60 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+
+interface VoteMethod {
+	icon: string;
+	title: string;
+	body: string;
+	note: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const methods = t<VoteMethod[]>("pages.vote.methods");
+const eligibilityText = t<string[]>("pages.vote.eligibilityText");
 ---
 
-<Layout
-	title="How to Vote"
-	description="Learn when, where, and how to vote in the 2026 UOSU Presidential Election. Voting is March 2–6."
->
+<Layout title={t("pages.vote.title")} description={t("pages.vote.description")}>
 	<section class="vote-page">
-		<div class="vote-header">
-			<h1>How to Vote</h1>
-			<p class="vote-lead">
-				Voting is open <strong>March 2–6, 2026</strong>. There are three
-				ways to cast your ballot — pick whichever is most convenient for
-				you.
-			</p>
+		<div class="vote-header poster-band">
+			<h1>{t("pages.vote.heading")}</h1>
+			<p class="vote-lead">{t("pages.vote.lead")}</p>
 		</div>
 
-		<!-- Voting methods -->
 		<div class="methods-grid">
-			<article class="method-card">
-				<span class="method-icon" aria-hidden="true">🖥️</span>
-				<h2>Online</h2>
-				<p>
-					A secure voting portal will be available on the UOSU website
-					starting March 2nd. Log in with your
-					<strong>uOttawa Microsoft account</strong> to be redirected to
-					your ballot.
-				</p>
-				<p class="method-note">
-					This portal was built by Daniel when he was UOSU
-					Communications Commissioner in 2024 and has been used for
-					multiple elections since — it's tried and tested.
-				</p>
-			</article>
-
-			<article class="method-card">
-				<span class="method-icon" aria-hidden="true">📧</span>
-				<h2>Email</h2>
-				<p>
-					You will receive an email with a unique ballot link on
-					<strong>March 2nd</strong>. Check your
-					<strong>uOttawa student email</strong> — and your spam/junk
-					folder.
-				</p>
-				<p class="method-note">
-					The email will come from the election provider. If you don't
-					see it by end of day March 2nd, check your spam folder or
-					contact the Chief Electoral Officer.
-				</p>
-			</article>
-
-			<article class="method-card">
-				<span class="method-icon" aria-hidden="true">🏢</span>
-				<h2>In-Person</h2>
-				<p>
-					Vote in front of the <strong>UOSU office</strong>. Bring your
-					<strong>student ID</strong>.
-				</p>
-				<p class="method-note">
-					Specific hours will be announced closer to election day.
-					Follow
-					<a
-						href="https://instagram.com/daniel.thorp.seuo.uosu"
-						rel="noopener noreferrer">@daniel.thorp.seuo.uosu</a
-					> for updates.
-				</p>
-			</article>
+			{
+				methods.map(method => (
+					<article class="method-card">
+						<span class="method-icon" aria-hidden="true">{method.icon}</span>
+						<h2>{method.title}</h2>
+						<p>{method.body}</p>
+						<p class="method-note">
+							{method.note}
+							{
+								method.title.includes("Email") || method.title.includes("courriel") ? (
+									<>
+										{" "}
+										<a href="mailto:elections@seuo-uosu.ca">elections@seuo-uosu.ca</a>
+									</>
+								) : null
+							}
+						</p>
+					</article>
+				))
+			}
 		</div>
 
-		<!-- Who can vote -->
-		<div class="info-section">
-			<h2>Who Can Vote?</h2>
-			<p>
-				All undergraduate students at the University of Ottawa who are
-				members of the UOSU are eligible to vote in the presidential
-				election.
-			</p>
+		<div class="info-section poster-band">
+			<h2>{t("pages.vote.eligibilityHeading")}</h2>
+			{eligibilityText.map(text => <p>{text}</p>)}
 		</div>
 
-		<!-- Important dates -->
-		<div class="info-section">
-			<h2>Important Dates</h2>
-			<ul class="dates-list">
-				<li>
-					<strong>March 2</strong> — Voting opens (online portal + email
-					ballots sent)
-				</li>
-				<li><strong>March 2–6</strong> — Voting period</li>
-				<li><strong>March 6</strong> — Last day to vote</li>
-			</ul>
-		</div>
-
-		<!-- CTA -->
-		<div class="vote-cta">
-			<p>Have questions about voting?</p>
-			<a href="/get-involved/" class="btn btn-primary">Get in Touch →</a>
+		<div class="vote-cta poster-band">
+			<p>{t("pages.vote.ctaLead")}</p>
+			<a href={localePath("/get-involved/", lang)} class="btn btn-primary"
+				>{t("buttons.getInTouch")}</a
+			>
 		</div>
 	</section>
 </Layout>
@@ -121,7 +81,6 @@ import Layout from "../layouts/Layout.astro";
 		line-height: 1.6;
 	}
 
-	/* ── Methods grid ── */
 	.methods-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
@@ -168,11 +127,15 @@ import Layout from "../layouts/Layout.astro";
 		opacity: 0.8;
 	}
 
-	/* ── Info sections ── */
 	.info-section {
 		margin-bottom: var(--space-7);
 		padding-bottom: var(--space-7);
 		border-bottom: 1px solid var(--color-border);
+	}
+
+	.info-section.poster-band {
+		padding: var(--space-6) var(--space-5);
+		border-bottom: none;
 	}
 
 	.info-section:last-of-type {
@@ -191,63 +154,18 @@ import Layout from "../layouts/Layout.astro";
 		max-width: 60ch;
 	}
 
-	.dates-list {
-		list-style: none;
-		padding: 0;
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-3);
-	}
-
-	.dates-list li {
-		font-size: 1rem;
-		line-height: 1.65;
-		padding-left: var(--space-5);
-		position: relative;
-	}
-
-	.dates-list li::before {
-		content: "📅";
-		position: absolute;
-		left: 0;
-	}
-
-	/* ── CTA ── */
 	.vote-cta {
 		text-align: center;
 		padding-top: var(--space-6);
 	}
 
+	.vote-cta.poster-band {
+		padding: var(--space-6) var(--space-5);
+	}
+
 	.vote-cta p {
 		color: var(--color-muted);
 		margin: 0 auto var(--space-4);
-	}
-
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		padding: var(--space-3) var(--space-5);
-		font-size: 0.9375rem;
-		font-weight: 600;
-		border-radius: var(--radius-1);
-		text-decoration: none;
-		transition:
-			background var(--dur-fast) var(--ease-out),
-			color var(--dur-fast) var(--ease-out);
-	}
-
-	.btn:hover {
-		text-decoration: none;
-	}
-
-	.btn-primary {
-		background: var(--color-accent);
-		color: #fff;
-	}
-
-	.btn-primary:hover {
-		background: var(--color-accent-hover);
-		color: #fff;
 	}
 
 	@media (max-width: 640px) {

@@ -1,71 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PlatformCard from "../components/PlatformCard.astro";
+import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
 
-/*
-	TODO: Replace placeholder content below with your actual
-	campaign messaging, platform priorities, and details.
-	Nothing here should go live without your review.
-*/
+interface PlatformHighlight {
+	icon: string;
+	title: string;
+	description: string;
+}
 
-const platformHighlights = [
-	{
-		icon: "📋",
-		title: "Transparency & Accountability",
-		description:
-			"Open budgets, public meeting minutes, and clear reporting on how student fees are spent.",
-	},
-	{
-		icon: "🏛️",
-		title: "Stronger Governance",
-		description:
-			"Structural reforms to ensure the union serves students — not the other way around.",
-	},
-	{
-		icon: "🤝",
-		title: "Real Representation",
-		description:
-			"Meaningful consultation with students before major decisions, not performative surveys after the fact.",
-	},
-	{
-		icon: "💡",
-		title: "Student Services That Work",
-		description:
-			"Improving the services students actually use — health plans, academic advocacy, and campus resources.",
-	},
-];
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const platformHighlights: PlatformHighlight[] = [];
 ---
 
 <Layout>
-	<!-- Hero -->
-	<section class="hero" aria-label="Campaign introduction">
-		<div class="hero-inner">
-			<p class="hero-label">Candidate for UOSU President</p>
-			<h1 class="hero-name">Daniel Thorp</h1>
-			<p class="hero-tagline">A student union that works for students.</p>
+	<section class="hero poster-section" aria-label={t("pages.index.heroAria")}>
+		<div class="hero-inner poster-band">
+			<p class="hero-label">{t("pages.index.heroLabel")}</p>
+			<h1 class="hero-name display-title poster-band--lighttext">
+				{t("site.name")}
+			</h1>
+			<p class="hero-tagline">{t("pages.index.heroTagline")}</p>
 			<div class="hero-actions">
-				<a href="/platform/" class="btn btn-primary"
-					>Read the Platform</a
+				<a href={localePath("/platform/", lang)} class="btn btn-primary"
+					>{t("buttons.readPlatform")}</a
 				>
-				<a href="/about/" class="btn btn-secondary"> About Daniel </a>
+				<a href={localePath("/about/", lang)} class="btn btn-secondary">
+					{t("buttons.aboutDaniel")}
+				</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- Platform highlights -->
 	<section class="section" aria-labelledby="platform-heading">
 		<div class="section-inner">
 			<h2 id="platform-heading" class="section-heading">
-				Platform Priorities
+				{t("pages.index.platformHeading")}
 			</h2>
 			<p class="section-lead">
-				<!-- TODO: Replace with your actual lead-in copy -->
-				These are the commitments that will guide my presidency. Each one
-				is specific, measurable, and achievable within a single term.
+				{t("pages.index.platformLead")}
 			</p>
 			<div class="platform-grid">
 				{
-					platformHighlights.map(item => (
+					platformHighlights?.map(item => (
 						<PlatformCard
 							title={item.title}
 							description={item.description}
@@ -75,71 +54,67 @@ const platformHighlights = [
 				}
 			</div>
 			<div class="section-cta">
-				<a href="/platform/" class="btn btn-primary">Full Platform →</a>
+				<a href={localePath("/platform/", lang)} class="btn btn-primary"
+					>{t("buttons.fullPlatform")}</a
+				>
 			</div>
 		</div>
 	</section>
 
-	<!-- Countdown -->
-	<section class="section" aria-label="Election countdown">
+	<section class="section" aria-label={t("pages.index.countdownAria")}>
 		<div class="section-inner countdown-section">
-			<div id="countdown" class="countdown" aria-live="polite">
-				<p class="countdown-label">Voting opens in</p>
-				<div class="countdown-timer">
+			<div
+				id="countdown"
+				class="countdown"
+				role="timer"
+				data-label-open={t("countdown.open")}
+				data-label-closed={t("countdown.closed")}
+			>
+				<p class="sr-only" aria-live="polite" id="countdown-sr">
+					{t("pages.index.countdownSr")}
+				</p>
+				<p class="countdown-label">{t("countdown.label")}</p>
+				<div class="countdown-timer" aria-hidden="true">
 					<div class="countdown-unit">
-						<span class="countdown-number" id="countdown-days"
-							>--</span
-						>
-						<span class="countdown-text">days</span>
+						<span class="countdown-number" id="countdown-days">--</span>
+						<span class="countdown-text">{t("countdown.days")}</span>
 					</div>
 					<div class="countdown-unit">
-						<span class="countdown-number" id="countdown-hours"
-							>--</span
-						>
-						<span class="countdown-text">hours</span>
+						<span class="countdown-number" id="countdown-hours">--</span>
+						<span class="countdown-text">{t("countdown.hours")}</span>
 					</div>
 					<div class="countdown-unit">
 						<span class="countdown-number" id="countdown-minutes"
 							>--</span
 						>
-						<span class="countdown-text">minutes</span>
+						<span class="countdown-text">{t("countdown.minutes")}</span>
 					</div>
 					<div class="countdown-unit">
 						<span class="countdown-number" id="countdown-seconds"
 							>--</span
 						>
-						<span class="countdown-text">seconds</span>
+						<span class="countdown-text">{t("countdown.seconds")}</span>
 					</div>
 				</div>
+				<noscript><p>{t("pages.index.noscriptCountdown")}</p></noscript>
 			</div>
-			<a href="/vote/" class="btn btn-primary">How to Vote →</a>
+			<a href={localePath("/vote/", lang)} class="btn btn-primary"
+				>{t("buttons.howToVote")}</a
+			>
 		</div>
 	</section>
 
-	<!-- Why section -->
-	<section class="section section-alt" aria-labelledby="why-heading">
+	<section class="section section-alt poster-band" aria-labelledby="why-heading">
 		<div class="section-inner">
-			<h2 id="why-heading" class="section-heading">Why I'm Running</h2>
+			<h2 id="why-heading" class="section-heading">{t("pages.index.whyHeading")}</h2>
 			<div class="prose">
-				<p>
-					Student government should be boring in the best way —
-					effective, transparent, and focused on the things that
-					actually matter to students. Too often, it isn't.
-				</p>
-				<p>
-					I'm running because I believe the union can be better. Not
-					through grand gestures, but through consistent, accountable
-					work on the things students care about: where their fees go,
-					how decisions get made, and whether anyone is actually
-					listening.
-				</p>
+				<p>{t("pages.index.whyBody")}</p>
 			</div>
 		</div>
 	</section>
 </Layout>
 
 <style>
-	/* ── Hero ── */
 	.hero {
 		padding: var(--space-10) var(--space-5) var(--space-9);
 		text-align: center;
@@ -148,6 +123,8 @@ const platformHighlights = [
 	.hero-inner {
 		max-width: var(--content-max);
 		margin: 0 auto;
+		padding: var(--space-7) var(--space-6);
+		clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
 	}
 
 	.hero-label {
@@ -182,53 +159,13 @@ const platformHighlights = [
 		flex-wrap: wrap;
 	}
 
-	/* ── Buttons ── */
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		padding: var(--space-3) var(--space-5);
-		font-size: 0.9375rem;
-		font-weight: 600;
-		border-radius: var(--radius-1);
-		text-decoration: none;
-		transition:
-			background var(--dur-fast) var(--ease-out),
-			color var(--dur-fast) var(--ease-out),
-			box-shadow var(--dur-fast) var(--ease-out);
-	}
-
-	.btn:hover {
-		text-decoration: none;
-	}
-
-	.btn-primary {
-		background: var(--color-accent);
-		color: #fff;
-	}
-
-	.btn-primary:hover {
-		background: var(--color-accent-hover);
-		color: #fff;
-	}
-
-	.btn-secondary {
-		background: var(--color-surface);
-		color: var(--color-text);
-		border: 1px solid var(--color-border);
-	}
-
-	.btn-secondary:hover {
-		border-color: var(--color-muted);
-		color: var(--color-text);
-	}
-
-	/* ── Sections ── */
 	.section {
 		padding: var(--space-9) var(--space-5);
 	}
 
 	.section-alt {
-		background: var(--color-surface);
+		background: transparent;
+		clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
 	}
 
 	.section-inner {
@@ -254,14 +191,12 @@ const platformHighlights = [
 		text-align: center;
 	}
 
-	/* ── Platform grid ── */
 	.platform-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
 		gap: var(--space-5);
 	}
 
-	/* ── Prose ── */
 	.prose p {
 		margin-bottom: var(--space-4);
 		line-height: 1.75;
@@ -272,7 +207,6 @@ const platformHighlights = [
 		margin-bottom: 0;
 	}
 
-	/* ── Countdown ── */
 	.countdown-section {
 		text-align: center;
 	}
@@ -318,35 +252,46 @@ const platformHighlights = [
 		font-weight: 600;
 	}
 
-	/* ── Responsive ── */
 	@media (max-width: 640px) {
 		.hero {
 			padding: var(--space-8) var(--space-4) var(--space-7);
 		}
 
+		.hero-inner {
+			padding: var(--space-6) var(--space-4);
+			clip-path: none;
+		}
+
 		.section {
 			padding: var(--space-7) var(--space-4);
+		}
+
+		.section-alt {
+			clip-path: none;
 		}
 	}
 </style>
 
 <script>
-	// Countdown timer to March 2, 2026 00:00 EST
 	const VOTE_OPEN = new Date("2026-03-02T00:00:00-05:00").getTime();
 	const VOTE_CLOSE = new Date("2026-03-07T00:00:00-05:00").getTime();
 
 	function updateCountdown() {
 		const now = Date.now();
+		const countdown = document.getElementById("countdown");
 		const label = document.querySelector(".countdown-label");
 		const days = document.getElementById("countdown-days");
 		const hours = document.getElementById("countdown-hours");
 		const minutes = document.getElementById("countdown-minutes");
 		const seconds = document.getElementById("countdown-seconds");
 
-		if (!label || !days || !hours || !minutes || !seconds) return;
+		if (!countdown || !label || !days || !hours || !minutes || !seconds) return;
+
+		const openText = countdown.getAttribute("data-label-open") || "";
+		const closedText = countdown.getAttribute("data-label-closed") || "";
 
 		if (now >= VOTE_CLOSE) {
-			label.textContent = "Voting has closed";
+			label.textContent = closedText;
 			days.textContent = "0";
 			hours.textContent = "0";
 			minutes.textContent = "0";
@@ -355,7 +300,7 @@ const platformHighlights = [
 		}
 
 		if (now >= VOTE_OPEN) {
-			label.textContent = "Voting is open!";
+			label.textContent = openText;
 			const remaining = VOTE_CLOSE - now;
 			const d = Math.floor(remaining / (1000 * 60 * 60 * 24));
 			const h = Math.floor(
@@ -372,9 +317,7 @@ const platformHighlights = [
 
 		const remaining = VOTE_OPEN - now;
 		const d = Math.floor(remaining / (1000 * 60 * 60 * 24));
-		const h = Math.floor(
-			(remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-		);
+		const h = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		const m = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
 		const s = Math.floor((remaining % (1000 * 60)) / 1000);
 		days.textContent = String(d);
