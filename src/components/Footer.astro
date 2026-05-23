@@ -31,10 +31,7 @@ const year = new Date().getFullYear();
 					></path>
 				</svg>
 				<span>{t("footer.instagram")}</span>
-			</a
-			>
-			<span class="footer-sep" aria-hidden="true">·</span>
-			<a href="mailto:vote@danielthorp.com">vote@danielthorp.com</a>
+			</a>
 			<span class="footer-sep" aria-hidden="true">·</span>
 			<a href={localePath("/faq/", lang)}>{t("footer.faq")}</a>
 			<span class="footer-sep" aria-hidden="true">·</span>
@@ -47,7 +44,8 @@ const year = new Date().getFullYear();
 
 <style>
 	.site-footer {
-		border-top: 1px solid color-mix(in srgb, var(--color-border) 90%, var(--color-text) 10%);
+		border-top: 1px solid
+			color-mix(in srgb, var(--color-border) 90%, var(--color-text) 10%);
 		margin-top: var(--space-9);
 		padding: var(--space-6) var(--space-5);
 	}

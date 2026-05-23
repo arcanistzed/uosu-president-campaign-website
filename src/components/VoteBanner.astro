@@ -1,18 +1,16 @@
 ---
-import { getLangFromUrl, useTranslations, localePath } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<aside class="vote-banner" aria-label={t("banner.text")}>
+<aside class="vote-banner" aria-label={t("banner.title")}>
 	<div class="vote-banner-inner">
-		<a
-			href="https://vote.seuo-uosu.com"
-			class="vote-banner-link"
-			target="_blank"
-			rel="noopener"><strong>🗳️ {t("banner.text")}</strong></a
-		>
+		<div class="vote-banner-content">
+			<p class="vote-banner-title">{t("banner.title")}</p>
+			<p class="vote-banner-body">{t("banner.text")}</p>
+		</div>
 	</div>
 </aside>
 
@@ -26,31 +24,25 @@ const t = useTranslations(lang);
 	.vote-banner-inner {
 		max-width: var(--page-max);
 		margin: 0 auto;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 	}
 
-	.vote-banner-link {
+	.vote-banner-content {
+		display: grid;
+		gap: var(--space-1);
+	}
+
+	.vote-banner-title {
+		margin: 0;
 		font-size: 1rem;
-		font-weight: 700;
-		color: var(--color-on-banner);
-		text-decoration: none;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		padding: var(--space-1) var(--space-4);
-		border: 2px solid rgba(255, 255, 255, 0.4);
-		border-radius: var(--radius-round);
-		white-space: nowrap;
-		transition:
-			background var(--dur-2) var(--ease-out),
-			border-color var(--dur-2) var(--ease-out);
+		font-weight: 800;
+		letter-spacing: 0.02em;
 	}
 
-	.vote-banner-link:hover {
-		background: rgba(255, 255, 255, 0.15);
-		border-color: rgba(255, 255, 255, 0.7);
-		color: var(--color-on-banner);
+	.vote-banner-body {
+		margin: 0;
+		font-size: 0.9375rem;
+		line-height: 1.5;
+		max-width: 72ch;
 	}
 
 	@media (max-width: 640px) {

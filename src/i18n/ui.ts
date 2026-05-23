@@ -20,7 +20,8 @@ export const ui = {
 			tagline: "for UOSU President",
 		},
 		banner: {
-			text: "Vote Now",
+			title: "Archived website",
+			text: "This site was created for Daniel Thorp's 2026 campaign for UOSU President.",
 		},
 		footer: {
 			copyright: "Daniel Thorp",
@@ -35,26 +36,17 @@ export const ui = {
 			suggestIdea: "Suggest an Idea ->",
 			askQuestion: "Ask a Question ->",
 		},
-		countdown: {
-			label: "Voting opens in",
-			open: "Voting is open!",
-			closed: "Voting has closed",
-			days: "days",
-			hours: "hours",
-			minutes: "minutes",
-			seconds: "seconds",
-		},
 		lang: {
 			switch: "Français",
 			switchTo: "Switch to {language}",
 		},
 		layout: {
-			defaultTitle: "Vote Daniel Thorp - UOSU President",
+			defaultTitle: "Daniel Thorp for UOSU President - Campaign Archive",
 			defaultDescription:
-				"Daniel Thorp is running for President of the University of Ottawa Students' Union. Learn about his platform and vision for students.",
-			titleSuffix: "Vote Daniel Thorp",
+				"Archive of Daniel Thorp's 2026 campaign for UOSU President, including the platform, about page, and FAQ.",
+			titleSuffix: "Daniel Thorp Campaign Archive",
 			author: "Daniel Thorp",
-			ogSiteName: "Vote Daniel Thorp",
+			ogSiteName: "Daniel Thorp for UOSU President",
 			skipToContent: "Skip to content",
 		},
 		header: {
@@ -114,11 +106,6 @@ export const ui = {
 							"Explore affiliation with OUSA and CASA so uOttawa students can fight alongside other Canadian students, not alone.",
 					},
 				],
-				countdownAria: "Election countdown",
-				countdownSr:
-					"Voting opens March 2, 2026 and closes March 6, 2026.",
-				noscriptCountdown:
-					"Voting opens March 2, 2026 and closes March 6, 2026.",
 				whyHeading: "Why I'm Running",
 				whyBody: [
 					"I'm running because students deserve a union that actually works.",
@@ -136,7 +123,7 @@ export const ui = {
 			platform: {
 				title: "Platform",
 				description:
-					"Daniel Thorp's platform for UOSU President: transparency, real representation, and better student services.",
+					"Archive of Daniel Thorp's 2026 platform for UOSU President: transparency, real representation, and better student services.",
 				heading: "Platform",
 				lead: "Real transparency. Real accountability. Real results for students.",
 				preamble: {
@@ -701,9 +688,9 @@ export const ui = {
 			faq: {
 				title: "FAQ",
 				description:
-					"Frequently asked questions about my campaign for UOSU President, the election process, and how to get involved.",
+					"Archive copy of frequently asked questions from Daniel Thorp's 2026 campaign for UOSU President.",
 				heading: "Frequently Asked Questions",
-				lead: "Quick answers about the campaign, the election, and the role of UOSU President.",
+				lead: "Historical answers about the campaign, the election, and the role of UOSU President.",
 				items: [
 					{
 						question: "What does the UOSU President actually do?",
@@ -749,7 +736,7 @@ export const ui = {
 			about: {
 				title: "About Me",
 				description:
-					"Learn who Daniel is, why he is running, and the experience he brings to lead UOSU.",
+					"Archive copy of Daniel Thorp's 2026 campaign about page, including background and experience.",
 				heading: "About Me",
 				lead: "Bilingual Software Engineering (CO-OP) student at the University of Ottawa, raised in the Ottawa region.",
 				personalIntro: [
@@ -929,7 +916,8 @@ export const ui = {
 			tagline: "à la présidence du SÉUO",
 		},
 		banner: {
-			text: "Votez maintenant",
+			title: "Site archivé",
+			text: "Ce site a été créé pour la campagne de Daniel Thorp à la présidence du SÉUO en 2026.",
 		},
 		footer: {
 			copyright: "Daniel Thorp",
@@ -944,26 +932,18 @@ export const ui = {
 			suggestIdea: "Proposer une idée ->",
 			askQuestion: "Poser une question ->",
 		},
-		countdown: {
-			label: "Le vote ouvre dans",
-			open: "Le vote est ouvert!",
-			closed: "Le vote est terminé",
-			days: "jours",
-			hours: "heures",
-			minutes: "minutes",
-			seconds: "secondes",
-		},
 		lang: {
 			switch: "English",
 			switchTo: "Passer en {language}",
 		},
 		layout: {
-			defaultTitle: "Votez Daniel Thorp - Présidence du SÉUO",
+			defaultTitle:
+				"Daniel Thorp à la présidence du SÉUO - Archive de campagne",
 			defaultDescription:
-				"Daniel Thorp se présente à la présidence du Syndicat étudiant de l'Université d'Ottawa. Découvrez sa plateforme et sa vision pour les étudiant·e·s.",
-			titleSuffix: "Vote Daniel Thorp",
+				"Archive de la campagne 2026 de Daniel Thorp à la présidence du SÉUO, incluant la plateforme, la page À propos et la FAQ.",
+			titleSuffix: "Archive de campagne Daniel Thorp",
 			author: "Daniel Thorp",
-			ogSiteName: "Vote Daniel Thorp",
+			ogSiteName: "Daniel Thorp à la présidence du SÉUO",
 			skipToContent: "Aller au contenu",
 		},
 		header: {
@@ -1023,10 +1003,6 @@ export const ui = {
 							"Évaluer une affiliation avec l'OUSA et l'ACAE pour que les étudiant·e·s de uOttawa puissent se battre avec les autres étudiant·e·s au Canada, et non seuls.",
 					},
 				],
-				countdownSr:
-					"Le vote ouvre le 2 mars 2026 et se termine le 6 mars 2026.",
-				noscriptCountdown:
-					"Le vote ouvre le 2 mars 2026 et se termine le 6 mars 2026.",
 				whyHeading: "Pourquoi je me présente",
 				whyBody: [
 					"Les étudiant·e·s paient plus chaque année.",
@@ -1046,7 +1022,7 @@ export const ui = {
 			platform: {
 				title: "Plateforme",
 				description:
-					"La plateforme de Daniel Thorp à la présidence du SÉUO : transparence, représentation réelle et meilleurs services étudiants.",
+					"Archive de la plateforme 2026 de Daniel Thorp à la présidence du SÉUO : transparence, représentation réelle et meilleurs services étudiants.",
 				heading: "Plateforme",
 				lead: "De la vraie transparence. Une vraie responsabilisation. De vrais résultats pour les étudiant·e·s.",
 				preamble: {

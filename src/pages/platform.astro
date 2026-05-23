@@ -86,18 +86,6 @@ const platform = t<PlatformSection[]>("pages.platform.sections");
 		}
 
 		<section
-			class="suggest-section poster-band"
-			aria-label={t("pages.platform.suggestAria")}
-		>
-			<h2>{t("pages.platform.suggestHeading")}</h2>
-			<p>{t("pages.platform.suggestBody")}</p>
-			<a
-				href="mailto:vote@danielthorp.com?subject=Platform Idea"
-				class="btn btn-secondary">{t("buttons.suggestIdea")}</a
-			>
-		</section>
-
-		<section
 			class="platform-cta poster-band"
 			aria-label={t("pages.platform.backTopAria")}
 		>
@@ -203,7 +191,8 @@ const platform = t<PlatformSection[]>("pages.platform.sections");
 		border: 1px solid var(--color-border);
 		border-radius: var(--radius-1);
 		padding: var(--space-3) var(--space-4);
-		transition: border-color var(--dur-2) var(--ease-out),
+		transition:
+			border-color var(--dur-2) var(--ease-out),
 			background var(--dur-2) var(--ease-out);
 	}
 
